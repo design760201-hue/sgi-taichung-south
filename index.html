@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>台灣創價學會 台中南區資訊網 | 傳遞和平、文化與教育的幸福社區</title>
+    
+    <!-- SEO 優化 Meta 標籤 -->
+    <meta name="description" content="歡迎光臨台灣創價學會台中南區專屬資訊網。我們以日蓮大聖人佛法為根本，透過「座談會」等多元活動，深耕社區，促進和平、文化與教育，攜手創造每個人的人間革命與幸福生活。">
+    <meta name="keywords" content="台灣創價學會, 台中南區, 創價學會, 座談會, 日蓮佛法, 人間革命, 池田大作, 台中文化會館, 佛教社區">
+    
+    <!-- 引入自訂樣式表 -->
+    <link rel="stylesheet" href="style.css">
+    <!-- 引入 html2canvas 圖片生成引擎 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+
+    <!-- 1. 頂部細緻導覽列 (Header) -->
+    <header id="main-header">
+        <div class="container header-container">
+            <div class="logo" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
+                <div class="logo-icon">SGI</div>
+                <div class="logo-text">
+                    <span class="logo-title">創價學會 台中南區</span>
+                    <span class="logo-sub">PEACE • CULTURE • EDUCATION</span>
+                </div>
+            </div>
+            
+            <nav>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="#calendar" class="nav-link active">活動行事曆</a></li>
+                    <li><a href="#about" class="nav-link">南區傳達事項</a></li>
+                    <li><a href="#study" class="nav-link">相關資料下載</a></li>
+                    <li><a href="#meeting-members" class="nav-link">座談會人員表</a></li>
+                </ul>
+            </nav>
+            
+            <button class="hamburger" id="hamburger" aria-label="選單開關">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- 2. 首頁開場區塊 (Hero Section) -->
+    <section id="hero" class="hero-section">
+        <div class="hero-bg-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+        </div>
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="hero-badge-dot"></span>
+                    <span>台中南區 • 溫馨活力社區</span>
+                </div>
+                <h1 class="hero-title">點亮心中妙法光芒<br>創造自他彼此的<span>幸福人生</span></h1>
+                <div class="hero-quote">
+                    「人間革命的溫暖光芒，是驅散黑暗、照亮社區的最強大力量。當我們主動關懷一人，和平的漣漪就從這裡開始擴散。」
+                    <span class="hero-quote-author">— 創價學會第三任會長 池田大作</span>
+                </div>
+                <div class="hero-actions">
+                    <a href="#calendar" class="btn btn-secondary">探索最新活動</a>
+                </div>
+            </div>
+            
+            <div class="soka-instagram-card-wrap">
+                <!-- 官方 IG 貼文風格 1:1 精美金句字卡本體 -->
+                <div class="soka-instagram-card" id="soka-quote-card">
+                    <!-- 三色旗光環線條裝飾 -->
+                    <div class="tricolor-ring"></div>
+                    <div class="card-inner">
+                        <div class="card-header">
+                            <div class="soka-brand">
+                                <div class="soka-brand-icon">SGI</div>
+                                <div class="soka-brand-text">
+                                    <span class="soka-brand-name">創價心靈晨光</span>
+                                    <span class="soka-brand-handle">@sokapress 風格</span>
+                                </div>
+                            </div>
+                            <div class="card-date" id="soka-card-date">2026.05.22</div>
+                        </div>
+                        <div class="card-content">
+                            <div class="quote-symbol quote-open">“</div>
+                            <p class="quote-text" id="soka-quote-text">人間革命的溫暖光芒，是驅散黑暗、照亮社區的最強大力量。當我們主動關懷一人，和平的漣漪就從這裡開始擴散。</p>
+                            <div class="quote-symbol quote-close">”</div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="quote-author-wrap">
+                                <span class="quote-author" id="soka-quote-author">— 池田大作</span>
+                                <span class="quote-source" id="soka-quote-source">《新·人間革命》</span>
+                            </div>
+                            <div class="soka-footer-logo">TAICHUNG SOUTH</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 字卡外部控制按鈕（不包含在字卡內，確保下載的圖片純淨無雜質） -->
+                <div class="soka-card-actions">
+                    <button class="btn-soka-action btn-soka-save" id="btn-save-quote" onclick="downloadQuoteCard()">
+                        <span class="btn-icon">📥</span> 儲存今日字卡
+                    </button>
+                    <button class="btn-soka-action btn-soka-change" id="btn-next-quote" onclick="getRandomQuote()">
+                        <span class="btn-icon">🔄</span> 換一句
+                    </button>
+                </div>
+                
+                <!-- 下載加載中狀態 -->
+                <div class="soka-download-spinner" id="soka-spinner">
+                    <div class="spinner-icon"></div>
+                    <span>正在生成高畫質字卡...</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. 動態活動行事曆區塊 (Calendar Section) -->
+    <section id="calendar" class="calendar-section section-padding">
+        <div class="container">
+            <div class="text-center">
+                <span class="section-tag">Interactive Calendar</span>
+                <h2 class="section-title">南區動態活動行事曆</h2>
+                <p class="section-desc">我們提供多元且富有教育意義的聚會活動，歡迎隨時加入我們的行列，體驗歡喜對話的氛圍！</p>
+            </div>
+            
+            <!-- 行事曆點擊收折與展開按鈕面板 -->
+            <div class="announcements-toggle-btn" id="calendar-toggle" onclick="toggleCalendar()">
+                <div class="toggle-left">
+                    <span class="toggle-tag">📅 Calendar</span>
+                    <span class="toggle-title">南區動態活動行事曆</span>
+                </div>
+                <div class="toggle-right">
+                    <span class="toggle-status-text" id="calendar-status">點擊展開</span>
+                    <div class="toggle-arrow-circle">
+                        <svg class="toggle-arrow-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 活動網格 -->
+            <div class="events-grid" id="events-grid">
+                
+                <!-- 活動 1: 地區座談會 -->
+                <div class="event-card" data-category="meeting">
+                    <div class="event-date-badge">
+                        <span class="event-date-day">16</span>
+                        <div class="event-date-month">
+                            <span>05 月</span>
+                            <span>星期六</span>
+                        </div>
+                        <span class="event-tag">座談會</span>
+                    </div>
+                    <h3 class="event-title">五月份南區溫馨座談會</h3>
+                    <p class="event-desc">本月座談會主題為「歡喜的信念」，我們將透過溫馨的佛法對話、讚頌與動人的生命體驗分享，凝聚鄰里情誼，注入前進勇氣。</p>
+                    <ul class="event-info-list">
+                        <li class="event-info-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            <span>19:30 - 21:00</span>
+                        </li>
+                        <li class="event-info-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            <span>南區溫馨聚會所 / 各分班家聚點</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- 活動 2: 青年部活動 -->
+                <div class="event-card" data-category="youth">
+                    <div class="event-date-badge">
+                        <span class="event-date-day">24</span>
+                        <div class="event-date-month">
+                            <span>05 月</span>
+                            <span>星期日</span>
+                        </div>
+                        <span class="event-tag">青年部</span>
+                    </div>
+                    <h3 class="event-title">青年躍動：和平讀書分享會</h3>
+                    <p class="event-desc">歡迎南區的大專青年與國高中生共同參與！本月我們將閱讀池田大作先生著作，探討青年如何在生活中實踐世界和平。</p>
+                    <ul class="event-info-list">
+                        <li class="event-info-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            <span>14:00 - 16:00</span>
+                        </li>
+                        <li class="event-info-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            <span>台中文化會館 4 樓講堂</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- 活動 3: 專題研討 -->
+                <div class="event-card" data-category="study">
+                    <div class="event-date-badge">
+                        <span class="event-date-day">07</span>
+                        <div class="event-date-month">
+                            <span>06 月</span>
+                            <span>星期日</span>
+                        </div>
+                        <span class="event-tag">學習會</span>
+                    </div>
+                    <h3 class="event-title">御書研討會：《開目抄》導讀</h3>
+                    <p class="event-desc">深入研讀日蓮大聖人重要著作《開目抄》，學習在面臨巨大逆境時，如何確立不可動搖的誓願，轉換宿命，獲得絕對幸福。</p>
+                    <ul class="event-info-list">
+                        <li class="event-info-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            <span>09:30 - 11:30</span>
+                        </li>
+                        <li class="event-info-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            <span>台中文化會館 2 樓會議廳</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- 活動 4: 地區座談會 (下月預告) -->
+                <div class="event-card" data-category="meeting">
+                    <div class="event-date-badge">
+                        <span class="event-date-day">20</span>
+                        <div class="event-date-month">
+                            <span>06 月</span>
+                            <span>星期六</span>
+                        </div>
+                        <span class="event-tag">座談會</span>
+                    </div>
+                    <h3 class="event-title">六月份南區溫馨座談會</h3>
+                    <p class="event-desc">迎接熱情仲夏，本月座談會著重於「家庭和樂與佛法」，歡迎邀請親朋好友、左鄰右舍一同前來聆聽生命奮鬥的凱歌！</p>
+                    <ul class="event-info-list">
+                        <li class="event-info-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            <span>19:30 - 21:00</span>
+                        </li>
+                        <li class="event-info-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            <span>南區溫馨聚會所</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- 活動 5: 青年部活動 (暑期活動) -->
+                <div class="event-card" data-category="youth">
+                    <div class="event-date-badge">
+                        <span class="event-date-day">05</span>
+                        <div class="event-date-month">
+                            <span>07 月</span>
+                            <span>星期日</span>
+                        </div>
+                        <span class="event-tag">未來部</span>
+                    </div>
+                    <h3 class="event-title">暑期未來部歡樂桌遊學習營</h3>
+                    <p class="event-desc">為國小、國中未來部員特地規劃的半日營隊！透過優質的策略桌遊與和平生命繪本導讀，培育互助合作與尊重生命的良好品格。</p>
+                    <ul class="event-info-list">
+                        <li class="event-info-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            <span>13:30 - 17:00</span>
+                        </li>
+                        <li class="event-info-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            <span>霧峰文化會館 禮堂</span>
+                        </li>
+                    </ul>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. 每月區會傳達事項區塊 (Announcements Section) -->
+    <section id="about" class="about-section section-padding">
+        <div class="container">
+            <!-- 每月區會傳達事項控制面板 -->
+            <div class="announcements-wrapper">
+                <!-- 傳達事項點擊收折與展開按鈕面板 -->
+                <div class="announcements-toggle-btn" id="announcements-toggle" onclick="toggleAnnouncements()">
+                    <div class="toggle-left">
+                        <span class="toggle-tag">📢 2026年4月份</span>
+                        <span class="toggle-title">南區傳達事項 (5月份活動執行)</span>
+                    </div>
+                    <div class="toggle-right">
+                        <span class="toggle-status-text" id="toggle-status">點擊展開</span>
+                        <div class="toggle-arrow-circle">
+                            <svg class="toggle-arrow-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="announcements-container">
+                    <div class="announcements-header">
+                        <div class="announcements-title-group">
+                            <span class="announcements-tag">📢 每月區會傳達事項</span>
+                            <h3 class="announcements-title">2026年4月份 (5月份活動執行)</h3>
+                            <p class="announcements-subtitle">2026 世界青年學會 • 躍動之年 ⚡</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 傳達事項 Tabs -->
+                    <div class="announcements-tabs-container">
+                        <div class="announcements-tabs">
+                            <button class="announcement-tab-btn active" data-tab="routine">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                                四部例行活動
+                            </button>
+                            <button class="announcement-tab-btn" data-tab="respect">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+                                御本尊敬領
+                            </button>
+                            <button class="announcement-tab-btn" data-tab="youth">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                                座談會青年部主打場
+                            </button>
+                            <button class="announcement-tab-btn" data-tab="others">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                                其他重要活動
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- 傳達事項動態內容 -->
+                    <div class="announcements-content-wrapper">
+                        <div class="announcements-content-loader" id="announcements-loader" style="display: none;">
+                            <div class="announcements-spinner"></div>
+                            <span>正在載入傳達事項...</span>
+                        </div>
+                        <div class="announcements-content" id="announcements-content">
+                            <!-- 由 JS 動態生成 -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. 相關資料下載 (Downloads Section) -->
+    <section id="study" class="study-section section-padding">
+        <div class="container">
+            <div class="text-center">
+                <span class="section-tag">Downloads</span>
+                <h2 class="section-title">相關資料下載</h2>
+                <p class="section-desc">我們提供台中南區專屬的雲端硬碟共享資源下載，歡迎點擊獲取座談會影片、各項通報表單與活動教材。</p>
+            </div>
+            
+            <!-- 資料下載點擊收折與展開按鈕面板 -->
+            <div class="announcements-toggle-btn" id="study-toggle" onclick="toggleStudy()">
+                <div class="toggle-left">
+                    <span class="toggle-tag">📥 Downloads</span>
+                    <span class="toggle-title">專屬雲端資源共享庫</span>
+                </div>
+                <div class="toggle-right">
+                    <span class="toggle-status-text" id="study-status">點擊展開</span>
+                    <div class="toggle-arrow-circle">
+                        <svg class="toggle-arrow-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 雲端資源共享 Hub 卡片 -->
+            <div class="study-cloud-hub">
+                <div class="cloud-hub-decor"></div>
+                <div class="cloud-hub-badge">
+                    <svg class="cloud-icon animate-pulse" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20.88 18.04A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.29"></path>
+                        <polyline points="16 16 12 12 8 16"></polyline>
+                        <line x1="12" y1="12" x2="12" y2="22"></line>
+                    </svg>
+                    <span>Google Drive 官方雲端硬碟</span>
+                </div>
+                <div class="cloud-hub-content">
+                    <h3 class="cloud-hub-title">台中南區專屬雲端資源共享庫</h3>
+                    <p class="cloud-hub-desc">
+                        為方便各位夥伴下載與學習，我們將所有相關的佛法教材、座談會通報表格、體驗分享文宣以及大會活動資料等，全部整合收錄於專屬的 Google 雲端硬碟。點擊下方按鈕即可一鍵前往下載，攜手廣宣流布！
+                    </p>
+                </div>
+                <div class="cloud-hub-actions">
+                    <a href="https://drive.google.com/drive/u/2/folders/1m7p6RYtq6ij0SkujbVqSGk16JaasL-BT" target="_blank" rel="noopener noreferrer" class="cloud-btn btn-primary" onclick="if(window.vibratePhone) window.vibratePhone(30);">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                        開啟雲端下載資料夾
+                    </a>
+                    <button class="cloud-btn btn-secondary" onclick="copyShareLink(event)">
+                        <svg class="copy-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                        <span class="btn-text">複製雲端分享連結</span>
+                    </button>
+                </div>
+                <div class="cloud-hub-shortcuts">
+                    <span class="shortcut-title">📥 常用下載內容快捷導覽：</span>
+                    <div class="shortcut-tags">
+                        <a href="https://drive.google.com/drive/u/2/folders/1m7p6RYtq6ij0SkujbVqSGk16JaasL-BT" target="_blank" rel="noopener noreferrer" class="shortcut-tag" onclick="if(window.vibratePhone) window.vibratePhone(15);">01 座談會影片</a>
+                        <a href="https://drive.google.com/drive/u/2/folders/1m7p6RYtq6ij0SkujbVqSGk16JaasL-BT" target="_blank" rel="noopener noreferrer" class="shortcut-tag" onclick="if(window.vibratePhone) window.vibratePhone(15);">02 創價藝文/公演</a>
+                        <a href="https://drive.google.com/drive/u/2/folders/1m7p6RYtq6ij0SkujbVqSGk16JaasL-BT" target="_blank" rel="noopener noreferrer" class="shortcut-tag" onclick="if(window.vibratePhone) window.vibratePhone(15);">03 御書學習</a>
+                        <a href="https://drive.google.com/drive/u/2/folders/1m7p6RYtq6ij0SkujbVqSGk16JaasL-BT" target="_blank" rel="noopener noreferrer" class="shortcut-tag" onclick="if(window.vibratePhone) window.vibratePhone(15);">04 專場企劃案&專題檔案</a>
+                        <a href="https://drive.google.com/drive/u/2/folders/1m7p6RYtq6ij0SkujbVqSGk16JaasL-BT" target="_blank" rel="noopener noreferrer" class="shortcut-tag" onclick="if(window.vibratePhone) window.vibratePhone(15);">大家談</a>
+                        <a href="https://drive.google.com/drive/u/2/folders/1m7p6RYtq6ij0SkujbVqSGk16JaasL-BT" target="_blank" rel="noopener noreferrer" class="shortcut-tag" onclick="if(window.vibratePhone) window.vibratePhone(15);">司儀參考稿</a>
+                        <a href="https://drive.google.com/drive/u/2/folders/1m7p6RYtq6ij0SkujbVqSGk16JaasL-BT" target="_blank" rel="noopener noreferrer" class="shortcut-tag" onclick="if(window.vibratePhone) window.vibratePhone(15);">未來調色盤</a>
+                        <a href="https://drive.google.com/drive/u/2/folders/1m7p6RYtq6ij0SkujbVqSGk16JaasL-BT" target="_blank" rel="noopener noreferrer" class="shortcut-tag" onclick="if(window.vibratePhone) window.vibratePhone(15);">生活小學堂</a>
+                        <a href="https://drive.google.com/drive/u/2/folders/1m7p6RYtq6ij0SkujbVqSGk16JaasL-BT" target="_blank" rel="noopener noreferrer" class="shortcut-tag" onclick="if(window.vibratePhone) window.vibratePhone(15);">和平專題</a>
+                        <a href="https://drive.google.com/drive/u/2/folders/1m7p6RYtq6ij0SkujbVqSGk16JaasL-BT" target="_blank" rel="noopener noreferrer" class="shortcut-tag" onclick="if(window.vibratePhone) window.vibratePhone(15);">青春漾背景音樂參考</a>
+                        <a href="https://drive.google.com/drive/u/2/folders/1m7p6RYtq6ij0SkujbVqSGk16JaasL-BT" target="_blank" rel="noopener noreferrer" class="shortcut-tag" onclick="if(window.vibratePhone) window.vibratePhone(15);">青春漾遊戲參考</a>
+                        <a href="https://drive.google.com/drive/u/2/folders/1m7p6RYtq6ij0SkujbVqSGk16JaasL-BT" target="_blank" rel="noopener noreferrer" class="shortcut-tag" onclick="if(window.vibratePhone) window.vibratePhone(15);">座談會紀錄表</a>
+                        <a href="https://drive.google.com/drive/u/2/folders/1m7p6RYtq6ij0SkujbVqSGk16JaasL-BT" target="_blank" rel="noopener noreferrer" class="shortcut-tag" onclick="if(window.vibratePhone) window.vibratePhone(15);">感謝專題</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. 座談會人員表 (Meeting Members Section) -->
+    <section id="meeting-members" class="meeting-members-section section-padding">
+        <div class="container">
+            <div class="text-center">
+                <span class="section-tag">Members & Schedule</span>
+                <h2 class="section-title">當月座談會人員表</h2>
+                <p class="section-desc">本月各支部座談會之司儀、御書導讀、感謝專題及場地導航，歡迎夥伴即時查詢！</p>
+            </div>
+            
+            <!-- 支部切換 Tabs (第一層) -->
+            <div class="branch-tabs-container">
+                <div class="branch-tabs" id="branch-tabs">
+                    <button class="branch-tab active" onclick="switchBranch('勤益支部')">勤益支部</button>
+                    <button class="branch-tab" onclick="switchBranch('東平支部')">東平支部</button>
+                    <button class="branch-tab" onclick="switchBranch('新里支部')">新里支部</button>
+                    <button class="branch-tab" onclick="switchBranch('益民支部')">益民支部</button>
+                    <button class="branch-tab" onclick="switchBranch('日峰支部')">日峰支部</button>
+                    <button class="branch-tab" onclick="switchBranch('高工支部')">高工支部</button>
+                    <button class="branch-tab" onclick="switchBranch('復興支部')">復興支部</button>
+                </div>
+            </div>
+
+            <!-- 控制面板：二級篩選、搜尋框與同步狀態 (第二層) -->
+            <div class="members-control-panel">
+                <!-- 地區二級篩選頁籤 -->
+                <div class="district-filters" id="district-filters">
+                    <button class="district-filter active" onclick="filterByDistrict('全部')">全部地區</button>
+                    <!-- JavaScript 會動態根據當前支部填入該支部下屬的地區 -->
+                </div>
+
+                <!-- 搜尋框 -->
+                <div class="member-search-wrap">
+                    <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    <input type="text" id="member-search" class="member-search-input" placeholder="搜尋姓名、組別、日期..." oninput="handleMemberSearch()">
+                    <button class="search-clear-btn" id="search-clear-btn" onclick="clearMemberSearch()" aria-label="清除搜尋">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                    </button>
+                </div>
+
+                <!-- 同步狀態列 -->
+                <div class="sync-status-bar" id="sync-status-bar" onclick="handleSyncStatusClick()">
+                    <span class="status-indicator-dot local"></span>
+                    <span class="status-text" id="sync-status-text">本地預設數據 (點擊配置雲端同步)</span>
+                </div>
+            </div>
+
+            <!-- 表格顯示區塊與 Loading 載入遮罩 (第三層) -->
+            <div class="table-outer-wrapper">
+                <!-- 手指左右滑動提示 -->
+                <div class="table-scroll-hint" id="table-scroll-hint">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    <span>向左滑動查看完整表格</span>
+                </div>
+                
+                <div class="table-container">
+                    <!-- Loading 載入遮罩 -->
+                    <div class="table-loading-overlay" id="table-loading-overlay">
+                        <div class="loading-spinner"></div>
+                        <span class="loading-text">正在同步雲端數據...</span>
+                    </div>
+                    
+                    <table class="members-table" id="members-table">
+                        <thead>
+                            <tr>
+                                <th>地區</th>
+                                <th>組別</th>
+                                <th>日期</th>
+                                <th>司儀</th>
+                                <th>御書(區安排)</th>
+                                <th>感謝專題/青年部</th>
+                                <th>投入幹部</th>
+                                <th>紀錄人員</th>
+                                <th>總結幹部</th>
+                                <th>座談會地點</th>
+                            </tr>
+                        </thead>
+                        <tbody id="members-table-body">
+                            <!-- 由 JavaScript 動態生成渲染 -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- 搜尋無結果提示 -->
+                <div class="no-results-message" id="no-results-message" style="display: none;">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                    <h4>未找到相符的人員或組別</h4>
+                    <p>請嘗試輸入其他姓名、組別或日期關鍵字。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. 頁尾 (Footer) -->
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-col footer-about">
+                <div class="logo">
+                    <div class="logo-icon" style="background: white; color: var(--color-secondary);">SGI</div>
+                    <span class="logo-title" style="color: white;">台中南區資訊網</span>
+                </div>
+                <p>本網站為創價學會台中南區專屬之資訊平台。<br>為求眾多使用者便利操作使用，創立此工具網頁，網頁使用上有問題或需求新增相關功能，<br>煩請聯繫『育侃』，期待各位共戰夥伴使用順暢。</p>
+            </div>
+            
+            <div class="footer-col">
+                <h4>快速連結</h4>
+                <ul class="footer-links">
+                    <li class="footer-link"><a href="#calendar">動態行事曆</a></li>
+                    <li class="footer-link"><a href="#about">南區傳達事項</a></li>
+                    <li class="footer-link"><a href="#study">相關資料下載</a></li>
+                    <li class="footer-link"><a href="#meeting-members">座談會人員表</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h4>聯絡資訊與官方據點</h4>
+                <ul class="footer-contact-list">
+                    <li class="footer-contact-item">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        <span>臺中市霧峰區四德里中投西路二段76號</span>
+                    </li>
+                    <li class="footer-contact-item">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        <span>04-23391600</span>
+                    </li>
+                    <li class="footer-contact-item">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path><path d="M2 12h20"></path></svg>
+                        <span><a href="https://www.twsgi.org.tw" target="_blank" style="color: var(--color-primary-light); text-decoration: underline;">台灣創價學會 官方網站</a></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="container footer-bottom">
+            <div>
+                &copy; <span id="footer-year">2026</span> 台灣創價學會 台中南區資訊網. 版權所有.
+            </div>
+            <button class="back-to-top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'});" aria-label="回到最頂部">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+            </button>
+        </div>
+    </footer>
+
+    <!-- 9. 互動彈窗 (Modals) -->
+    <div class="modal-overlay" id="modal-overlay" onclick="closeModal()">
+        <div class="modal-container" onclick="event.stopPropagation()">
+            <div class="modal-drag-handle"></div>
+            <button class="modal-close-btn" onclick="closeModal()" aria-label="關閉彈窗">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+            <div id="modal-content-area">
+                <!-- JavaScript 動態填入內容 -->
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- 手機專用底部快捷導覽列 (Mobile Tab Bar Navigation) -->
+    <nav class="mobile-bottom-nav">
+        <a href="#calendar" class="mobile-bottom-nav-item active" onclick="setActiveTab(this)">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+            <span>行事曆</span>
+        </a>
+        <a href="#about" class="mobile-bottom-nav-item" onclick="setActiveTab(this)">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+            <span>傳達</span>
+        </a>
+        <a href="#study" class="mobile-bottom-nav-item" onclick="setActiveTab(this)">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            <span>下載</span>
+        </a>
+    </nav>
+
+    <!-- 引入自訂 JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
