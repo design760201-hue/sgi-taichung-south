@@ -251,10 +251,12 @@ function renderCalendarEvents(events) {
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
                         <span>${event.time}</span>
                     </li>
+                    ${event.location ? `
                     <li class="event-info-item">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                         <span>${event.location}</span>
                     </li>
+                    ` : ''}
                 </ul>
             </div>
         `;
@@ -320,7 +322,7 @@ async function fetchGoogleCalendarEvents() {
                 title: item.summary || '未命名溫馨聚會',
                 desc: item.description || '點擊本活動查看詳情，誠摯邀請大家在溫馨充滿題目的氣氛中前來相聚！',
                 time: timeStr,
-                location: item.location || '南區溫馨聚會所 / 雲端視訊會場'
+                location: item.location || ''
             };
         });
         
