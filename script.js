@@ -771,19 +771,33 @@ window.downloadQuoteCard = function() {
                             String(today.getMonth() + 1).padStart(2, '0') + 
                             String(today.getDate()).padStart(2, '0');
             
-            // 創建隱藏的 <a> 標籤觸發下載
-            const downloadLink = document.createElement('a');
-            downloadLink.href = imageURL;
-            downloadLink.download = `SGI-晨光心靈金句-${dateStr}.png`;
+            // 智慧型偵測行動端 (手機/平板/微信/LINE 等 WebView)
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
             
-            document.body.appendChild(downloadLink);
-            downloadLink.click();
-            document.body.removeChild(downloadLink);
+            if (isMobile) {
+                // 手機端：將超高清字卡寫入實體 <img> 並彈出毛玻璃長按儲存提示窗 (iOS 官方 100% 成功黃金實踐)
+                const mobileSaveModal = document.getElementById('soka-mobile-save-modal');
+                const mobileSaveImg = document.getElementById('mobile-save-img');
+                
+                if (mobileSaveModal && mobileSaveImg) {
+                    mobileSaveImg.src = imageURL;
+                    mobileSaveModal.classList.add('active');
+                }
+            } else {
+                // 電腦端：依然直接觸發隱藏 <a> 標籤自動 click() 無縫極速下載
+                const downloadLink = document.createElement('a');
+                downloadLink.href = imageURL;
+                downloadLink.download = `SGI-晨光心靈金句-${dateStr}.png`;
+                
+                document.body.appendChild(downloadLink);
+                downloadLink.click();
+                document.body.removeChild(downloadLink);
+            }
             
             // 隱藏加載動畫
             spinner.classList.remove('active');
             
-            // 手機端震動或溫馨提示，提升人本操作細節體驗
+            // 手機端震動，提升操作回饋體驗
             if (navigator.vibrate) {
                 navigator.vibrate(50); // 微震動回饋
             }
@@ -793,6 +807,14 @@ window.downloadQuoteCard = function() {
             alert('⚠️ 抱歉，字卡生成出現異常，請稍後再試！');
         });
     }, 600); // 留出 600 毫秒的微動畫延遲，給用戶帶來滿滿的 premium 精緻生成體感
+};
+
+// 關閉手機端專用字卡儲存彈窗
+window.closeMobileSaveModal = function() {
+    const mobileSaveModal = document.getElementById('soka-mobile-save-modal');
+    if (mobileSaveModal) {
+        mobileSaveModal.classList.remove('active');
+    }
 };
 
 

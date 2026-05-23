@@ -3771,5 +3771,137 @@ footer {
     box-shadow: 0 10px 30px rgba(217, 119, 6, 0.22);
 }
 
+/* 手機端專用字卡儲存彈窗 */
+.soka-mobile-save-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(11, 76, 83, 0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s ease;
+}
+
+.soka-mobile-save-modal.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.mobile-save-container {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(217, 119, 6, 0.2);
+    border-radius: 28px;
+    width: 100%;
+    max-width: 380px;
+    box-shadow: 0 20px 50px rgba(67, 43, 20, 0.15);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transform: translateY(30px) scale(0.95);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.15);
+}
+
+.soka-mobile-save-modal.active .mobile-save-container {
+    transform: translateY(0) scale(1);
+}
+
+.mobile-save-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 1.5rem 0.8rem 1.5rem;
+    border-bottom: 1px solid rgba(67, 43, 20, 0.05);
+}
+
+.mobile-save-title {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--color-primary-dark);
+    letter-spacing: 0.5px;
+}
+
+.mobile-save-close-btn {
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 1.2rem;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    padding: 0.2rem;
+    transition: color 0.25s ease;
+}
+
+.mobile-save-close-btn:hover {
+    color: var(--color-accent);
+}
+
+.mobile-save-body {
+    padding: 1.2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.mobile-save-hint {
+    font-size: 0.8rem;
+    color: var(--color-accent);
+    background-color: rgba(217, 119, 6, 0.05);
+    border: 1px solid rgba(217, 119, 6, 0.12);
+    padding: 0.5rem 0.8rem;
+    border-radius: 12px;
+    line-height: 1.45;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.mobile-save-image-wrap {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(67, 43, 20, 0.08);
+    box-shadow: 0 4px 15px rgba(67, 43, 20, 0.06);
+    background: #faf6f0;
+}
+
+.mobile-save-image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    user-select: auto !important; /* 確保 iOS 長按功能完美啟用 */
+    -webkit-user-select: auto !important;
+}
+
+.mobile-save-footer {
+    padding: 0.8rem 1.5rem 1.2rem 1.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.btn-soka-close-modal {
+    width: 100%;
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-primary-dark) 100%) !important;
+    color: white !important;
+    border: none !important;
+    font-weight: 700 !important;
+    padding: 0.75rem !important;
+    border-radius: 20px !important;
+    font-size: 0.9rem !important;
+}
+
+
 
 

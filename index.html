@@ -800,6 +800,27 @@
         </a>
     </nav>
 
+    <!-- H. 手機端專用：字卡長按儲存彈窗 (Mobile Quote Save Modal) -->
+    <div class="soka-mobile-save-modal" id="soka-mobile-save-modal">
+        <div class="mobile-save-container">
+            <div class="mobile-save-header">
+                <span class="mobile-save-title">✨ 儲存心靈晨光字卡 ✨</span>
+                <button class="mobile-save-close-btn" onclick="closeMobileSaveModal()">✕</button>
+            </div>
+            <div class="mobile-save-body">
+                <p class="mobile-save-hint">💡 <b>長按下方圖片</b>，並選擇「<b>加入照片</b>」或「<b>儲存影像</b>」即可存入手機相簿喔！</p>
+                <div class="mobile-save-image-wrap">
+                    <img id="mobile-save-img" src="" alt="SGI 晨光心靈字卡">
+                </div>
+            </div>
+            <div class="mobile-save-footer">
+                <button class="btn-soka-action btn-soka-close-modal" onclick="closeMobileSaveModal()">
+                    關閉視窗
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- 引入自訂 JavaScript -->
     <script src="script.js"></script>
 </body>
