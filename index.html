@@ -10,18 +10,18 @@
     <meta name="keywords" content="台灣創價學會, 台中南區, 創價學會, 座談會, 日蓮佛法, 人間革命, 池田大作, 台中文化會館, 佛教社區">
     
     <!-- 設定 iOS / Apple Touch 手機桌面 App 圖示 (高解析度 1024x1024 圓角橘色 SGI) -->
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=4">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png?v=4">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=7.0">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png?v=7.0">
     
     <!-- 設定 Android / Chrome 手機桌面 App 圖示 (Favicon & Web App Icon) -->
-    <link rel="icon" type="image/png" sizes="192x192" href="apple-touch-icon.png?v=4">
-    <link rel="icon" type="image/png" sizes="32x32" href="apple-touch-icon.png?v=4">
-    <link rel="manifest" href="manifest.json?v=4">
+    <link rel="icon" type="image/png" sizes="192x192" href="apple-touch-icon.png?v=7.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="apple-touch-icon.png?v=7.0">
+    <link rel="manifest" href="manifest.json?v=7.0">
     <meta name="theme-color" content="#faf8f6">
     <meta name="mobile-web-app-capable" content="yes">
 
     <!-- 引入自訂樣式表 -->
-    <link rel="stylesheet" href="style.css?v=5.1">
+    <link rel="stylesheet" href="style.css?v=7.0">
     <!-- 引入 html2canvas 圖片生成引擎 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
@@ -630,8 +630,26 @@
                 <p class="section-desc">本月各支部座談會之司儀、御書導讀、感謝專題及場地導航，歡迎夥伴即時查詢！</p>
             </div>
             
-            <!-- 支部切換 Tabs (第一層) -->
-            <div class="branch-tabs-container">
+            <!-- 座談會人員表摺疊控制面板 -->
+            <div class="announcements-toggle-btn" id="members-toggle" onclick="toggleMembers()">
+                <div class="toggle-left">
+                    <span class="toggle-tag">👥 Members & Schedule</span>
+                    <span class="toggle-title">當月座談會人員一覽表 <span class="toggle-title-sub">(五月份活動執行)</span></span>
+                </div>
+                <div class="toggle-right">
+                    <span class="toggle-status-text" id="members-status">點擊展開</span>
+                    <div class="toggle-arrow-circle">
+                        <svg class="toggle-arrow-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 座談會人員表摺疊容器 -->
+            <div class="members-table-wrapper" id="members-table-wrapper">
+                <!-- 支部切換 Tabs (第一層) -->
+                <div class="branch-tabs-container">
                 <div class="branch-tabs" id="branch-tabs">
                     <button class="branch-tab active" onclick="switchBranch('勤益支部')">勤益支部</button>
                     <button class="branch-tab" onclick="switchBranch('東平支部')">東平支部</button>
@@ -711,6 +729,7 @@
                     <p>請嘗試輸入其他姓名、組別或日期關鍵字。</p>
                 </div>
             </div>
+            </div> <!-- 閉合 members-table-wrapper -->
         </div>
     </section>
 
@@ -822,6 +841,6 @@
     </div>
 
     <!-- 引入自訂 JavaScript -->
-    <script src="script.js?v=5.1"></script>
+    <script src="script.js?v=7.0"></script>
 </body>
 </html>

@@ -2157,6 +2157,12 @@ function initializeNavigationSync() {
                     console.log('💡 偵測到跳轉至創價班執勤表，為法友自動展開摺疊抽屜！');
                     toggleSokaban();
                 }
+            } else if (targetId === '#meeting-members') {
+                const container = document.getElementById('members-table-wrapper');
+                if (container && !container.classList.contains('active')) {
+                    console.log('💡 偵測到跳轉至當月座談會人員表，為法友自動展開摺疊抽屜！');
+                    toggleMembers();
+                }
             }
         });
     });
@@ -2201,6 +2207,56 @@ function toggleSokaban() {
         container.style.marginTop = '1.5rem';
         
         container.style.maxHeight = container.scrollHeight + 'px';
+        
+        setTimeout(() => {
+            if (container.classList.contains('active')) {
+                container.style.maxHeight = 'none';
+            }
+        }, 600);
+    }
+}
+
+
+// ==========================================================================
+// 👥 (8.5) 收折與展開當月座談會人員表 (Collapsible Meeting Members Table)
+// ==========================================================================
+function toggleMembers() {
+    const container = document.getElementById('members-table-wrapper');
+    const toggleBtn = document.getElementById('members-toggle');
+    const statusText = document.getElementById('members-status');
+    
+    if (!container || !toggleBtn || !statusText) return;
+    
+    const isExpanded = container.classList.contains('active');
+    
+    if (isExpanded) {
+        // --- 收起邏輯 ---
+        container.style.maxHeight = container.scrollHeight + 'px';
+        container.offsetHeight; 
+        
+        container.style.maxHeight = '0px';
+        container.style.opacity = '0';
+        container.style.transform = 'translateY(-12px)';
+        container.style.paddingTop = '0px';
+        container.style.paddingBottom = '0px';
+        container.style.marginTop = '0px';
+        
+        container.classList.remove('active');
+        toggleBtn.classList.remove('active');
+        statusText.textContent = '點擊展開';
+        if (window.vibratePhone) window.vibratePhone(30);
+    } else {
+        // --- 展開邏輯 ---
+        container.classList.add('active');
+        toggleBtn.classList.add('active');
+        statusText.textContent = '點擊收起';
+        
+        container.style.opacity = '1';
+        container.style.transform = 'translateY(0)';
+        container.style.marginTop = '1.5rem';
+        
+        container.style.maxHeight = container.scrollHeight + 'px';
+        if (window.vibratePhone) window.vibratePhone(40);
         
         setTimeout(() => {
             if (container.classList.contains('active')) {
@@ -2284,6 +2340,11 @@ window.closeMobileDropdown = function(event, targetId) {
                 const container = document.getElementById('sokaban-table-wrapper');
                 if (container && !container.classList.contains('active')) {
                     toggleSokaban();
+                }
+            } else if (targetId === '#meeting-members') {
+                const container = document.getElementById('members-table-wrapper');
+                if (container && !container.classList.contains('active')) {
+                    toggleMembers();
                 }
             }
         }, 100); // 稍微延遲以獲得更好的視覺分離體驗

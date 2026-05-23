@@ -7,26 +7,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Outfit:wght@300;400;500;600;700&display=swap');
 
 :root {
-    /* 溫馨日系燕麥奶茶大地色系 (Oatmeal & Milk-tea Color Palette) */
-    --color-primary: hsl(28, 85%, 55%);        /* 暖心金橘 (太陽溫度與朝氣) */
-    --color-primary-dark: hsl(28, 85%, 45%);   /* 焦糖橘 */
-    --color-primary-light: hsl(28, 100%, 96%);  /* 蜜橘粉白 */
+    /* 皇家黛藍與智慧雄獅高貴色彩系統 (Royal Indigo & Wisdom Lion Color Palette) */
+    --color-primary: hsl(213, 60%, 25%);        /* 尊貴黛藍 (象徵師子無畏與廣闊和平) */
+    --color-primary-dark: hsl(213, 60%, 16%);   /* 皇家深黛藍 */
+    --color-primary-light: hsl(213, 50%, 95%);  /* 冰川粉藍 */
     
-    --color-secondary: hsl(28, 40%, 35%);      /* 拿鐵焦糖暖木褐 (沉穩守護與大地) */
-    --color-secondary-dark: hsl(28, 40%, 25%); /* 深拿鐵褐 */
-    --color-secondary-light: hsl(28, 25%, 93%);/* 大地米色 */
+    --color-secondary: hsl(213, 38%, 37%);      /* 灰黛藍 (沉穩護持與優雅植物質感) */
+    --color-secondary-dark: hsl(213, 38%, 27%); /* 深灰黛藍 */
+    --color-secondary-light: hsl(213, 25%, 91%);/* 淺灰藍 */
     
-    --color-accent: hsl(350, 75%, 68%);         /* 柔和粉櫻 (女子部、點綴與活力) */
-    --color-bg-base: hsl(34, 45%, 97%);        /* 燕麥乳白 (極致溫和低刺激底色) */
-    --color-bg-card: rgba(255, 255, 255, 0.9); /* 白巧克力半透明乳白 (磨砂擬態背景) */
+    --color-accent: hsl(38, 65%, 53%);         /* 奢華暖金 (點綴亮點、佛法尊貴與輕奢感) */
+    --color-bg-base: hsl(204, 20%, 97%);        /* 冰川霧白 (乾淨素雅高位呼吸感底色) */
+    --color-bg-card: rgba(255, 255, 255, 0.94); /* 磨砂玻璃乳白 */
     
-    --color-text-main: hsl(28, 55%, 12%);      /* 極深暖褐 (溫潤、高對比、不刺眼) */
-    --color-text-muted: hsl(28, 20%, 42%);     /* 溫和中暖褐 */
+    --color-text-main: hsl(213, 60%, 16%);      /* 極深黛藍 (高對比、護眼、大氣) */
+    --color-text-muted: hsl(213, 24%, 46%);     /* 優雅灰藍 */
     
-    /* 溫暖大地褐陰影與玻璃模糊 */
-    --shadow-sm: 0 4px 16px rgba(67, 43, 20, 0.04);
-    --shadow-md: 0 12px 36px rgba(67, 43, 20, 0.06);
-    --shadow-lg: 0 20px 50px rgba(67, 43, 20, 0.10);
+    /* 輕透黛藍水霧發光陰影與玻璃模糊 */
+    --shadow-sm: 0 4px 16px rgba(26, 62, 104, 0.04);
+    --shadow-md: 0 12px 36px rgba(26, 62, 104, 0.06);
+    --shadow-lg: 0 20px 50px rgba(26, 62, 104, 0.08);
     --backdrop-blur: blur(20px);
     --border-glass: 1px solid rgba(255, 255, 255, 0.7);
     
@@ -59,10 +59,6 @@ html {
 body {
     font-family: var(--font-zh);
     background-color: var(--color-bg-base);
-    /* 引入新生成的日系單色溫馨手繪植物線條浮水印背景 */
-    background-image: url('warm_pattern_bg.png');
-    background-repeat: repeat;
-    background-size: 360px 360px; /* 控制圖案精緻小巧，呈現高級人文感 */
     color: var(--color-text-main);
     line-height: 1.8; /* 提升至 1.8 帶來舒適呼吸排版 */
     overflow-x: hidden;
@@ -314,7 +310,10 @@ header.scrolled .header-container {
     display: flex;
     align-items: center;
     padding-top: 100px;
-    background: radial-gradient(circle at 80% 20%, var(--color-secondary-light) 0%, var(--color-bg-base) 60%);
+    background-image: linear-gradient(to left, rgba(245, 248, 250, 0.15) 0%, rgba(245, 248, 250, 0.96) 65%, var(--color-bg-base) 100%), url('sgi_lion_bg.jpg');
+    background-size: cover;
+    background-position: right center;
+    background-repeat: no-repeat;
     overflow: hidden;
 }
 
@@ -454,7 +453,7 @@ header.scrolled .header-container {
     width: 100%;
     max-width: 520px;
     aspect-ratio: 1 / 1;
-    background: linear-gradient(135deg, #fdfbf7 0%, #f7f3eb 100%);
+    background: linear-gradient(135deg, #F0F4F8 0%, #F7FAFC 100%);
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-lg);
     overflow: hidden;
@@ -464,7 +463,7 @@ header.scrolled .header-container {
     box-sizing: border-box;
 }
 
-/* 創價三色（藍、黃、紅）漸層光環線條裝飾 */
+/* 創價三色改為皇家海軍藍與冰川藍漸層光環線條裝飾 */
 .tricolor-ring {
     position: absolute;
     top: 10px;
@@ -473,8 +472,8 @@ header.scrolled .header-container {
     bottom: 10px;
     border-radius: var(--radius-sm);
     border: 2px solid transparent;
-    background: linear-gradient(#fdfbf7, #fdfbf7) padding-box,
-                linear-gradient(135deg, hsl(190, 75%, 35%) 0%, hsl(41, 85%, 52%) 50%, hsl(8, 76%, 58%) 100%) border-box;
+    background: linear-gradient(#F7FAFC, #F7FAFC) padding-box,
+                linear-gradient(135deg, #1A3E68 0%, #3B5B82 50%, #4A90E2 100%) border-box;
     pointer-events: none;
     z-index: 1;
 }
@@ -493,7 +492,7 @@ header.scrolled .header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid rgba(190, 150, 80, 0.1);
+    border-bottom: 1px solid rgba(26, 62, 104, 0.1);
     padding-bottom: 0.8rem;
 }
 
@@ -506,7 +505,7 @@ header.scrolled .header-container {
 .soka-brand-icon {
     width: 36px; /* 放大 30% */
     height: 36px;
-    background: linear-gradient(135deg, hsl(190, 75%, 22%), hsl(41, 85%, 52%), hsl(8, 76%, 58%));
+    background: linear-gradient(135deg, #1A3E68 0%, #3B5B82 50%, #4A90E2 100%);
     border-radius: 8px;
     display: flex;
     align-items: center;
@@ -963,12 +962,12 @@ header.scrolled .header-container {
 
 /* 相關資料雲端共享 Hub */
 .study-cloud-hub {
-    background: linear-gradient(135deg, rgba(67, 43, 20, 0.02) 0%, rgba(220, 166, 38, 0.04) 50%, rgba(200, 70, 70, 0.02) 100%), white;
+    background: linear-gradient(135deg, rgba(26, 62, 104, 0.02) 0%, rgba(212, 154, 59, 0.04) 50%, rgba(26, 62, 104, 0.01) 100%), white;
     border-radius: var(--radius-lg);
     padding: 2.5rem;
     margin-bottom: 3rem;
     box-shadow: var(--shadow-md);
-    border: 1px solid rgba(67, 43, 20, 0.08);
+    border: 1px solid rgba(26, 62, 104, 0.06);
     position: relative;
     overflow: hidden;
     transition: var(--transition-smooth);
@@ -1063,15 +1062,16 @@ header.scrolled .header-container {
 }
 
 .cloud-btn.btn-primary {
-    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
-    color: var(--color-text-main);
-    box-shadow: 0 4px 15px rgba(220, 166, 38, 0.25);
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    color: #ffffff !important; /* 完美文字反白，確保極致可讀性 */
+    box-shadow: 0 4px 15px rgba(26, 62, 104, 0.25);
 }
 
 .cloud-btn.btn-primary:hover {
-    background: linear-gradient(135deg, var(--color-primary-dark), #b3821a);
+    background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary));
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(220, 166, 38, 0.35);
+    box-shadow: 0 6px 20px rgba(26, 62, 104, 0.35);
+    color: #ffffff !important;
 }
 
 .cloud-btn.btn-primary:active {
@@ -1079,14 +1079,14 @@ header.scrolled .header-container {
 }
 
 .cloud-btn.btn-secondary {
-    background: rgba(67, 43, 20, 0.04);
+    background: rgba(26, 62, 104, 0.04);
     color: var(--color-secondary);
-    border: 1px solid rgba(67, 43, 20, 0.12);
+    border: 1px solid rgba(26, 62, 104, 0.12);
 }
 
 .cloud-btn.btn-secondary:hover {
-    background: rgba(11, 76, 83, 0.08);
-    border-color: rgba(11, 76, 83, 0.25);
+    background: rgba(26, 62, 104, 0.08);
+    border-color: rgba(26, 62, 104, 0.25);
     transform: translateY(-2px);
 }
 
@@ -1102,7 +1102,7 @@ header.scrolled .header-container {
 }
 
 .cloud-hub-shortcuts {
-    border-top: 1px dashed rgba(11, 76, 83, 0.12);
+    border-top: 1px dashed rgba(26, 62, 104, 0.12);
     padding-top: 1.5rem;
 }
 
@@ -1518,7 +1518,7 @@ header.scrolled .header-container {
 .member-search-input:focus {
     outline: none;
     border-color: var(--color-primary);
-    box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.15);
+    box-shadow: 0 0 0 3px rgba(26, 62, 104, 0.15);
 }
 
 .search-icon {
@@ -1703,11 +1703,11 @@ header.scrolled .header-container {
 }
 
 .members-table tbody tr:nth-child(even) {
-    background-color: rgba(217, 119, 6, 0.018);
+    background-color: rgba(26, 62, 104, 0.015);
 }
 
 .members-table tbody tr:hover {
-    background-color: rgba(217, 119, 6, 0.05);
+    background-color: rgba(26, 62, 104, 0.04);
 }
 
 .members-table tbody tr:last-child td {
@@ -1927,11 +1927,11 @@ header.scrolled .header-container {
 
 /* 10. 頁尾 (Footer) */
 footer {
-    background-color: var(--color-secondary-dark);
+    background-color: #0F243E; /* 完美套用深邃皇家暗黛藍大氣背景 */
     color: white;
     padding: 5rem 0 2rem 0;
     font-size: 0.9rem;
-    border-top: 4px solid var(--color-primary);
+    border-top: 4px solid var(--color-accent); /* 頂部裝飾線更換為奢華暖金 */
 }
 
 .footer-grid {
@@ -2134,6 +2134,7 @@ footer {
         min-height: auto;
         padding-top: 110px;
         padding-bottom: 3rem;
+        background-position: 75% center !important; /* 手機端將雄獅稍微往左拉，保持雄獅在窄螢幕上的主體展現 */
     }
     
     .hero-title {
@@ -2583,10 +2584,10 @@ footer {
     background: rgba(255, 255, 255, 0.92);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(217, 119, 6, 0.25);
+    border: 1px solid rgba(26, 62, 104, 0.15);
     border-radius: var(--radius-md);
     padding: 1.25rem 2rem;
-    box-shadow: 0 10px 30px -10px rgba(217, 119, 6, 0.12), 0 4px 12px rgba(67, 43, 20, 0.05);
+    box-shadow: 0 10px 30px -10px rgba(26, 62, 104, 0.08), 0 4px 12px rgba(26, 62, 104, 0.03);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -2602,14 +2603,14 @@ footer {
 /* 懸浮狀態：優雅浮起 + 微光陰影擴散 */
 .announcements-toggle-btn:hover {
     transform: translateY(-4px) scale(1.005);
-    box-shadow: 0 15px 35px -8px rgba(217, 119, 6, 0.2), 0 8px 24px rgba(67, 43, 20, 0.08);
-    border-color: rgba(217, 119, 6, 0.5);
+    box-shadow: 0 15px 35px -8px rgba(26, 62, 104, 0.14), 0 8px 24px rgba(26, 62, 104, 0.05);
+    border-color: rgba(26, 62, 104, 0.35);
 }
 
 /* 點擊瞬間：微按壓下沉 (物理級實體交互回饋) */
 .announcements-toggle-btn:active {
     transform: translateY(-1px) scale(0.99);
-    box-shadow: 0 4px 15px -5px rgba(217, 119, 6, 0.1), 0 2px 6px rgba(67, 43, 20, 0.04);
+    box-shadow: 0 4px 15px -5px rgba(26, 62, 104, 0.06), 0 2px 6px rgba(26, 62, 104, 0.02);
     transition: all 0.08s ease;
 }
 
@@ -2664,10 +2665,10 @@ footer {
     font-size: 0.85rem;
     font-weight: 700;
     color: var(--color-primary-dark);
-    background-color: rgba(217, 119, 6, 0.08);
+    background-color: rgba(26, 62, 104, 0.05);
     padding: 0.35rem 0.85rem;
     border-radius: 20px;
-    border: 1px solid rgba(217, 119, 6, 0.15);
+    border: 1px solid rgba(26, 62, 104, 0.12);
     transition: all 0.3s ease;
     white-space: nowrap !important; /* 強制不換行，解決窄螢幕被擠壓折行問題 */
 }
@@ -2689,14 +2690,14 @@ footer {
     align-items: center;
     justify-content: center;
     color: #ffffff !important; /* 確保箭頭為純白色，對比強烈 */
-    box-shadow: 0 4px 10px rgba(217, 119, 6, 0.3);
+    box-shadow: 0 4px 10px rgba(26, 62, 104, 0.25);
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* 懸浮時按鈕彈跳放大效果 */
 .announcements-toggle-btn:hover .toggle-arrow-circle {
     transform: scale(1.12);
-    box-shadow: 0 6px 15px rgba(217, 119, 6, 0.45);
+    box-shadow: 0 6px 15px rgba(26, 62, 104, 0.4);
 }
 
 /* 展開狀態下按鈕改為大地沉穩褐色，並翻轉箭頭 */
@@ -2785,7 +2786,7 @@ footer {
     right: -20%;
     width: 300px;
     height: 300px;
-    background: radial-gradient(circle, rgba(217, 119, 6, 0.12) 0%, rgba(255, 255, 255, 0) 70%);
+    background: radial-gradient(circle, rgba(26, 62, 104, 0.12) 0%, rgba(255, 255, 255, 0) 70%);
     filter: blur(60px);
     pointer-events: none;
     z-index: 0;
@@ -2810,9 +2811,9 @@ footer {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background: linear-gradient(135deg, rgba(220, 166, 38, 0.15) 0%, rgba(220, 166, 38, 0.05) 100%);
-    border: 1px solid rgba(220, 166, 38, 0.3);
-    color: var(--color-accent);
+    background: linear-gradient(135deg, rgba(26, 62, 104, 0.08) 0%, rgba(26, 62, 104, 0.03) 100%);
+    border: 1px solid rgba(26, 62, 104, 0.18);
+    color: var(--color-primary-dark);
     padding: 0.4rem 1rem;
     border-radius: 50px;
     font-size: 0.85rem;
@@ -2833,7 +2834,7 @@ footer {
 
 .announcements-subtitle {
     font-size: 1rem;
-    color: var(--color-accent);
+    color: var(--color-secondary);
     font-weight: 500;
     letter-spacing: 1px;
 }
@@ -2845,15 +2846,15 @@ footer {
     justify-content: center;
     gap: 0.3rem;
     font-size: 0.78rem;
-    color: var(--color-accent);
-    background-color: rgba(217, 119, 6, 0.06);
-    border: 1px solid rgba(217, 119, 6, 0.15);
+    color: var(--color-primary-dark);
+    background-color: rgba(26, 62, 104, 0.06);
+    border: 1px solid rgba(26, 62, 104, 0.15);
     padding: 0.35rem 0.8rem;
     border-radius: 20px;
     margin: -1.2rem auto 1.2rem auto;
     width: fit-content;
     font-weight: 600;
-    box-shadow: 0 2px 6px rgba(217, 119, 6, 0.05);
+    box-shadow: 0 2px 6px rgba(26, 62, 104, 0.04);
     animation: bounceHorizontal 2.2s infinite ease-in-out;
 }
 
@@ -2919,7 +2920,7 @@ footer {
 }
 
 .announcement-tab-btn.active {
-    color: var(--color-accent);
+    color: var(--color-primary-dark);
 }
 
 .announcement-tab-btn.active::after {
@@ -2929,7 +2930,7 @@ footer {
     left: 0;
     right: 0;
     height: 3px;
-    background: linear-gradient(90deg, var(--color-accent) 0%, rgba(220, 166, 38, 0.3) 100%);
+    background: linear-gradient(90deg, var(--color-primary) 0%, rgba(26, 62, 104, 0.3) 100%);
     border-radius: 3px;
 }
 
@@ -2962,8 +2963,8 @@ footer {
 .announcements-spinner {
     width: 40px;
     height: 40px;
-    border: 3px solid rgba(16, 126, 125, 0.1);
-    border-top: 3px solid var(--color-accent);
+    border: 3px solid rgba(26, 62, 104, 0.1);
+    border-top: 3px solid var(--color-primary);
     border-radius: 50%;
     animation: spin 1s linear infinite;
 }
@@ -3012,7 +3013,7 @@ footer {
 
 .routine-time-location {
     font-size: 0.9rem;
-    color: var(--color-accent);
+    color: var(--color-secondary);
     display: flex;
     align-items: center;
     gap: 0.8rem;
@@ -3027,7 +3028,7 @@ footer {
 
 .routine-badge {
     background: var(--color-primary-light);
-    border: 1px solid rgba(217, 119, 6, 0.25);
+    border: 1px solid rgba(26, 62, 104, 0.15);
     color: var(--color-primary-dark);
     padding: 0.25rem 0.75rem;
     border-radius: 50px;
@@ -3128,7 +3129,7 @@ footer {
 }
 
 .respect-table tr:hover td {
-    background: rgba(217, 119, 6, 0.04);
+    background: rgba(26, 62, 104, 0.03);
 }
 
 .respect-badge {
@@ -3146,9 +3147,9 @@ footer {
 }
 
 .respect-badge.guard {
-    background: rgba(220, 166, 38, 0.15);
-    border: 1px solid rgba(220, 166, 38, 0.3);
-    color: var(--color-accent);
+    background: rgba(26, 62, 104, 0.08);
+    border: 1px solid rgba(26, 62, 104, 0.18);
+    color: var(--color-primary-dark);
 }
 
 /* 3. 座談會青年部主打場樣式 */
@@ -3183,7 +3184,7 @@ footer {
 .youth-search-input:focus {
     border-color: var(--color-primary);
     background: #fff;
-    box-shadow: 0 0 15px rgba(217, 119, 6, 0.15);
+    box-shadow: 0 0 15px rgba(26, 62, 104, 0.15);
 }
 
 .youth-search-icon {
@@ -3220,7 +3221,7 @@ footer {
     left: 0;
     width: 100%;
     height: 3px;
-    background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+    background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
     opacity: 0.7;
 }
 
@@ -3247,9 +3248,9 @@ footer {
 .youth-meet-date {
     display: inline-block;
     font-size: 0.8rem;
-    color: var(--color-accent);
-    background: rgba(220, 166, 38, 0.1);
-    border: 1px solid rgba(220, 166, 38, 0.2);
+    color: var(--color-primary-dark);
+    background: rgba(26, 62, 104, 0.08);
+    border: 1px solid rgba(26, 62, 104, 0.18);
     padding: 0.2rem 0.6rem;
     border-radius: 6px;
     font-weight: 600;
@@ -3298,13 +3299,13 @@ footer {
 .other-card-icon {
     width: 36px;
     height: 36px;
-    background: rgba(220, 166, 38, 0.15);
-    border: 1px solid rgba(220, 166, 38, 0.3);
+    background: rgba(26, 62, 104, 0.08);
+    border: 1px solid rgba(26, 62, 104, 0.18);
     border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--color-accent);
+    color: var(--color-primary-dark);
 }
 
 .other-card-title {
@@ -3322,8 +3323,8 @@ footer {
 
 .other-guidance-box {
     margin-top: 1.2rem;
-    background: rgba(217, 119, 6, 0.04);
-    border-left: 3px solid var(--color-accent);
+    background: rgba(26, 62, 104, 0.04);
+    border-left: 3px solid var(--color-primary);
     padding: 1rem;
     border-radius: 0 var(--radius-xs) var(--radius-xs) 0;
 }
@@ -3428,6 +3429,30 @@ footer {
    創價班勤務配置表摺疊與徽章樣式 (Sokaban Table Collapsible & Badges)
    ========================================================================== */
 
+/* 座談會人員表摺疊容器樣式 */
+.members-table-wrapper {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    pointer-events: none;
+    transform: translateY(-12px);
+    transition: max-height 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
+                opacity 0.5s ease, 
+                transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+                padding 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                margin 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    margin-top: 0 !important;
+}
+
+.members-table-wrapper.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    margin-top: 1.5rem !important;
+}
+
 /* 表格容器摺疊基礎設定 (預設收起) */
 .sokaban-table-wrapper {
     max-height: 0;
@@ -3500,24 +3525,24 @@ footer {
     box-shadow: 0 6px 14px rgba(67, 43, 20, 0.25);
 }
 
-/* 🏠 內場執勤人員名牌徽章 - 焦糖橘香奶茶風 */
+/* 🏠 內場執勤人員名牌徽章 - 輕奢黛藍微風 */
 .sokaban-badge-member {
-    background-color: rgba(217, 119, 6, 0.08);
+    background-color: rgba(26, 62, 104, 0.08);
     color: var(--color-primary-dark);
     padding: 0.35rem 0.75rem;
     border-radius: 12px;
     font-weight: 700;
     display: inline-block;
     font-size: 0.85rem;
-    border: 1px solid rgba(217, 119, 6, 0.18);
-    box-shadow: 0 2px 5px rgba(217, 119, 6, 0.05);
+    border: 1px solid rgba(26, 62, 104, 0.18);
+    box-shadow: 0 2px 5px rgba(26, 62, 104, 0.04);
     transition: var(--transition-smooth);
 }
 
 .sokaban-badge-member:hover {
-    background-color: rgba(217, 119, 6, 0.14);
+    background-color: rgba(26, 62, 104, 0.14);
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(217, 119, 6, 0.12);
+    box-shadow: 0 4px 8px rgba(26, 62, 104, 0.1);
 }
 
 /* 🌳 外場防護人員名牌徽章 - 燕麥焦糖舒適風 */
@@ -3561,9 +3586,9 @@ footer {
         background: rgba(255, 255, 255, 0.96);
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
-        border: 1px solid rgba(217, 119, 6, 0.15);
+        border: 1px solid rgba(26, 62, 104, 0.15);
         border-radius: var(--radius-md);
-        box-shadow: 0 10px 30px rgba(67, 43, 20, 0.08), 0 4px 12px rgba(67, 43, 20, 0.04);
+        box-shadow: 0 10px 30px rgba(26, 62, 104, 0.08), 0 4px 12px rgba(26, 62, 104, 0.04);
         padding: 0.5rem 0;
         z-index: 1000;
         
@@ -3610,10 +3635,10 @@ footer {
         border-bottom: none;
     }
     
-    /* 連結 Hover/觸碰時的精緻太妃橘高亮底色與微下沉按壓反饋 */
+    /* 連結 Hover/觸碰時的精緻黛藍高亮底色與微下沉按壓反饋 */
     .mobile-dropdown-list li a:hover,
     .mobile-dropdown-list li a:active {
-        background-color: rgba(217, 119, 6, 0.06);
+        background-color: rgba(26, 62, 104, 0.06);
         color: var(--color-primary-dark);
         padding-left: 1.55rem; /* 微往右浮動，帶有引導感 */
     }
@@ -3707,7 +3732,7 @@ footer {
 /* 滑鼠懸停浮起高亮與豪華光澤陰影 */
 .draw-card:hover {
     transform: translateY(-16px) scale(1.08) !important;
-    box-shadow: 0 15px 35px rgba(217, 119, 6, 0.22);
+    box-shadow: 0 15px 35px rgba(26, 62, 104, 0.20);
 }
 
 .draw-card-inner {
@@ -3719,19 +3744,19 @@ footer {
     -webkit-transform-style: preserve-3d;
 }
 
-/* 卡片背面 (無外框極簡藝術版：完美展現手繪插畫花草蝴蝶與黑色蓮華徽章) */
+/* 卡片背面 (無外框極簡黛藍藝術版：完美展現智慧雄獅高貴面容與湛藍雙眼) */
 .draw-card-back {
     width: 100%;
     height: 100%;
-    background-image: url('sgi_card_back_bg.jpg');
-    background-size: cover;
-    background-position: center;
+    background-image: url('sgi_lion_bg.jpg');
+    background-size: cover; /* 以高度為準完美滿版，寬度自動放大 3.2 倍 */
+    background-position: 52% center; /* 水平精準對齊智慧雄獅高貴的面容與湛藍雙眼 */
     border: none !important; /* 完美去除焦糖色外框，插圖與邊緣自然融合 */
     border-radius: 24px; /* 圓角增大，更加優雅精美 */
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 10px 30px rgba(67, 43, 20, 0.15), 0 2px 8px rgba(67, 43, 20, 0.08); /* 強化立體懸浮陰影 */
+    box-shadow: 0 10px 30px rgba(26, 62, 104, 0.12), 0 2px 8px rgba(26, 62, 104, 0.05); /* 升級為高貴的黛藍輕浮發光陰影 */
     position: absolute;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
@@ -3768,7 +3793,7 @@ footer {
 .draw-card.selected {
     transform: scale(1.22) rotateY(180deg) !important;
     z-index: 10;
-    box-shadow: 0 10px 30px rgba(217, 119, 6, 0.22);
+    box-shadow: 0 10px 30px rgba(26, 62, 104, 0.16);
 }
 
 /* 中等螢幕/平板端 RWD 完美適配與卡片微調 */
@@ -3819,7 +3844,7 @@ footer {
     }
     .draw-card-back {
         border-radius: 14px !important;
-        box-shadow: 0 6px 16px rgba(67, 43, 20, 0.12) !important;
+        box-shadow: 0 6px 16px rgba(26, 62, 104, 0.1) !important;
     }
 }
 
@@ -3852,11 +3877,11 @@ footer {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(217, 119, 6, 0.2);
+    border: 1px solid rgba(26, 62, 104, 0.2);
     border-radius: 28px;
     width: 100%;
     max-width: 380px;
-    box-shadow: 0 20px 50px rgba(67, 43, 20, 0.15);
+    box-shadow: 0 20px 50px rgba(26, 62, 104, 0.12);
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -3908,9 +3933,9 @@ footer {
 
 .mobile-save-hint {
     font-size: 0.8rem;
-    color: var(--color-accent);
-    background-color: rgba(217, 119, 6, 0.05);
-    border: 1px solid rgba(217, 119, 6, 0.12);
+    color: var(--color-primary-dark);
+    background-color: rgba(26, 62, 104, 0.05);
+    border: 1px solid rgba(26, 62, 104, 0.12);
     padding: 0.5rem 0.8rem;
     border-radius: 12px;
     line-height: 1.45;
@@ -3965,7 +3990,7 @@ footer {
     padding: 5.5rem 4.5rem !important;
     border-radius: 48px !important;
     box-shadow: none !important; /* 後台渲染不需要外層陰影 */
-    background: linear-gradient(135deg, #fdfbf7 0%, #f7f3eb 100%) !important;
+    background: linear-gradient(135deg, #F0F4F8 0%, #F7FAFC 100%) !important;
 }
 
 .soka-instagram-card.is-instagram-story .tricolor-ring {
@@ -3999,7 +4024,7 @@ footer {
 
 .soka-instagram-card.is-instagram-story .card-header {
     padding-bottom: 2rem !important;
-    border-bottom: 2px solid rgba(190, 150, 80, 0.15) !important;
+    border-bottom: 2px solid rgba(26, 62, 104, 0.15) !important;
 }
 
 .soka-instagram-card.is-instagram-story .card-content {
@@ -4028,7 +4053,7 @@ footer {
 
 .soka-instagram-card.is-instagram-story .card-footer {
     padding-top: 2rem !important;
-    border-top: 2px solid rgba(190, 150, 80, 0.15) !important;
+    border-top: 2px solid rgba(26, 62, 104, 0.15) !important;
 }
 
 .soka-instagram-card.is-instagram-story .quote-author {
