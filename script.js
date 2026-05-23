@@ -80,8 +80,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // 6. 註冊手機底部抽屜 (Bottom Sheet) 的向下滑動關閉手勢 (Swipe-down to Close)
     initializeBottomSheetGestures();
 
-    // 7. 初始化 Soka Press 金句字卡系統
+    // 7. 初始化 Soka Press 金句字卡系統與 Hero 區塊名言隨機化
     initializeSokaQuoteCard();
+    initializeHeroQuotes();
 
     // 8. 初始化當月座談會人員表多支部系統
     initializeMeetingMembers();
@@ -509,9 +510,80 @@ const SOKA_PRESS_QUOTES = [
     }
 ];
 
+// ==========================================================================
+// H. 首頁 Hero 區塊文案隨機化系統 (每次重新整理或載入隨機呈現完美成對金句)
+// ==========================================================================
+
+// 精選與右側心靈晨光金句相呼應、大氣洗鍊的首頁開場大標題與名言引言成對組合
+const SOKA_HERO_QUOTES = [
+    {
+        title: "點亮心中妙法光芒<br>創造自他彼此的<span>幸福人生</span>",
+        text: "「人間革命的溫暖光芒，是驅散黑暗、照亮社區的最強大力量。當我們主動關懷一人，和平的漣漪就從這裡開始擴散。」",
+        author: "— 創價學會第三任會長 池田大作"
+    },
+    {
+        title: "堅持不懈信心前進<br>迎來人生最耀眼的<span>冬必為春</span>",
+        text: "「無論面臨多麼嚴酷的人生寒冬，只要堅持不懈地信心前進，春天必定會到來，一切苦難都將化為成長的養分。」",
+        author: "— 創價學會第三任會長 池田大作"
+    },
+    {
+        title: "勇於開拓迎接挑戰<br>譜寫生命最豪邁的<span>勝利凱歌</span>",
+        text: "「命運不是用來屈服的，而是用來開拓與挑戰的。胸懷強大信念的人，能將任何逆境轉換為最耀眼的勝利凱歌。」",
+        author: "— 創價學會第三任會長 池田大作"
+    },
+    {
+        title: "無懼驚濤破浪前行<br>吹響生命最嘹亮的<span>希望風笛</span>",
+        text: "「真正的幸福並非身處無風無浪的避風港，而是在驚濤駭浪中，依然能吹起希望的風笛，勇敢地破浪前行。」",
+        author: "— 創價學會第三任會長 池田大作"
+    },
+    {
+        title: "以溫暖與關懷同行<br>點亮鄰里生命中的<span>幸福明燈</span>",
+        text: "「關懷鄰里、疼惜伙伴的溫暖問候，能融化最冰冷的心靈。我們主動的一句鼓勵，就是點亮他人生命的一盞明燈。」",
+        author: "— 創價學會第三任會長 池田大作"
+    },
+    {
+        title: "變革始於一個人的心境<br>展開改變世界的<span>人間革命</span>",
+        text: "「偉大的變革，始於一個人的『人間革命』。當我們改變了自己的心境，身邊的環境與世界也將隨之轉換與躍進。」",
+        author: "— 創價學會第三任會長 池田大作"
+    }
+];
+
+// 初始化首頁 Hero 區塊隨機金句，並實作平滑淡入動畫效果
+function initializeHeroQuotes() {
+    const titleEl = document.getElementById('hero-title');
+    const textEl = document.getElementById('hero-quote-text');
+    const authorEl = document.getElementById('hero-quote-author');
+    
+    if (titleEl && textEl && authorEl) {
+        // 隨機抽選一組完美文案
+        const randomIndex = Math.floor(Math.random() * SOKA_HERO_QUOTES.length);
+        const quote = SOKA_HERO_QUOTES[randomIndex];
+        
+        // 為了防止隨機替換時文字突兀閃爍，將透明度先歸零，實作呼吸般的淡入
+        titleEl.style.opacity = '0';
+        textEl.style.opacity = '0';
+        authorEl.style.opacity = '0';
+        
+        titleEl.innerHTML = quote.title;
+        textEl.textContent = quote.text;
+        authorEl.textContent = quote.author;
+        
+        // 在微延遲後啟動平滑的 CSS Transition 漸變淡入
+        setTimeout(() => {
+            titleEl.style.transition = 'opacity 0.6s ease';
+            textEl.style.transition = 'opacity 0.6s ease';
+            authorEl.style.transition = 'opacity 0.6s ease';
+            
+            titleEl.style.opacity = '1';
+            textEl.style.opacity = '1';
+            authorEl.style.opacity = '1';
+        }, 50);
+    }
+}
+
 let currentQuoteIndex = 0;
 
-// 初始化字卡
+// 初始化字卡 (每次開啟/重新整理網頁時，隨機挑選一句展示)
 function initializeSokaQuoteCard() {
     // 1. 設定今日日期 YYYY.MM.DD
     const dateEl = document.getElementById('soka-card-date');
@@ -522,8 +594,8 @@ function initializeSokaQuoteCard() {
         const dd = String(today.getDate()).padStart(2, '0');
         dateEl.textContent = `${yyyy}.${mm}.${dd}`;
         
-        // 2. 根據「日期天數」決定今日預設金句，保證每天打開都是特定的一句，且每天不同
-        currentQuoteIndex = today.getDate() % SOKA_PRESS_QUOTES.length;
+        // 2. 每次重新整理網頁隨機決定今日金句，提供源源不絕的晨光驚喜
+        currentQuoteIndex = Math.floor(Math.random() * SOKA_PRESS_QUOTES.length);
         renderQuote(currentQuoteIndex);
     }
 }
