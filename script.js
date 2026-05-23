@@ -243,7 +243,6 @@ function renderCalendarEvents(events) {
                         <span>${event.month}</span>
                         <span>${event.weekday}</span>
                     </div>
-                    <span class="event-tag">${event.tag}</span>
                 </div>
                 <h3 class="event-title">${event.title}</h3>
                 <p class="event-desc">${event.desc}</p>
@@ -585,7 +584,7 @@ let currentQuoteIndex = 0;
 
 // 初始化字卡 (每次開啟/重新整理網頁時，隨機挑選一句展示)
 function initializeSokaQuoteCard() {
-    // 1. 設定今日日期 YYYY.MM.DD
+    // 1. 設定今日日期 YYYY.MM.DD (若 DOM 元素存在則動態更新)
     const dateEl = document.getElementById('soka-card-date');
     if (dateEl) {
         const today = new Date();
@@ -593,11 +592,11 @@ function initializeSokaQuoteCard() {
         const mm = String(today.getMonth() + 1).padStart(2, '0');
         const dd = String(today.getDate()).padStart(2, '0');
         dateEl.textContent = `${yyyy}.${mm}.${dd}`;
-        
-        // 2. 每次重新整理網頁隨機決定今日金句，提供源源不絕的晨光驚喜
-        currentQuoteIndex = Math.floor(Math.random() * SOKA_PRESS_QUOTES.length);
-        renderQuote(currentQuoteIndex);
     }
+    
+    // 2. 每次重新整理網頁隨機決定今日金句，提供源源不絕 of 晨光驚喜 (與日期 DOM 存在狀態解耦)
+    currentQuoteIndex = Math.floor(Math.random() * SOKA_PRESS_QUOTES.length);
+    renderQuote(currentQuoteIndex);
 }
 
 // 渲染特定索引的金句到 DOM
