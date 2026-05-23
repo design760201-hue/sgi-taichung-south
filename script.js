@@ -807,18 +807,29 @@ const BRANCH_MEMBERS_MOCK = {
 
 // 2. 初始化座談會人員名單系統
 function initializeMeetingMembers() {
-    const indicatorDot = document.querySelector('.status-indicator-dot');
+    const indicatorDot = document.getElementById('sync-dot-green');
+    const indicatorDotBrown = document.getElementById('sync-dot-brown');
     const syncStatusText = document.getElementById('sync-status-text');
     
     if (MEMBERS_SPREADSHEET_ID) {
-        if (indicatorDot && syncStatusText) {
-            indicatorDot.className = 'status-indicator-dot syncing';
-            syncStatusText.textContent = '● 雲端即時同步中 (點擊開啟試算表)';
+        if (indicatorDot) {
+            indicatorDot.className = 'status-indicator-dot green syncing';
+        }
+        if (indicatorDotBrown) {
+            indicatorDotBrown.style.display = 'inline-block';
+        }
+        if (syncStatusText) {
+            syncStatusText.textContent = '雲端即時同步中 (點擊開啟試算表)';
         }
         loadBranchData(currentBranch);
     } else {
-        if (indicatorDot && syncStatusText) {
+        if (indicatorDot) {
             indicatorDot.className = 'status-indicator-dot local';
+        }
+        if (indicatorDotBrown) {
+            indicatorDotBrown.style.display = 'none';
+        }
+        if (syncStatusText) {
             syncStatusText.textContent = '本地預設數據 (點擊配置雲端同步)';
         }
         currentBranchData = BRANCH_MEMBERS_MOCK[currentBranch] || [];

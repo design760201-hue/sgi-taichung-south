@@ -1550,26 +1550,34 @@ header.scrolled .header-container {
     color: var(--color-primary-dark);
 }
 
-/* 同步狀態列 */
+/* 雲端即時同步狀態列 (膠囊藥丸狀設計，完美符合使用者視覺規範) */
 .sync-status-bar {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 0.5rem;
     font-size: 0.85rem;
     font-weight: 700;
-    color: var(--color-text-muted);
+    color: #6c584c !important; /* 深褐色文字 */
     cursor: pointer;
-    background: rgba(67, 43, 20, 0.04);
-    padding: 0.45rem 0.9rem;
-    border-radius: var(--radius-xs);
-    transition: all var(--transition-fast);
-    border: 1px solid transparent;
+    background-color: #f5f3f0; /* 淺燕麥灰色背景 */
+    padding: 0.55rem 1.25rem; /* 大圓角膠囊 padding */
+    border-radius: 50px; /* 膠囊藥丸狀大圓角 */
+    box-shadow: 0 2px 6px rgba(67, 43, 20, 0.04);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    border: 1px solid rgba(67, 43, 20, 0.03);
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .sync-status-bar:hover {
-    background: rgba(67, 43, 20, 0.08);
-    color: var(--color-primary-dark);
-    border-color: rgba(67, 43, 20, 0.08);
+    background-color: #edebe7;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(67, 43, 20, 0.08);
+}
+
+.sync-status-bar:active {
+    transform: translateY(1px);
+    box-shadow: 0 1px 3px rgba(67, 43, 20, 0.04);
 }
 
 .status-indicator-dot {
@@ -1577,17 +1585,43 @@ header.scrolled .header-container {
     height: 8px;
     border-radius: 50%;
     display: inline-block;
-    transition: all var(--transition-fast);
+    transition: all 0.3s ease;
 }
 
+/* 亮綠色呼吸燈圓點 (同步中) */
+.status-indicator-dot.green,
+.status-indicator-dot.syncing {
+    background-color: #3cd070;
+    box-shadow: 0 0 8px rgba(60, 208, 112, 0.8);
+    animation: sync-pulse 2s infinite ease-in-out;
+}
+
+/* 深褐色圓點 */
+.status-indicator-dot.brown {
+    background-color: #8c7355;
+    box-shadow: none;
+}
+
+/* 本地預設數據黃色點 */
 .status-indicator-dot.local {
     background-color: #f0ad4e;
     box-shadow: 0 0 8px rgba(240, 173, 78, 0.6);
 }
 
-.status-indicator-dot.syncing {
-    background-color: #40c057;
-    box-shadow: 0 0 8px rgba(64, 192, 87, 0.6);
+/* 呼吸燈動畫 */
+@keyframes sync-pulse {
+    0% {
+        box-shadow: 0 0 4px rgba(60, 208, 112, 0.5);
+        opacity: 0.8;
+    }
+    50% {
+        box-shadow: 0 0 12px rgba(60, 208, 112, 0.9);
+        opacity: 1;
+    }
+    100% {
+        box-shadow: 0 0 4px rgba(60, 208, 112, 0.5);
+        opacity: 0.8;
+    }
 }
 
 /* 第三層：表格與 Loading 載入遮罩 */
@@ -3367,6 +3401,28 @@ footer {
     transform: translateY(0);
     pointer-events: auto;
     margin-top: 1.5rem !important;
+}
+
+/* 創價班即時勤務表同步動作條 */
+.sokaban-action-bar {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1rem;
+    padding: 0 0.5rem;
+}
+
+/* 手機端自適應居中與滿版 */
+@media (max-width: 768px) {
+    .sokaban-action-bar {
+        justify-content: center;
+        margin-bottom: 1.2rem;
+    }
+    
+    .sokaban-action-bar .sync-status-bar {
+        width: 100%;
+        justify-content: center;
+        padding: 0.75rem 1.25rem; /* 手機上按鈕面積大些更好點擊 */
+    }
 }
 
 /* 徽章網格排列與微卡片設計 */

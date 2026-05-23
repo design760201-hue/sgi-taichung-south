@@ -466,6 +466,13 @@
 
             <!-- 創價班勤務配置表格容器 -->
             <div class="sokaban-table-wrapper" id="sokaban-table-wrapper">
+                <div class="sokaban-action-bar">
+                    <a href="https://docs.google.com/spreadsheets/d/1vjKZXPlXs02wHHTH8FmM11nLMipv5a-s/edit?gid=1752180854#gid=1752180854" target="_blank" class="sync-status-bar" title="點擊開啟創價班即時雲端勤務表">
+                        <span class="status-indicator-dot green"></span>
+                        <span class="status-indicator-dot brown"></span>
+                        <span class="status-text">雲端即時同步中 (點擊開啟試算表)</span>
+                    </a>
+                </div>
                 <div class="table-scroll-hint">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
                     <span>向左滑動查看完整執勤表</span>
@@ -642,7 +649,8 @@
 
                 <!-- 同步狀態列 -->
                 <div class="sync-status-bar" id="sync-status-bar" onclick="handleSyncStatusClick()">
-                    <span class="status-indicator-dot local"></span>
+                    <span class="status-indicator-dot green" id="sync-dot-green"></span>
+                    <span class="status-indicator-dot brown" id="sync-dot-brown" style="display: none;"></span>
                     <span class="status-text" id="sync-status-text">本地預設數據 (點擊配置雲端同步)</span>
                 </div>
             </div>
