@@ -2293,15 +2293,50 @@ footer {
     
     .header-container {
         height: 70px;
-        justify-content: center; /* 居中 Logo，對稱美觀 */
+        justify-content: space-between; /* Logo 靠左，漢堡選單靠右 */
+        padding: 0 1.5rem !important;
     }
     
     .logo {
         transform: scale(0.95);
     }
     
-    .hamburger, nav {
-        display: none !important; /* 手機端完全依靠底部捷徑列，使介面極簡乾淨 */
+    nav {
+        display: none !important; /* 隱藏桌面端導覽列 */
+    }
+    
+    .hamburger {
+        display: flex !important; /* 顯示手機端三條線漢堡 */
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: none;
+        border: none;
+        padding: 0.5rem;
+        cursor: pointer;
+        position: relative; /* 確保 z-index 生效 */
+        z-index: 1001; /* 置於下拉選單上方 */
+        transition: all 0.3s ease;
+    }
+    
+    .hamburger span {
+        display: block;
+        width: 22px;
+        height: 2px;
+        background-color: var(--color-secondary);
+        margin: 2px 0;
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    
+    /* 漢堡變 X 微動畫 */
+    .hamburger.active span:nth-child(1) {
+        transform: translateY(6px) rotate(45deg);
+    }
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+        transform: translateY(-6px) rotate(-45deg);
     }
     
     /* 8. 手機專用底部快捷導覽列 (Mobile Bottom Nav Bar) */
@@ -3402,52 +3437,82 @@ footer {
 
 
 /* ==========================================================================
-   手機端置頂快速跳轉下拉選單 (Mobile Header Quick Select Dropdown)
+   手機端置頂三條線漢堡下拉選單卡片 (Mobile Hamburger Dropdown Card Styles)
    ========================================================================== */
 
 /* 電腦端預設隱藏 */
-.mobile-quick-nav-wrap {
+.mobile-dropdown-menu {
     display: none;
 }
 
-/* 手機端高階美化與定位樣式 */
+/* 手機端 Premium 毛玻璃下拉選單樣式 */
 @media (max-width: 768px) {
-    .mobile-quick-nav-wrap {
+    .mobile-dropdown-menu {
         display: block;
-        margin-left: auto;
-        margin-right: 0.8rem;
-        z-index: 100;
-    }
-    
-    .mobile-quick-select {
-        background: rgba(217, 119, 6, 0.08);
-        color: var(--color-primary-dark);
-        border: 1px solid rgba(217, 119, 6, 0.25);
-        border-radius: 18px;
-        padding: 0.35rem 1.8rem 0.35rem 0.8rem;
-        font-size: 0.78rem;
-        font-weight: 700;
-        cursor: pointer;
-        outline: none;
-        appearance: none;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        position: absolute;
+        top: 70px; /* 緊貼 Header 正下方 */
+        right: 1.5rem;
+        width: 220px;
+        background: rgba(255, 255, 255, 0.96);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(217, 119, 6, 0.15);
+        border-radius: var(--radius-md);
+        box-shadow: 0 10px 30px rgba(67, 43, 20, 0.08), 0 4px 12px rgba(67, 43, 20, 0.04);
+        padding: 0.5rem 0;
+        z-index: 1000;
         
-        /* 太妃橘精緻小箭頭 */
-        background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2712%27%20height%3D%2712%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27%23d97706%27%20stroke-width%3D%273%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpolyline%20points%3D%276%209%2012%2015%2018%209%27%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E");
-        background-repeat: no-repeat;
-        background-position: right 0.6rem center;
-        background-size: 10px;
-        box-shadow: 0 2px 6px rgba(217, 119, 6, 0.05);
+        /* 物理過渡動畫初始狀態：收縮淡出 */
+        opacity: 0;
+        transform: translateY(-10px) scale(0.95);
+        pointer-events: none;
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        transform-origin: top right;
     }
     
-    .mobile-quick-select:active, .mobile-quick-select:focus {
-        background-color: rgba(217, 119, 6, 0.14);
-        border-color: var(--color-primary);
-        box-shadow: 0 4px 12px rgba(217, 119, 6, 0.15);
-        transform: scale(1.02);
+    /* 展開啟用狀態 */
+    .mobile-dropdown-menu.active {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        pointer-events: auto;
+    }
+    
+    .mobile-dropdown-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .mobile-dropdown-list li {
+        width: 100%;
+    }
+    
+    .mobile-dropdown-list li a {
+        display: block;
+        padding: 0.85rem 1.25rem;
+        color: var(--color-text-main);
+        font-size: 0.9rem;
+        font-weight: 700;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(67, 43, 20, 0.04);
+        transition: all 0.25s ease;
+        -webkit-tap-highlight-color: transparent;
+    }
+    
+    .mobile-dropdown-list li:last-child a {
+        border-bottom: none;
+    }
+    
+    /* 連結 Hover/觸碰時的精緻太妃橘高亮底色與微下沉按壓反饋 */
+    .mobile-dropdown-list li a:hover,
+    .mobile-dropdown-list li a:active {
+        background-color: rgba(217, 119, 6, 0.06);
+        color: var(--color-primary-dark);
+        padding-left: 1.55rem; /* 微往右浮動，帶有引導感 */
     }
 }
+
 
 

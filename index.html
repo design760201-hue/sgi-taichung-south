@@ -45,19 +45,18 @@
                 </ul>
             </nav>
             
-            <!-- 手機端專用：置頂快速跳轉下拉選單 (Mobile Header Quick Select) -->
-            <div class="mobile-quick-nav-wrap">
-                <select class="mobile-quick-select" id="mobile-quick-select" onchange="handleMobileQuickNav(this)">
-                    <option value="" disabled selected>快速跳轉 ▾</option>
-                    <option value="#calendar">📅 活動行事曆</option>
-                    <option value="#about">📢 南區傳達事項</option>
-                    <option value="#study">📥 相關資料下載</option>
-                    <option value="#sokaban-duty">🛡️ 創價班執勤表</option>
-                    <option value="#meeting-members">👥 座談會人員表</option>
-                </select>
+            <!-- 手機端專用：三條線漢堡下拉選單卡片 (Mobile Hamburger Dropdown Card) -->
+            <div class="mobile-dropdown-menu" id="mobile-dropdown-menu">
+                <ul class="mobile-dropdown-list">
+                    <li><a href="#calendar" onclick="closeMobileDropdown(event, '#calendar')">📅 活動行事曆</a></li>
+                    <li><a href="#about" onclick="closeMobileDropdown(event, '#about')">📢 南區傳達事項</a></li>
+                    <li><a href="#study" onclick="closeMobileDropdown(event, '#study')">📥 相關資料下載</a></li>
+                    <li><a href="#sokaban-duty" onclick="closeMobileDropdown(event, '#sokaban-duty')">🛡️ 創價班執勤表</a></li>
+                    <li><a href="#meeting-members" onclick="closeMobileDropdown(event, '#meeting-members')">👥 座談會人員表</a></li>
+                </ul>
             </div>
 
-            <button class="hamburger" id="hamburger" aria-label="選單開關">
+            <button class="hamburger" id="hamburger" aria-label="選單開關" onclick="toggleMobileDropdown()">
                 <span></span>
                 <span></span>
                 <span></span>

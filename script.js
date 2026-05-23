@@ -1980,58 +1980,89 @@ function toggleSokaban() {
 
 
 // ==========================================================================
-// 📱 (9) 手機端置頂快速跳轉下拉選單監聽器 (Mobile Quick Navigation Listener)
+// 📱 (9) 手機端三條線漢堡下拉選單控制與智慧跳轉聯動系統 (Mobile Hamburger Dropdown)
 // ==========================================================================
-window.handleMobileQuickNav = function(selectElement) {
-    const targetId = selectElement.value;
-    if (!targetId) return;
+
+// 切換選單的展開與收合狀態
+window.toggleMobileDropdown = function() {
+    const hamburger = document.getElementById('hamburger');
+    const dropdown = document.getElementById('mobile-dropdown-menu');
     
+    if (!hamburger || !dropdown) return;
+    
+    const isActive = dropdown.classList.contains('active');
+    
+    if (isActive) {
+        hamburger.classList.remove('active');
+        dropdown.classList.remove('active');
+    } else {
+        hamburger.classList.add('active');
+        dropdown.classList.add('active');
+        
+        // 輕微觸控震動 (15ms)
+        if (window.navigator && window.navigator.vibrate) {
+            window.navigator.vibrate(15);
+        }
+    }
+};
+
+// 點選項目後的關閉、平滑滾動與展開聯動
+window.closeMobileDropdown = function(event, targetId) {
+    // 1. 阻止預設的快速跳轉，改用我們的平滑物理滾動
+    if (event) event.preventDefault();
+    
+    const hamburger = document.getElementById('hamburger');
+    const dropdown = document.getElementById('mobile-dropdown-menu');
+    
+    // 2. 秒速關閉下拉選單與復位漢堡 X 按鈕
+    if (hamburger) hamburger.classList.remove('active');
+    if (dropdown) dropdown.classList.remove('active');
+    
+    // 3. 獲取目標元素並進行高精確的扣除 Header 高度跳轉
     const target = document.querySelector(targetId);
     if (target) {
-        console.log(`💡 手機置頂選單跳轉至：${targetId}`);
-        
-        // 1. 計算扣除固定 Header (70px) 的精確滾動高度位置，防止標題被擋住
-        const headerOffset = 70;
+        const headerOffset = 70; // 頂部固定導覽列高度
         const elementPosition = target.getBoundingClientRect().top;
         const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
         
+        // 執行絲滑的平滑滾動
         window.scrollTo({
             top: offsetPosition,
             behavior: 'smooth'
         });
         
-        // 2. 雙向聯動：若目標面板處於收合狀態，則自動平滑展開它
-        if (targetId === '#calendar') {
-            const container = document.getElementById('events-grid');
-            if (container && !container.classList.contains('active')) {
-                toggleCalendar();
+        // 4. 雙向自動展開聯動：若目標面板處於收合狀態，則平滑向下滑開它
+        setTimeout(() => {
+            if (targetId === '#calendar') {
+                const container = document.getElementById('events-grid');
+                if (container && !container.classList.contains('active')) {
+                    toggleCalendar();
+                }
+            } else if (targetId === '#about') {
+                const container = document.querySelector('.announcements-container');
+                if (container && !container.classList.contains('active')) {
+                    toggleAnnouncements();
+                }
+            } else if (targetId === '#study') {
+                const container = document.querySelector('.study-cloud-hub');
+                if (container && !container.classList.contains('active')) {
+                    toggleStudy();
+                }
+            } else if (targetId === '#sokaban-duty') {
+                const container = document.getElementById('sokaban-table-wrapper');
+                if (container && !container.classList.contains('active')) {
+                    toggleSokaban();
+                }
             }
-        } else if (targetId === '#about') {
-            const container = document.querySelector('.announcements-container');
-            if (container && !container.classList.contains('active')) {
-                toggleAnnouncements();
-            }
-        } else if (targetId === '#study') {
-            const container = document.querySelector('.study-cloud-hub');
-            if (container && !container.classList.contains('active')) {
-                toggleStudy();
-            }
-        } else if (targetId === '#sokaban-duty') {
-            const container = document.getElementById('sokaban-table-wrapper');
-            if (container && !container.classList.contains('active')) {
-                toggleSokaban();
-            }
-        }
+        }, 100); // 稍微延遲以獲得更好的視覺分離體驗
         
-        // 3. 原生震動回饋 (Retina UI/UX 儀式感)
+        // 5. 觸覺震動回饋
         if (window.navigator && window.navigator.vibrate) {
             window.navigator.vibrate(15);
         }
     }
-    
-    // 4. 重點細節：將 Select 恢復預設選擇状态，以便下次重複選擇時仍能觸發 Change 事件！
-    selectElement.value = "";
 };
+
 
 
 
