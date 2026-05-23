@@ -1628,11 +1628,54 @@ async function fetchGoogleSheetsMembers(spreadsheetId, sheetName) {
     
     if (!rows || rows.length === 0) return [];
     
+    // 智慧型動態欄位索引定位系統：透過掃描 Google Sheets 表頭欄位名稱，自動精準映射每一欄 index。
+    // 這能完美適應隱藏欄位、新增欄位或欄位順序微調，徹底避免錯位 Bug！
+    let colIndices = {
+        district: 0,   // 地區預設為 A 欄 (0)
+        group: 1,      // 組別預設為 B 欄 (1)
+        date: 2,       // 日期預設為 C 欄 (2)
+        emcee: 3,      // 司儀預設為 D 欄 (3)
+        gosho: 4,      // 御書預設為 E 欄 (4)
+        theme: 5,      // 感謝專題/青年部預設為 F 欄 (5)
+        cadre: 8,      // 投入幹部預設為 I 欄 (8，排除 H 欄的「大家談」)
+        scribe: 9,     // 紀錄人員預設為 J 欄 (9)
+        concluder: 10, // 總結幹部預設為 K 欄 (10)
+        address: 12    // 地圖地址預設為 M 欄 (12)
+    };
+
+    if (json.table.cols && Array.isArray(json.table.cols)) {
+        json.table.cols.forEach((col, idx) => {
+            if (!col || !col.label) return;
+            const label = col.label.trim();
+            if (label.includes('地區')) {
+                colIndices.district = idx;
+            } else if (label === '組' || label === '組別') {
+                colIndices.group = idx;
+            } else if (label.includes('日期')) {
+                colIndices.date = idx;
+            } else if (label.includes('司儀')) {
+                colIndices.emcee = idx;
+            } else if (label.includes('御書')) {
+                colIndices.gosho = idx;
+            } else if (label.includes('感謝') || label.includes('專題') || label.includes('青年部')) {
+                colIndices.theme = idx;
+            } else if (label.includes('投入') || (label.includes('幹部') && !label.includes('總結'))) {
+                colIndices.cadre = idx;
+            } else if (label.includes('紀錄') || label.includes('記錄') || label.includes('人員') && !label.includes('投入') && !label.includes('總結')) {
+                colIndices.scribe = idx;
+            } else if (label.includes('總結')) {
+                colIndices.concluder = idx;
+            } else if (label.includes('地址') || label.includes('地點') || label.includes('googlemap') || label.includes('map')) {
+                colIndices.address = idx;
+            }
+        });
+    }
+    
     // 用於向下填充合併儲存格的暫存變數
     let currentDistrict = '';
     
     const parsedData = rows.map(row => {
-        // 優先提取 cell.f (格式化後的值，如 "5/19(週二)")，若不存在才使用 cell.v
+        // 優先提取 cell.f (格式化後的值)，若不存在才使用 cell.v
         const getCellValue = (index) => {
             if (!row.c || !row.c[index]) return '';
             const cell = row.c[index];
@@ -1642,7 +1685,7 @@ async function fetchGoogleSheetsMembers(spreadsheetId, sheetName) {
             return cell.v !== null ? String(cell.v).trim() : '';
         };
         
-        const rawDistrict = getCellValue(0);
+        const rawDistrict = getCellValue(colIndices.district);
         // 智慧型地區判斷：如果名稱不為空且含有「地區」字樣，則更新 currentDistrict
         if (rawDistrict && rawDistrict.includes('地區')) {
             currentDistrict = rawDistrict;
@@ -1651,26 +1694,27 @@ async function fetchGoogleSheetsMembers(spreadsheetId, sheetName) {
         let addressVal = '';
         let addressLink = '';
         
-        if (row.c && row.c[11]) {
-            const cell11 = row.c[11];
-            addressVal = cell11.f !== undefined && cell11.f !== null ? String(cell11.f).trim() : (cell11.v !== null ? String(cell11.v).trim() : '');
-            addressLink = cell11.u ? cell11.u : '';
+        if (row.c && row.c[colIndices.address]) {
+            const addrCell = row.c[colIndices.address];
+            addressVal = addrCell.f !== undefined && addrCell.f !== null ? String(addrCell.f).trim() : (addrCell.v !== null ? String(addrCell.v).trim() : '');
+            addressLink = addrCell.u ? addrCell.u : '';
         }
         
+        // 智慧降級：如果沒有超連結但有地址純文字，自動為其生成 Google Maps 搜尋連結
         if (!addressLink && addressVal) {
-            addressLink = `https://maps.google.com/?q=${encodeURIComponent(addressVal)}`;
+            addressLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(addressVal)}`;
         }
         
         return {
             district: rawDistrict || currentDistrict,
-            group: getCellValue(1),
-            date: getCellValue(2),
-            emcee: getCellValue(3),
-            gosho: getCellValue(4),
-            theme: getCellValue(5),
-            cadre: getCellValue(7),
-            scribe: getCellValue(8),
-            concluder: getCellValue(9),
+            group: getCellValue(colIndices.group),
+            date: getCellValue(colIndices.date),
+            emcee: getCellValue(colIndices.emcee),
+            gosho: getCellValue(colIndices.gosho),
+            theme: getCellValue(colIndices.theme),
+            cadre: getCellValue(colIndices.cadre),
+            scribe: getCellValue(colIndices.scribe),
+            concluder: getCellValue(colIndices.concluder),
             address: addressVal,
             mapUrl: addressLink
         };
@@ -1839,14 +1883,11 @@ function renderMembersTable(data) {
         
         let addressHtml = '<span style="color:var(--color-text-muted); font-size:0.85rem;">-</span>';
         if (item.address) {
-            if (item.mapUrl) {
-                addressHtml = `<a href="${item.mapUrl}" target="_blank" class="map-btn">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                    📍 開啟導航
-                </a>`;
-            } else {
-                addressHtml = `<span style="font-size:0.85rem; font-weight:600;">${item.address}</span>`;
-            }
+            const finalMapUrl = item.mapUrl || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.address)}`;
+            addressHtml = `<a href="${finalMapUrl}" target="_blank" class="map-btn" title="地址：${item.address}">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                📍 開啟導航
+            </a>`;
         }
         
         row.innerHTML = `
@@ -2438,7 +2479,7 @@ function renderAnnouncements(tabName) {
     }
 }
 
-// (5) 座談會青年部主打場極速搜尋過濾引擎 (支持毫秒級模糊關鍵字交叉篩選)
+// (5) 座談會青年部主打場極速搜尋過濾引擎 (支持毫秒級模糊關鍵字交叉篩選，並智慧串接 Google Maps)
 function filterYouthMeetings(keyword) {
     const grid = document.querySelector('.youth-meetings-grid');
     if (!grid) return;
@@ -2461,14 +2502,61 @@ function filterYouthMeetings(keyword) {
         `;
         return;
     }
+
+    // 內部輔助函數：智慧交叉匹配，為當前的青年部小卡片尋找地址與地圖導航連結
+    const findMapInfo = (district, group) => {
+        // 1. 優先從本地預設的 BRANCH_MEMBERS_MOCK 數據中查找相同地區與組別的記錄
+        for (const branch in BRANCH_MEMBERS_MOCK) {
+            const found = BRANCH_MEMBERS_MOCK[branch].find(m => m.district === district && m.group === group);
+            if (found && (found.mapUrl || found.address)) {
+                return {
+                    mapUrl: found.mapUrl || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(found.address)}`,
+                    address: found.address
+                };
+            }
+        }
+        // 2. 如果沒找到，看看當前已載入/同步的數據 (如果是當前支部的數據)
+        if (typeof currentBranchData !== 'undefined' && Array.isArray(currentBranchData)) {
+            const found = currentBranchData.find(m => m.district === district && m.group === group);
+            if (found && (found.mapUrl || found.address)) {
+                return {
+                    mapUrl: found.mapUrl || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(found.address)}`,
+                    address: found.address
+                };
+            }
+        }
+        return null;
+    };
     
     filtered.forEach(item => {
         const card = document.createElement('div');
         card.className = 'youth-meeting-card';
+        
+        // 尋找對應的 Google Maps 連結與地址
+        const mapInfo = findMapInfo(item.district, item.group);
+        let mapBtnHtml = '';
+        
+        if (mapInfo) {
+            mapBtnHtml = `
+                <a href="${mapInfo.mapUrl}" target="_blank" class="youth-card-map-btn" title="地址：${mapInfo.address}">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    📍 地圖導航
+                </a>
+            `;
+        } else {
+            mapBtnHtml = `
+                <span class="youth-card-map-btn disabled" title="尚未配置此地區地址數據">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    暫無地址
+                </span>
+            `;
+        }
+        
         card.innerHTML = `
             <div class="youth-meet-district">${item.district}</div>
             <div class="youth-meet-group">${item.group}</div>
             <div class="youth-meet-date">📅 ${item.date}</div>
+            <div class="youth-meet-map">${mapBtnHtml}</div>
         `;
         grid.appendChild(card);
     });

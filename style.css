@@ -462,7 +462,7 @@ header.scrolled .header-container {
     position: relative;
     width: 100%;
     max-width: 520px;
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 3 / 4;
     background: linear-gradient(135deg, #F0F4F8 0%, #F7FAFC 100%);
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-lg);
@@ -3279,6 +3279,64 @@ footer {
     padding: 0.2rem 0.6rem;
     border-radius: 6px;
     font-weight: 600;
+}
+
+/* 📍 座談會青年部主打場 Google Maps 地圖導航按鈕 */
+.youth-meet-map {
+    margin-top: 0.8rem;
+    display: flex;
+    justify-content: center;
+}
+
+.youth-card-map-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    background: rgba(16, 126, 125, 0.08);
+    border: 1px solid rgba(16, 126, 125, 0.2);
+    padding: 0.45rem 0.7rem;
+    border-radius: 20px;
+    text-decoration: none !important;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: pointer;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.youth-card-map-btn svg {
+    flex-shrink: 0;
+    transition: transform 0.25s ease;
+}
+
+.youth-card-map-btn:hover {
+    color: white !important;
+    background: var(--color-primary) !important;
+    border-color: var(--color-primary) !important;
+    box-shadow: 0 4px 10px rgba(16, 126, 125, 0.25);
+}
+
+.youth-card-map-btn:hover svg {
+    transform: scale(1.1) translateY(-0.5px);
+}
+
+.youth-card-map-btn.disabled {
+    font-size: 0.78rem;
+    color: var(--color-text-muted) !important;
+    background: rgba(0, 0, 0, 0.03) !important;
+    border: 1px solid rgba(0, 0, 0, 0.08) !important;
+    padding: 0.45rem 0.7rem;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+    cursor: not-allowed;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .youth-no-results {
