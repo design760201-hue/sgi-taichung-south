@@ -1919,10 +1919,65 @@ function initializeNavigationSync() {
                     console.log('💡 偵測到跳轉至資料下載，為法友自動展開摺疊抽屜！');
                     toggleStudy();
                 }
+            } else if (targetId === '#sokaban-duty') {
+                const container = document.getElementById('sokaban-table-wrapper');
+                if (container && !container.classList.contains('active')) {
+                    console.log('💡 偵測到跳轉至創價班執勤表，為法友自動展開摺疊抽屜！');
+                    toggleSokaban();
+                }
             }
         });
     });
 }
+
+
+// ==========================================================================
+// 🛡️ (8) 收折與展開創價班勤務配置表 (Collapsible Sokaban Duty)
+// ==========================================================================
+function toggleSokaban() {
+    const container = document.getElementById('sokaban-table-wrapper');
+    const toggleBtn = document.getElementById('sokaban-toggle');
+    const statusText = document.getElementById('sokaban-status');
+    
+    if (!container || !toggleBtn || !statusText) return;
+    
+    const isExpanded = container.classList.contains('active');
+    
+    if (isExpanded) {
+        // --- 收起邏輯 ---
+        container.style.maxHeight = container.scrollHeight + 'px';
+        container.offsetHeight; 
+        
+        container.style.maxHeight = '0px';
+        container.style.opacity = '0';
+        container.style.transform = 'translateY(-12px)';
+        container.style.paddingTop = '0px';
+        container.style.paddingBottom = '0px';
+        container.style.marginTop = '0px';
+        
+        container.classList.remove('active');
+        toggleBtn.classList.remove('active');
+        statusText.textContent = '點擊展開';
+    } else {
+        // --- 展開邏輯 ---
+        container.classList.add('active');
+        toggleBtn.classList.add('active');
+        statusText.textContent = '點擊收起';
+        
+        container.style.opacity = '1';
+        container.style.transform = 'translateY(0)';
+        container.style.marginTop = '1.5rem';
+        
+        container.style.maxHeight = container.scrollHeight + 'px';
+        
+        setTimeout(() => {
+            if (container.classList.contains('active')) {
+                container.style.maxHeight = 'none';
+            }
+        }, 600);
+    }
+}
+
 
 
 

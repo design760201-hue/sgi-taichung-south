@@ -32,6 +32,7 @@
                     <li><a href="#calendar" class="nav-link active">活動行事曆</a></li>
                     <li><a href="#about" class="nav-link">南區傳達事項</a></li>
                     <li><a href="#study" class="nav-link">相關資料下載</a></li>
+                    <li><a href="#sokaban-duty" class="nav-link">創價班執勤表</a></li>
                     <li><a href="#meeting-members" class="nav-link">座談會人員表</a></li>
                 </ul>
             </nav>
@@ -277,7 +278,7 @@
                 <div class="announcements-toggle-btn" id="announcements-toggle" onclick="toggleAnnouncements()">
                     <div class="toggle-left">
                         <span class="toggle-tag">📢 2026年4月份</span>
-                        <span class="toggle-title">南區傳達事項 (5月份活動執行)</span>
+                        <span class="toggle-title">南區傳達事項 <span class="toggle-title-sub">(5月份活動執行)</span></span>
                     </div>
                     <div class="toggle-right">
                         <span class="toggle-status-text" id="toggle-status">點擊展開</span>
@@ -416,6 +417,168 @@
         </div>
     </section>
 
+    <!-- 5.5 創價班勤務配置表區塊 (Sokaban Duty Section) -->
+    <section id="sokaban-duty" class="sokaban-section section-padding">
+        <div class="container">
+            <div class="text-center">
+                <span class="section-tag">Sokaban Duty</span>
+                <h2 class="section-title">創價班勤務配置表</h2>
+                <p class="section-desc">本月台中南區創價班各項勤務配置、內外場守護及會後鼓勵負責人，誠摯感謝青年部的付出！</p>
+            </div>
+            
+            <!-- 創價班執勤表摺疊控制面板 -->
+            <div class="announcements-toggle-btn" id="sokaban-toggle" onclick="toggleSokaban()">
+                <div class="toggle-left">
+                    <span class="toggle-tag">🛡️ Sokaban Duty</span>
+                    <span class="toggle-title">創價班勤務配置一覽表 <span class="toggle-title-sub">(五月份活動執行)</span></span>
+                </div>
+                <div class="toggle-right">
+                    <span class="toggle-status-text" id="sokaban-status">點擊展開</span>
+                    <div class="toggle-arrow-circle">
+                        <svg class="toggle-arrow-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 創價班勤務配置表格容器 -->
+            <div class="sokaban-table-wrapper" id="sokaban-table-wrapper">
+                <div class="table-scroll-hint">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    <span>向左滑動查看完整執勤表</span>
+                </div>
+                
+                <div class="table-container">
+                    <table class="members-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 70px; text-align: center;">場次</th>
+                                <th style="width: 140px;">執勤日期</th>
+                                <th>活動名稱</th>
+                                <th>👤 負責人 (會後鼓勵)</th>
+                                <th>🏠 執勤人員 (內場)</th>
+                                <th>🌳 創價班學員 - 執勤人員 (外場)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="text-align: center; font-weight: 700;">1</td>
+                                <td style="font-weight: 700; color: var(--color-secondary);">五月05日<br><span style="font-size: 0.85em; opacity: 0.8; font-weight: 500;">19:10</span></td>
+                                <td style="font-weight: 700;">大興本部追善勤行會暨佛法教學</td>
+                                <td><span class="sokaban-badge-leader">王余中</span></td>
+                                <td>
+                                    <div class="sokaban-badges-grid">
+                                        <span class="sokaban-badge-member">何宏裕</span>
+                                        <span class="sokaban-badge-member">黃柏豪</span>
+                                        <span class="sokaban-badge-member">林家弘</span>
+                                        <span class="sokaban-badge-member">李昱儕</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="sokaban-badges-grid">
+                                        <span class="sokaban-badge-trainee">范順堯</span>
+                                        <span class="sokaban-badge-trainee">鄭富懋</span>
+                                        <span class="sokaban-badge-trainee">張益誠</span>
+                                        <span class="sokaban-badge-trainee">呂鈞翰</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center; font-weight: 700;">2</td>
+                                <td style="font-weight: 700; color: var(--color-secondary);">五月07日<br><span style="font-size: 0.85em; opacity: 0.8; font-weight: 500;">18:50</span></td>
+                                <td style="font-weight: 700;">佛法講座</td>
+                                <td><span class="sokaban-badge-leader">黃能達</span></td>
+                                <td>
+                                    <div class="sokaban-badges-grid">
+                                        <span class="sokaban-badge-member">林信安</span>
+                                        <span class="sokaban-badge-member">黃柏瑋</span>
+                                        <span class="sokaban-badge-member">李威辰</span>
+                                        <span class="sokaban-badge-member">張靖恆</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="sokaban-badges-grid">
+                                        <span class="sokaban-badge-trainee">范順堯</span>
+                                        <span class="sokaban-badge-trainee">鄭富懋</span>
+                                        <span class="sokaban-badge-trainee">張益誠</span>
+                                        <span class="sokaban-badge-trainee">呂鈞翰</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center; font-weight: 700;">3</td>
+                                <td style="font-weight: 700; color: var(--color-secondary);">五月09日<br><span style="font-size: 0.85em; opacity: 0.8; font-weight: 500;">19:10</span></td>
+                                <td style="font-weight: 700;">大里本部追善勤行會暨佛法教學</td>
+                                <td><span class="sokaban-badge-leader">賴宇昂</span></td>
+                                <td>
+                                    <div class="sokaban-badges-grid">
+                                        <span class="sokaban-badge-member">林育陞</span>
+                                        <span class="sokaban-badge-member">陳則亦</span>
+                                        <span class="sokaban-badge-member">許承俊</span>
+                                        <span class="sokaban-badge-member">林家慶</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="sokaban-badges-grid">
+                                        <span class="sokaban-badge-trainee">范順堯</span>
+                                        <span class="sokaban-badge-trainee">鄭富懋</span>
+                                        <span class="sokaban-badge-trainee">張益誠</span>
+                                        <span class="sokaban-badge-trainee">呂鈞翰</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center; font-weight: 700;">4</td>
+                                <td style="font-weight: 700; color: var(--color-secondary);">五月16日<br><span style="font-size: 0.85em; opacity: 0.8; font-weight: 500;">19:10</span></td>
+                                <td style="font-weight: 700;">太平本部追善勤行會暨佛法教學</td>
+                                <td><span class="sokaban-badge-leader">江炳聰</span></td>
+                                <td>
+                                    <div class="sokaban-badges-grid">
+                                        <span class="sokaban-badge-member">饒力嘉</span>
+                                        <span class="sokaban-badge-member">陳正宗</span>
+                                        <span class="sokaban-badge-member">鄭明義</span>
+                                        <span class="sokaban-badge-member">林世賢</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="sokaban-badges-grid">
+                                        <span class="sokaban-badge-trainee">范順堯</span>
+                                        <span class="sokaban-badge-trainee">鄭富懋</span>
+                                        <span class="sokaban-badge-trainee">張益誠</span>
+                                        <span class="sokaban-badge-trainee">呂鈞翰</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center; font-weight: 700;">5</td>
+                                <td style="font-weight: 700; color: var(--color-secondary);">五月28日<br><span style="font-size: 0.85em; opacity: 0.8; font-weight: 500;">18:50</span></td>
+                                <td style="font-weight: 700;">台中南區區會</td>
+                                <td><span class="sokaban-badge-leader">劉哲伸</span></td>
+                                <td>
+                                    <div class="sokaban-badges-grid">
+                                        <span class="sokaban-badge-member">高宇</span>
+                                        <span class="sokaban-badge-member">賴慶賢</span>
+                                        <span class="sokaban-badge-member">楊賀仲</span>
+                                        <span class="sokaban-badge-member">王昱祺</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="sokaban-badges-grid">
+                                        <span class="sokaban-badge-trainee">范順堯</span>
+                                        <span class="sokaban-badge-trainee">鄭富懋</span>
+                                        <span class="sokaban-badge-trainee">張益誠</span>
+                                        <span class="sokaban-badge-trainee">呂鈞翰</span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- 6. 座談會人員表 (Meeting Members Section) -->
     <section id="meeting-members" class="meeting-members-section section-padding">
         <div class="container">
@@ -525,6 +688,7 @@
                     <li class="footer-link"><a href="#calendar">動態行事曆</a></li>
                     <li class="footer-link"><a href="#about">南區傳達事項</a></li>
                     <li class="footer-link"><a href="#study">相關資料下載</a></li>
+                    <li class="footer-link"><a href="#sokaban-duty">創價班執勤表</a></li>
                     <li class="footer-link"><a href="#meeting-members">座談會人員表</a></li>
                 </ul>
             </div>
@@ -586,6 +750,10 @@
         <a href="#study" class="mobile-bottom-nav-item" onclick="setActiveTab(this)">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
             <span>下載</span>
+        </a>
+        <a href="#sokaban-duty" class="mobile-bottom-nav-item" onclick="setActiveTab(this)">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            <span>創價班</span>
         </a>
     </nav>
 
