@@ -2134,7 +2134,7 @@ footer {
         min-height: auto;
         padding-top: 110px;
         padding-bottom: 3rem;
-        background-position: 75% center !important; /* 手機端將雄獅稍微往左拉，保持雄獅在窄螢幕上的主體展現 */
+        background-position: 32% center !important; /* 手機端將雄獅主體向右拉，使英俊面容在窄螢幕上清晰露面 */
     }
     
     .hero-title {
