@@ -9,6 +9,14 @@
     <meta name="description" content="歡迎光臨台灣創價學會台中南區專屬資訊網。我們以日蓮大聖人佛法為根本，透過「座談會」等多元活動，深耕社區，促進和平、文化與教育，攜手創造每個人的人間革命與幸福生活。">
     <meta name="keywords" content="台灣創價學會, 台中南區, 創價學會, 座談會, 日蓮佛法, 人間革命, 池田大作, 台中文化會館, 佛教社區">
     
+    <!-- 設定 iOS / Apple Touch 手機桌面 App 圖示 (高解析度 1024x1024 圓角橘色 SGI) -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    
+    <!-- 設定 Android / Chrome 手機桌面 App 圖示 (Favicon & Web App Icon) -->
+    <link rel="icon" type="image/png" sizes="192x192" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="apple-touch-icon.png">
+
     <!-- 引入自訂樣式表 -->
     <link rel="stylesheet" href="style.css">
     <!-- 引入 html2canvas 圖片生成引擎 -->
@@ -37,6 +45,18 @@
                 </ul>
             </nav>
             
+            <!-- 手機端專用：置頂快速跳轉下拉選單 (Mobile Header Quick Select) -->
+            <div class="mobile-quick-nav-wrap">
+                <select class="mobile-quick-select" id="mobile-quick-select" onchange="handleMobileQuickNav(this)">
+                    <option value="" disabled selected>快速跳轉 ▾</option>
+                    <option value="#calendar">📅 活動行事曆</option>
+                    <option value="#about">📢 南區傳達事項</option>
+                    <option value="#study">📥 相關資料下載</option>
+                    <option value="#sokaban-duty">🛡️ 創價班執勤表</option>
+                    <option value="#meeting-members">👥 座談會人員表</option>
+                </select>
+            </div>
+
             <button class="hamburger" id="hamburger" aria-label="選單開關">
                 <span></span>
                 <span></span>

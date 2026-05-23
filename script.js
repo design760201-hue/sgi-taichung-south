@@ -1979,5 +1979,61 @@ function toggleSokaban() {
 }
 
 
+// ==========================================================================
+// 📱 (9) 手機端置頂快速跳轉下拉選單監聽器 (Mobile Quick Navigation Listener)
+// ==========================================================================
+window.handleMobileQuickNav = function(selectElement) {
+    const targetId = selectElement.value;
+    if (!targetId) return;
+    
+    const target = document.querySelector(targetId);
+    if (target) {
+        console.log(`💡 手機置頂選單跳轉至：${targetId}`);
+        
+        // 1. 計算扣除固定 Header (70px) 的精確滾動高度位置，防止標題被擋住
+        const headerOffset = 70;
+        const elementPosition = target.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        
+        window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+        });
+        
+        // 2. 雙向聯動：若目標面板處於收合狀態，則自動平滑展開它
+        if (targetId === '#calendar') {
+            const container = document.getElementById('events-grid');
+            if (container && !container.classList.contains('active')) {
+                toggleCalendar();
+            }
+        } else if (targetId === '#about') {
+            const container = document.querySelector('.announcements-container');
+            if (container && !container.classList.contains('active')) {
+                toggleAnnouncements();
+            }
+        } else if (targetId === '#study') {
+            const container = document.querySelector('.study-cloud-hub');
+            if (container && !container.classList.contains('active')) {
+                toggleStudy();
+            }
+        } else if (targetId === '#sokaban-duty') {
+            const container = document.getElementById('sokaban-table-wrapper');
+            if (container && !container.classList.contains('active')) {
+                toggleSokaban();
+            }
+        }
+        
+        // 3. 原生震動回饋 (Retina UI/UX 儀式感)
+        if (window.navigator && window.navigator.vibrate) {
+            window.navigator.vibrate(15);
+        }
+    }
+    
+    // 4. 重點細節：將 Select 恢復預設選擇状态，以便下次重複選擇時仍能觸發 Change 事件！
+    selectElement.value = "";
+};
+
+
+
 
 
