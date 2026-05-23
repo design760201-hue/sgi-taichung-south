@@ -2163,13 +2163,25 @@ footer {
     }
     
     .soka-instagram-card {
-        max-width: 340px;
-        padding: 1.4rem;
+        max-width: 350px; /* 稍微放寬，增加折行寬度容量 */
+        padding: 1.1rem; /* 縮小內邊距，獲取最大可用空間 */
+    }
+    
+    .soka-instagram-card .card-content {
+        padding: 0.5rem 0.3rem !important; /* 緊湊垂直空間 */
+    }
+    
+    .soka-instagram-card .card-header {
+        padding-bottom: 0.5rem !important;
+    }
+    
+    .soka-instagram-card .card-footer {
+        padding-top: 0.5rem !important;
     }
     
     .quote-text {
         font-size: 1.05rem;
-        line-height: 1.7;
+        line-height: 1.65; /* 微調行高，緊湊排版 */
     }
     
     .quote-symbol {
