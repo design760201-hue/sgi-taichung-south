@@ -582,7 +582,7 @@ function initializeHeroQuotes() {
 
 let currentQuoteIndex = 0;
 
-// 初始化字卡 (每次開啟/重新整理網頁時，隨機挑選一句展示)
+// 初始化字卡 (每次開啟/重新整理網頁時，重置抽籤狀態與日期)
 function initializeSokaQuoteCard() {
     // 1. 設定今日日期 YYYY.MM.DD (若 DOM 元素存在則動態更新)
     const dateEl = document.getElementById('soka-card-date');
@@ -594,9 +594,14 @@ function initializeSokaQuoteCard() {
         dateEl.textContent = `${yyyy}.${mm}.${dd}`;
     }
     
-    // 2. 每次重新整理網頁隨機決定今日金句，提供源源不絕 of 晨光驚喜 (與日期 DOM 存在狀態解耦)
-    currentQuoteIndex = Math.floor(Math.random() * SOKA_PRESS_QUOTES.length);
-    renderQuote(currentQuoteIndex);
+    // 2. 網頁初始載入時，確保抽籤盒顯示，且 1:1 展示卡片與控制按鈕處於隱藏狀態
+    const drawBox = document.getElementById('soka-draw-box');
+    const quoteCard = document.getElementById('soka-quote-card');
+    const cardActions = document.getElementById('soka-card-actions');
+    
+    if (drawBox) drawBox.style.display = 'block';
+    if (quoteCard) quoteCard.style.display = 'none';
+    if (cardActions) cardActions.style.display = 'none';
 }
 
 // 渲染特定索引的金句到 DOM
@@ -613,8 +618,30 @@ function renderQuote(index) {
     }
 }
 
-// 隨機「換一句」功能（保證不與當前金句重複）
-window.getRandomQuote = function() {
+// 核心抽卡互動 logic
+window.drawCard = function(cardIndex, cardElement) {
+    const drawBox = document.getElementById('soka-draw-box');
+    const cards = document.querySelectorAll('.draw-card');
+    const quoteCard = document.getElementById('soka-quote-card');
+    const cardActions = document.getElementById('soka-card-actions');
+    
+    // 防止重複點選或已淡出的卡牌再次點選
+    if (cardElement.classList.contains('selected') || cardElement.classList.contains('fade-out')) return;
+    
+    // 1. 手機端釋放 15ms 微物理震動反饋，增強點按手感
+    if (navigator.vibrate) {
+        navigator.vibrate(15);
+    }
+    
+    // 2. 被點選卡牌播放 3D 翻轉與放大效果，其他兩張牌優雅淡出
+    cardElement.classList.add('selected');
+    cards.forEach(card => {
+        if (card !== cardElement) {
+            card.classList.add('fade-out');
+        }
+    });
+    
+    // 3. 隨機抽選一句金句，將內容寫入 1:1 字卡中，隨時等待淡入
     let newIndex = currentQuoteIndex;
     if (SOKA_PRESS_QUOTES.length > 1) {
         while (newIndex === currentQuoteIndex) {
@@ -622,20 +649,95 @@ window.getRandomQuote = function() {
         }
     }
     currentQuoteIndex = newIndex;
+    renderQuote(currentQuoteIndex);
     
-    // 加入一個優雅的淡入淡出轉場效果
-    const card = document.getElementById('soka-quote-card');
-    if (card) {
-        card.style.opacity = '0.3';
-        card.style.transform = 'scale(0.98)';
-        card.style.transition = 'all 0.25s ease';
+    // 4. 延遲 1.2 秒（等待 3D 翻轉動畫播放完畢且帶入神祕感），淡出抽籤盒，淡入展示 1:1 精美金句字卡
+    setTimeout(() => {
+        if (drawBox) {
+            drawBox.style.opacity = '0';
+            drawBox.style.transform = 'scale(0.9)';
+            drawBox.style.transition = 'all 0.4s ease';
+        }
         
         setTimeout(() => {
-            renderQuote(currentQuoteIndex);
-            card.style.opacity = '1';
-            card.style.transform = 'scale(1)';
-        }, 250);
+            if (drawBox) drawBox.style.display = 'none';
+            
+            // 顯現 1:1 展示字卡與控制按鈕，並實作極精緻的縮放淡入
+            if (quoteCard) {
+                quoteCard.style.display = 'block';
+                setTimeout(() => {
+                    quoteCard.style.opacity = '1';
+                    quoteCard.style.transform = 'scale(1)';
+                    quoteCard.style.transition = 'all 0.55s cubic-bezier(0.175, 0.885, 0.32, 1.15)';
+                }, 50);
+            }
+            
+            if (cardActions) {
+                cardActions.style.display = 'flex';
+                setTimeout(() => {
+                    cardActions.style.opacity = '1';
+                    cardActions.style.transition = 'all 0.5s ease';
+                }, 50);
+            }
+        }, 400);
+    }, 1200);
+};
+
+// 重新洗牌，再抽一次
+window.resetDrawBox = function() {
+    const drawBox = document.getElementById('soka-draw-box');
+    const cards = document.querySelectorAll('.draw-card');
+    const quoteCard = document.getElementById('soka-quote-card');
+    const cardActions = document.getElementById('soka-card-actions');
+    
+    // 1. 優雅淡出當前的 1:1 大字卡與控制按鈕
+    if (quoteCard) {
+        quoteCard.style.opacity = '0';
+        quoteCard.style.transform = 'scale(0.95)';
+        quoteCard.style.transition = 'all 0.4s ease';
     }
+    
+    if (cardActions) {
+        cardActions.style.opacity = '0';
+        cardActions.style.transition = 'all 0.35s ease';
+    }
+    
+    setTimeout(() => {
+        if (quoteCard) quoteCard.style.display = 'none';
+        if (cardActions) cardActions.style.display = 'none';
+        
+        // 2. 重置並淡入抽籤盒
+        if (drawBox) {
+            drawBox.style.display = 'block';
+            setTimeout(() => {
+                drawBox.style.opacity = '1';
+                drawBox.style.transform = 'scale(1)';
+                drawBox.style.transition = 'all 0.4s ease';
+            }, 50);
+        }
+        
+        // 3. 恢復卡片為背面朝上的初始無狀態
+        cards.forEach(card => {
+            card.className = 'draw-card';
+        });
+        
+        // 4. 延遲 300ms 播放三張卡牌在空中相互穿梭位置的 Shuffle 重新洗牌動畫
+        setTimeout(() => {
+            if (cards.length === 3) {
+                cards[0].classList.add('shuffling-1');
+                cards[1].classList.add('shuffling-2');
+                cards[2].classList.add('shuffling-3');
+                
+                // 洗牌 800ms 動畫完畢後清除 shuffling 類，讓微懸浮動畫繼續平滑運作
+                setTimeout(() => {
+                    cards[0].classList.remove('shuffling-1');
+                    cards[1].classList.remove('shuffling-2');
+                    cards[2].classList.remove('shuffling-3');
+                }, 800);
+            }
+        }, 300);
+        
+    }, 450);
 };
 
 // 一鍵儲存/下載字卡功能 (透過 html2canvas 生成 2x Retina 高畫質 PNG)

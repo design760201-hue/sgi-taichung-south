@@ -74,24 +74,37 @@
             <div class="shape shape-2"></div>
         </div>
         <div class="container hero-grid">
-            <div class="hero-content">
-                <div class="hero-badge">
-                    <span class="hero-badge-dot"></span>
-                    <span>台中南區 • 溫馨活力社區</span>
-                </div>
-                <h1 class="hero-title" id="hero-title">點亮心中妙法光芒<br>創造自他彼此的<span>幸福人生</span></h1>
-                <div class="hero-quote" id="hero-quote-container">
-                    <span id="hero-quote-text">「人間革命的溫暖光芒，是驅散黑暗、照亮社區的最強大力量。當我們主動關懷一人，和平的漣漪就從這裡開始擴散。」</span>
-                    <span class="hero-quote-author" id="hero-quote-author">— 創價學會第三任會長 池田大作</span>
-                </div>
-                <div class="hero-actions">
-                    <a href="#calendar" class="btn btn-secondary">探索最新活動</a>
-                </div>
-            </div>
-            
+
             <div class="soka-instagram-card-wrap">
-                <!-- 官方 IG 貼文風格 1:1 精美金句字卡本體 -->
-                <div class="soka-instagram-card" id="soka-quote-card">
+                <!-- A. 每月晨光幸福抽籤互動盒 (3D 三卡隨機抽籤) -->
+                <div class="soka-draw-box" id="soka-draw-box">
+                    <h4 class="draw-box-title">✨ 每日心靈晨光抽籤 ✨</h4>
+                    <p class="draw-box-subtitle">心中默想一個今天想克服的挑戰，並點選一張卡牌</p>
+                    
+                    <div class="draw-cards-container" id="draw-cards-container">
+                        <!-- 卡片 1 -->
+                        <div class="draw-card" onclick="drawCard(0, this)">
+                            <div class="draw-card-inner">
+                                <div class="draw-card-back"></div>
+                            </div>
+                        </div>
+                        <!-- 卡片 2 -->
+                        <div class="draw-card" onclick="drawCard(1, this)">
+                            <div class="draw-card-inner">
+                                <div class="draw-card-back"></div>
+                            </div>
+                        </div>
+                        <!-- 卡片 3 -->
+                        <div class="draw-card" onclick="drawCard(2, this)">
+                            <div class="draw-card-inner">
+                                <div class="draw-card-back"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 官方 IG 貼文風格 1:1 精美金句字卡本體 (抽籤成功後顯示) -->
+                <div class="soka-instagram-card" id="soka-quote-card" style="display: none; opacity: 0; transform: scale(0.95); transition: all 0.5s ease;">
                     <!-- 三色旗光環線條裝飾 -->
                     <div class="tricolor-ring"></div>
                     <div class="card-inner">
@@ -120,12 +133,12 @@
                 </div>
                 
                 <!-- 字卡外部控制按鈕（不包含在字卡內，確保下載的圖片純淨無雜質） -->
-                <div class="soka-card-actions">
+                <div class="soka-card-actions" id="soka-card-actions" style="display: none; opacity: 0; transition: all 0.5s ease;">
                     <button class="btn-soka-action btn-soka-save" id="btn-save-quote" onclick="downloadQuoteCard()">
                         <span class="btn-icon">📥</span> 儲存今日字卡
                     </button>
-                    <button class="btn-soka-action btn-soka-change" id="btn-next-quote" onclick="getRandomQuote()">
-                        <span class="btn-icon">🔄</span> 換一句
+                    <button class="btn-soka-action btn-soka-change" id="btn-next-quote" onclick="resetDrawBox()">
+                        <span class="btn-icon">🔄</span> 再抽一次
                     </button>
                 </div>
                 

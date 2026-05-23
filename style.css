@@ -354,10 +354,13 @@ header.scrolled .header-container {
 .hero-grid {
     position: relative;
     z-index: 2;
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 4rem;
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    text-align: center;
+    width: 100%;
 }
 
 .hero-content {
@@ -449,7 +452,7 @@ header.scrolled .header-container {
 .soka-instagram-card {
     position: relative;
     width: 100%;
-    max-width: 440px;
+    max-width: 520px;
     aspect-ratio: 1 / 1;
     background: linear-gradient(135deg, #fdfbf7 0%, #f7f3eb 100%);
     border-radius: var(--radius-md);
@@ -3602,6 +3605,170 @@ footer {
         color: var(--color-primary-dark);
         padding-left: 1.55rem; /* 微往右浮動，帶有引導感 */
     }
+
+    /* 幸福抽籤小卡牌手機端 RWD 自適應縮小，確保在窄螢幕如 iPhone SE 上 100% 完美不溢出 */
+    @media (max-width: 480px) {
+        .soka-draw-box {
+            padding: 1.6rem 1rem !important;
+        }
+        .draw-box-title {
+            font-size: 1.15rem !important;
+        }
+        .draw-box-subtitle {
+            font-size: 0.8rem !important;
+            margin-bottom: 1.5rem !important;
+        }
+        .draw-cards-container {
+            gap: 0.6rem !important;
+        }
+        .draw-card {
+            width: 78px !important;
+            height: 120px !important;
+        }
+        .back-text {
+            font-size: 0.78rem !important;
+            letter-spacing: 1px !important;
+        }
+        .back-lotus-emblem {
+            width: 30px !important;
+            height: 30px !important;
+        }
+    }
+}
+
+/* ==========================================================================
+   I. 每日心靈晨光 • 三卡隨機幸福抽籤遊戲專屬樣式 (3D Card Draw Game Styles)
+   ========================================================================== */
+
+/* 抽籤盒主容器 (沉沉置中放大黃金版) */
+.soka-draw-box {
+    width: 100%;
+    max-width: 580px; /* 置中對齊，霸氣開場 */
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 2px solid rgba(217, 119, 6, 0.2);
+    border-radius: 32px;
+    padding: 3rem 2.2rem;
+    box-shadow: 0 15px 45px rgba(217, 119, 6, 0.08);
+    text-align: center;
+    transition: all 0.5s ease-in-out;
+}
+
+.draw-box-title {
+    font-size: 1.55rem;
+    color: var(--color-primary-dark);
+    margin-bottom: 0.5rem;
+    font-weight: 850;
+    letter-spacing: 1.5px;
+}
+
+.draw-box-subtitle {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    margin-bottom: 2.2rem;
+    line-height: 1.5;
+}
+
+/* 3D 卡牌容器 (加寬卡片間距) */
+.draw-cards-container {
+    display: flex;
+    justify-content: center;
+    gap: 1.8rem; /* 卡牌間距擴展，極具呼吸美學 */
+    perspective: 1500px; /* 啟用 3D 景深視角 */
+    padding: 1.2rem 0;
+}
+
+/* 單張卡牌主體 (全面放大，霸氣特寫) */
+.draw-card {
+    width: 120px;
+    height: 182px;
+    cursor: pointer;
+    position: relative;
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.2), opacity 0.5s ease, box-shadow 0.3s ease;
+}
+
+/* 卡片半空漂浮微動畫 (三張牌錯開時間) */
+.draw-card:nth-child(1) { animation: floatCardItem 3.2s infinite ease-in-out; }
+.draw-card:nth-child(2) { animation: floatCardItem 3.2s infinite ease-in-out 0.4s; }
+.draw-card:nth-child(3) { animation: floatCardItem 3.2s infinite ease-in-out 0.8s; }
+
+@keyframes floatCardItem {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+/* 滑鼠懸停浮起高亮 */
+.draw-card:hover {
+    transform: translateY(-12px) scale(1.06) !important;
+    box-shadow: 0 8px 24px rgba(217, 119, 6, 0.16);
+}
+
+.draw-card-inner {
+    width: 100%;
+    height: 100%;
+    border-radius: 18px;
+    position: absolute;
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+}
+
+/* 卡片背面 (使用使用者提供之華麗插畫花草蝴蝶作為卡牌背面) */
+.draw-card-back {
+    width: 100%;
+    height: 100%;
+    background-image: url('sgi_card_back_bg.jpg');
+    background-size: cover;
+    background-position: center;
+    border: 2.5px solid rgba(217, 119, 6, 0.35); /* 邊框略微加粗，強化立體浮雕質感 */
+    border-radius: 22px; /* 圓角增大，更加優雅精美 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 20px rgba(67, 43, 20, 0.08);
+    position: absolute;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    overflow: hidden;
+}
+
+
+/* 洗牌交叉穿梭動畫 (Shuffle Animation) */
+.draw-card.shuffling-1 { animation: cardShuffle1 0.8s ease-in-out; }
+.draw-card.shuffling-2 { animation: cardShuffle2 0.8s ease-in-out; }
+.draw-card.shuffling-3 { animation: cardShuffle3 0.8s ease-in-out; }
+
+@keyframes cardShuffle1 {
+    0%, 100% { transform: translateX(0) scale(1); }
+    50% { transform: translateX(140px) translateY(-8px) scale(0.95); z-index: 1; } /* 配合卡牌放大，增加平移距離至 140px */
+}
+@keyframes cardShuffle2 {
+    0%, 100% { transform: translateX(0) scale(1); }
+    50% { transform: translateX(-140px) translateY(8px) scale(1.05); z-index: 5; } /* 配合卡牌放大，增加平移距離至 -140px */
+}
+@keyframes cardShuffle3 {
+    0%, 100% { transform: translateX(0) scale(1); }
+    50% { transform: translateY(-40px) scale(0.9); z-index: 2; }
+}
+
+/* 其他卡片被選中時的優雅淡出 */
+.draw-card.fade-out {
+    opacity: 0 !important;
+    transform: scale(0.8) translateY(20px) !important;
+    pointer-events: none;
+}
+
+/* 被選中卡片 3D 180度翻轉並放大 */
+.draw-card.selected {
+    transform: scale(1.22) rotateY(180deg) !important; /* 翻轉放大更具張力 */
+    z-index: 10;
+    box-shadow: 0 10px 30px rgba(217, 119, 6, 0.22);
 }
 
 
