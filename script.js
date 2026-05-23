@@ -750,18 +750,38 @@ window.downloadQuoteCard = function() {
     // 顯示加載動畫
     spinner.classList.add('active');
     
-    // 為了確保 html2canvas 渲染時的完美效果，我們在其配置中：
-    // 1. 設定 scale: 3，將渲染畫質提升 3 倍以產生 Retina 超高清畫質 PNG
-    // 2. 允許跨域與啟用畫布快取
-    // 3. 設定背景色為透明，避免多餘背景色干擾
+    // 為了確保 html2canvas 渲染時的完美效果，我們在後台採用「離屏 (Off-Screen) 臨時標準規格化」技術：
+    // 1. 在背景將字卡強制切換為 9:16 (1080x1920) 的 Instagram 限時動態超高清排版規格
+    // 2. 這能 100% 完美產出最符合發 IG 限動的 1080x1920 高清直式大氣圖片，字體與佈局等比例膨脹放大，震撼大氣！
+    // 3. 設定 scale: 1.5，將渲染畫質在 1080x1920 基礎上再提升 1.5 倍（生成極致細緻的 1620x2880 的 Retina 超高清原圖）
+    // 4. 渲染結束後（成功或失敗）立即自動還原原本樣式與 class，使用者完全不察覺任何異動
     setTimeout(() => {
+        const originalStyle = card.style.cssText;
+        
+        card.classList.add('is-instagram-story');
+        
+        card.style.position = 'fixed';
+        card.style.top = '-9999px';
+        card.style.left = '-9999px';
+        card.style.width = '1080px';
+        card.style.height = '1920px';
+        card.style.aspectRatio = '9 / 16';
+        card.style.transform = 'none';
+        card.style.display = 'flex';
+        card.style.opacity = '1';
+        card.style.zIndex = '-9999';
+        
         html2canvas(card, {
-            scale: 3, 
+            scale: 1.5, // 1080x1920 乘以 1.5 = 1620x2880，比 4K 還要清晰的限動大圖！
             useCORS: true,
             allowTaint: true,
             backgroundColor: null,
             logging: false
         }).then(canvas => {
+            // 立即無縫還原金句字卡原本的 class 與網頁樣式
+            card.classList.remove('is-instagram-story');
+            card.style.cssText = originalStyle;
+            
             // 將 Canvas 轉換成 base64 PNG 圖片
             const imageURL = canvas.toDataURL("image/png");
             
@@ -787,7 +807,7 @@ window.downloadQuoteCard = function() {
                 // 電腦端：依然直接觸發隱藏 <a> 標籤自動 click() 無縫極速下載
                 const downloadLink = document.createElement('a');
                 downloadLink.href = imageURL;
-                downloadLink.download = `SGI-晨光心靈金句-${dateStr}.png`;
+                downloadLink.download = `SGI-晨光金句限動-${dateStr}.png`;
                 
                 document.body.appendChild(downloadLink);
                 downloadLink.click();
@@ -802,11 +822,15 @@ window.downloadQuoteCard = function() {
                 navigator.vibrate(50); // 微震動回饋
             }
         }).catch(err => {
+            // 發生異常時也必須立即還原 class 與原本樣式
+            card.classList.remove('is-instagram-story');
+            card.style.cssText = originalStyle;
+            
             console.error('金句字卡生成失敗：', err);
             spinner.classList.remove('active');
             alert('⚠️ 抱歉，字卡生成出現異常，請稍後再試！');
         });
-    }, 600); // 留出 600 毫秒的微動畫延遲，給用戶帶來滿滿的 premium 精緻生成體感
+    }, 600); // 留出 600 毫秒 the 微動畫延遲，給用戶帶來滿滿的 premium 精緻生成體感
 };
 
 // 關閉手機端專用字卡儲存彈窗

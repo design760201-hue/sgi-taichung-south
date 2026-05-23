@@ -460,7 +460,7 @@ header.scrolled .header-container {
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    padding: 2.2rem;
+    padding: 2rem;
     box-sizing: border-box;
 }
 
@@ -504,17 +504,17 @@ header.scrolled .header-container {
 }
 
 .soka-brand-icon {
-    width: 28px;
-    height: 28px;
+    width: 36px; /* 放大 30% */
+    height: 36px;
     background: linear-gradient(135deg, hsl(190, 75%, 22%), hsl(41, 85%, 52%), hsl(8, 76%, 58%));
-    border-radius: 6px;
+    border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
     font-family: var(--font-en);
     font-weight: 800;
-    font-size: 0.8rem;
+    font-size: 1.05rem; /* 放大 30% */
 }
 
 .soka-brand-text {
@@ -523,7 +523,7 @@ header.scrolled .header-container {
 }
 
 .soka-brand-name {
-    font-size: 0.8rem;
+    font-size: 1.05rem; /* 放大 30% */
     font-weight: 800;
     color: var(--color-secondary);
     letter-spacing: 0.05em;
@@ -531,7 +531,7 @@ header.scrolled .header-container {
 }
 
 .soka-brand-handle {
-    font-size: 0.6rem;
+    font-size: 0.78rem; /* 放大 30% */
     color: var(--color-text-muted);
     font-weight: 500;
     line-height: 1.2;
@@ -554,7 +554,7 @@ header.scrolled .header-container {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 1.2rem 0.5rem;
+    padding: 1rem 0.5rem;
     text-align: center;
 }
 
@@ -3608,23 +3608,6 @@ footer {
 
     /* 幸福抽籤小卡牌手機端 RWD 自適應縮小，確保在窄螢幕如 iPhone SE 上 100% 完美不溢出 */
     @media (max-width: 480px) {
-        .soka-draw-box {
-            padding: 1.6rem 1rem !important;
-        }
-        .draw-box-title {
-            font-size: 1.15rem !important;
-        }
-        .draw-box-subtitle {
-            font-size: 0.8rem !important;
-            margin-bottom: 1.5rem !important;
-        }
-        .draw-cards-container {
-            gap: 0.6rem !important;
-        }
-        .draw-card {
-            width: 78px !important;
-            height: 120px !important;
-        }
         .back-text {
             font-size: 0.78rem !important;
             letter-spacing: 1px !important;
@@ -3640,49 +3623,54 @@ footer {
    I. 每日心靈晨光 • 三卡隨機幸福抽籤遊戲專屬樣式 (3D Card Draw Game Styles)
    ========================================================================== */
 
-/* 抽籤盒主容器 (沉沉置中放大黃金版) */
+/* 抽籤盒主容器 (沉浸式全透明無外框置中放大黃金版) */
 .soka-draw-box {
     width: 100%;
-    max-width: 580px; /* 置中對齊，霸氣開場 */
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 2px solid rgba(217, 119, 6, 0.2);
-    border-radius: 32px;
-    padding: 3rem 2.2rem;
-    box-shadow: 0 15px 45px rgba(217, 119, 6, 0.08);
+    max-width: 800px; /* 卡牌放大後，加寬容器最大寬度以完美容納並排 */
+    background: none !important; /* 完美移除白色大背景 */
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border: none !important; /* 完美移除白色大外框 */
+    border-radius: 0 !important;
+    padding: 2rem 1rem;
+    box-shadow: none !important; /* 完美移除大盒子陰影 */
     text-align: center;
     transition: all 0.5s ease-in-out;
+    margin: 0 auto;
 }
 
+/* 幸福抽籤升級為霸氣網頁首頁大標 */
 .draw-box-title {
-    font-size: 1.55rem;
+    font-size: 2.8rem;
     color: var(--color-primary-dark);
-    margin-bottom: 0.5rem;
-    font-weight: 850;
-    letter-spacing: 1.5px;
+    margin-bottom: 0.8rem;
+    font-weight: 900;
+    letter-spacing: 2.5px;
+    text-shadow: 0 2px 4px rgba(67, 43, 20, 0.04);
 }
 
+/* 幸福抽籤升級為優雅網頁首頁副標 */
 .draw-box-subtitle {
-    font-size: 0.95rem;
+    font-size: 1.15rem;
     color: var(--color-text-muted);
-    margin-bottom: 2.2rem;
-    line-height: 1.5;
+    margin-bottom: 3.5rem; /* 配合卡牌放大，增加與下方卡片的間距 */
+    line-height: 1.6;
+    letter-spacing: 0.5px;
 }
 
-/* 3D 卡牌容器 (加寬卡片間距) */
+/* 3D 卡牌容器 (加寬卡片間距，營造奢華呼吸感) */
 .draw-cards-container {
     display: flex;
     justify-content: center;
-    gap: 1.8rem; /* 卡牌間距擴展，極具呼吸美學 */
-    perspective: 1500px; /* 啟用 3D 景深視角 */
-    padding: 1.2rem 0;
+    gap: 2.5rem; /* 寬敞大氣的卡片間距 */
+    perspective: 2000px; /* 啟用更高強度的 3D 景深視角 */
+    padding: 1.5rem 0;
 }
 
-/* 單張卡牌主體 (全面放大，霸氣特寫) */
+/* 單張卡牌主體 (霸氣高畫質大尺寸版) */
 .draw-card {
-    width: 120px;
-    height: 182px;
+    width: 170px;
+    height: 310px; /* 拉長 20%，使卡牌顯得更修長優雅 */
     cursor: pointer;
     position: relative;
     transform-style: preserve-3d;
@@ -3690,7 +3678,7 @@ footer {
     transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.2), opacity 0.5s ease, box-shadow 0.3s ease;
 }
 
-/* 卡片半空漂浮微動畫 (三張牌錯開時間) */
+/* 卡片半空漂浮微動畫 (三張牌錯開時間，極具呼吸美學) */
 .draw-card:nth-child(1) { animation: floatCardItem 3.2s infinite ease-in-out; }
 .draw-card:nth-child(2) { animation: floatCardItem 3.2s infinite ease-in-out 0.4s; }
 .draw-card:nth-child(3) { animation: floatCardItem 3.2s infinite ease-in-out 0.8s; }
@@ -3700,38 +3688,38 @@ footer {
         transform: translateY(0);
     }
     50% {
-        transform: translateY(-8px);
+        transform: translateY(-12px); /* 配合卡片變大，增加漂浮高度 */
     }
 }
 
-/* 滑鼠懸停浮起高亮 */
+/* 滑鼠懸停浮起高亮與豪華光澤陰影 */
 .draw-card:hover {
-    transform: translateY(-12px) scale(1.06) !important;
-    box-shadow: 0 8px 24px rgba(217, 119, 6, 0.16);
+    transform: translateY(-16px) scale(1.08) !important;
+    box-shadow: 0 15px 35px rgba(217, 119, 6, 0.22);
 }
 
 .draw-card-inner {
     width: 100%;
     height: 100%;
-    border-radius: 18px;
+    border-radius: 24px;
     position: absolute;
     transform-style: preserve-3d;
     -webkit-transform-style: preserve-3d;
 }
 
-/* 卡片背面 (使用使用者提供之華麗插畫花草蝴蝶作為卡牌背面) */
+/* 卡片背面 (無外框極簡藝術版：完美展現手繪插畫花草蝴蝶與黑色蓮華徽章) */
 .draw-card-back {
     width: 100%;
     height: 100%;
     background-image: url('sgi_card_back_bg.jpg');
     background-size: cover;
     background-position: center;
-    border: 2.5px solid rgba(217, 119, 6, 0.35); /* 邊框略微加粗，強化立體浮雕質感 */
-    border-radius: 22px; /* 圓角增大，更加優雅精美 */
+    border: none !important; /* 完美去除焦糖色外框，插圖與邊緣自然融合 */
+    border-radius: 24px; /* 圓角增大，更加優雅精美 */
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 6px 20px rgba(67, 43, 20, 0.08);
+    box-shadow: 0 10px 30px rgba(67, 43, 20, 0.15), 0 2px 8px rgba(67, 43, 20, 0.08); /* 強化立體懸浮陰影 */
     position: absolute;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
@@ -3739,22 +3727,22 @@ footer {
 }
 
 
-/* 洗牌交叉穿梭動畫 (Shuffle Animation) */
+/* 洗牌交叉穿梭動畫 (Shuffle Animation - 配合卡片放大增加穿梭平移距離) */
 .draw-card.shuffling-1 { animation: cardShuffle1 0.8s ease-in-out; }
 .draw-card.shuffling-2 { animation: cardShuffle2 0.8s ease-in-out; }
 .draw-card.shuffling-3 { animation: cardShuffle3 0.8s ease-in-out; }
 
 @keyframes cardShuffle1 {
     0%, 100% { transform: translateX(0) scale(1); }
-    50% { transform: translateX(140px) translateY(-8px) scale(0.95); z-index: 1; } /* 配合卡牌放大，增加平移距離至 140px */
+    50% { transform: translateX(200px) translateY(-12px) scale(0.95); z-index: 1; }
 }
 @keyframes cardShuffle2 {
     0%, 100% { transform: translateX(0) scale(1); }
-    50% { transform: translateX(-140px) translateY(8px) scale(1.05); z-index: 5; } /* 配合卡牌放大，增加平移距離至 -140px */
+    50% { transform: translateX(-200px) translateY(12px) scale(1.05); z-index: 5; }
 }
 @keyframes cardShuffle3 {
     0%, 100% { transform: translateX(0) scale(1); }
-    50% { transform: translateY(-40px) scale(0.9); z-index: 2; }
+    50% { transform: translateY(-50px) scale(0.9); z-index: 2; }
 }
 
 /* 其他卡片被選中時的優雅淡出 */
@@ -3766,9 +3754,61 @@ footer {
 
 /* 被選中卡片 3D 180度翻轉並放大 */
 .draw-card.selected {
-    transform: scale(1.22) rotateY(180deg) !important; /* 翻轉放大更具張力 */
+    transform: scale(1.22) rotateY(180deg) !important;
     z-index: 10;
     box-shadow: 0 10px 30px rgba(217, 119, 6, 0.22);
+}
+
+/* 中等螢幕/平板端 RWD 完美適配與卡片微調 */
+@media (max-width: 768px) {
+    .soka-draw-box {
+        max-width: 650px !important;
+        padding: 2rem 1rem !important;
+    }
+    .draw-box-title {
+        font-size: 2.1rem !important;
+    }
+    .draw-box-subtitle {
+        font-size: 1.05rem !important;
+        margin-bottom: 2.8rem !important;
+    }
+    .draw-cards-container {
+        gap: 1.6rem !important;
+    }
+    .draw-card {
+        width: 130px !important;
+        height: 238px !important; /* 拉長 20% */
+    }
+    .draw-card-back {
+        border-radius: 18px !important;
+    }
+}
+
+/* 手機端窄螢幕 RWD 自適應放大，確保黃金排版且 100% 不溢出 */
+@media (max-width: 480px) {
+    .soka-draw-box {
+        padding: 1.5rem 0.5rem !important;
+    }
+    .draw-box-title {
+        font-size: 1.6rem !important;
+        letter-spacing: 1px !important;
+    }
+    .draw-box-subtitle {
+        font-size: 0.85rem !important;
+        margin-bottom: 2rem !important;
+    }
+    .draw-cards-container {
+        gap: 0.65rem !important;
+        padding: 0.5rem 0 !important;
+    }
+    .draw-card {
+        width: 96px !important;
+        height: 176px !important; /* 拉長 20% */
+    }
+    .draw-card-back {
+        border-radius: 14px !important;
+        box-shadow: 0 6px 16px rgba(67, 43, 20, 0.12) !important;
+    }
 }
 
 /* 手機端專用字卡儲存彈窗 */
@@ -3900,6 +3940,96 @@ footer {
     padding: 0.75rem !important;
     border-radius: 20px !important;
     font-size: 0.9rem !important;
+}
+
+/* ==========================================================================
+   J. Instagram 限時動態 9:16 (1080x1920) 專屬超高清後台渲染樣式
+   ========================================================================== */
+.soka-instagram-card.is-instagram-story {
+    width: 1080px !important;
+    height: 1920px !important;
+    max-width: none !important;
+    aspect-ratio: 9 / 16 !important;
+    padding: 5.5rem 4.5rem !important;
+    border-radius: 48px !important;
+    box-shadow: none !important; /* 後台渲染不需要外層陰影 */
+    background: linear-gradient(135deg, #fdfbf7 0%, #f7f3eb 100%) !important;
+}
+
+.soka-instagram-card.is-instagram-story .tricolor-ring {
+    top: 25px !important;
+    left: 25px !important;
+    right: 25px !important;
+    bottom: 25px !important;
+    border-radius: 36px !important;
+    border-width: 4px !important; /* 邊框加粗，符合大尺寸 */
+}
+
+.soka-instagram-card.is-instagram-story .soka-brand {
+    gap: 0.9rem !important;
+}
+
+.soka-instagram-card.is-instagram-story .soka-brand-icon {
+    width: 64px !important;
+    height: 64px !important;
+    border-radius: 14px !important;
+    font-size: 1.7rem !important;
+}
+
+.soka-instagram-card.is-instagram-story .soka-brand-name {
+    font-size: 1.8rem !important;
+}
+
+.soka-instagram-card.is-instagram-story .soka-brand-handle {
+    font-size: 1.2rem !important;
+    margin-top: 0.2rem !important;
+}
+
+.soka-instagram-card.is-instagram-story .card-header {
+    padding-bottom: 2rem !important;
+    border-bottom: 2px solid rgba(190, 150, 80, 0.15) !important;
+}
+
+.soka-instagram-card.is-instagram-story .card-content {
+    padding: 4rem 1.5rem !important;
+}
+
+.soka-instagram-card.is-instagram-story .quote-symbol {
+    font-size: 6.5rem !important;
+    height: 3.5rem !important;
+}
+
+.soka-instagram-card.is-instagram-story .quote-open {
+    margin-bottom: 1.5rem !important;
+}
+
+.soka-instagram-card.is-instagram-story .quote-close {
+    margin-top: -2rem !important;
+}
+
+.soka-instagram-card.is-instagram-story .quote-text {
+    font-size: 2.6rem !important; /* 滿版大字金句，限動張力極致震撼 */
+    line-height: 2.0 !important;
+    margin: 2.5rem 0 !important;
+    letter-spacing: 0.08em !important;
+}
+
+.soka-instagram-card.is-instagram-story .card-footer {
+    padding-top: 2rem !important;
+    border-top: 2px solid rgba(190, 150, 80, 0.15) !important;
+}
+
+.soka-instagram-card.is-instagram-story .quote-author {
+    font-size: 1.8rem !important;
+}
+
+.soka-instagram-card.is-instagram-story .quote-source {
+    font-size: 1.3rem !important;
+    margin-top: 0.4rem !important;
+}
+
+.soka-instagram-card.is-instagram-story .soka-footer-logo {
+    font-size: 1.3rem !important;
 }
 
 
