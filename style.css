@@ -2151,10 +2151,15 @@ footer {
     }
     
     .hero-section {
-        min-height: auto;
-        padding-top: 110px;
-        padding-bottom: 3rem;
+        min-height: 100vh;
+        min-height: 100dvh; /* 啟用動態視窗高度，完美適配 iPhone 16 Pro 等窄屏手機 */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-top: 85px; /* 為頂部固定 Header 留出空間，防重疊 */
+        padding-bottom: 2rem;
         background-position: 32% center !important; /* 手機端將雄獅主體向右拉，使英俊面容在窄螢幕上清晰露面 */
+        box-sizing: border-box;
     }
     
     .hero-title {
@@ -3855,15 +3860,15 @@ footer {
         margin-bottom: 2rem !important;
     }
     .draw-cards-container {
-        gap: 0.65rem !important;
+        gap: 0.75rem !important;
         padding: 0.5rem 0 !important;
     }
     .draw-card {
-        width: 96px !important;
-        height: 176px !important; /* 拉長 20% */
+        width: 110px !important;
+        height: 200px !important; /* 等比例拉長放大 15% */
     }
     .draw-card-back {
-        border-radius: 14px !important;
+        border-radius: 16px !important; /* 隨尺寸變大微調圓角，更加柔美 */
         box-shadow: 0 6px 16px rgba(26, 62, 104, 0.1) !important;
     }
 }
