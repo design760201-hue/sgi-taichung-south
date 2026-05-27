@@ -1913,103 +1913,28 @@ function renderMembersTable(data) {
 
 // (1) 2026年4月份 (5月份活動執行) 南區區會傳達事項完整 JSON 數據庫
 const SOUTH_DISTRICT_ANNOUNCEMENTS = {
+    month: "2026年5月份 (6月份活動執行)",
+    theme: "世界青年學會 • 躍動之年 ⚡",
     routine: [
-        {
-            id: 'respect-ceremony',
-            title: '御本尊敬領儀式',
-            badge: '儀式',
-            time: '5/7(四) 19:10',
-            location: '霧峰會館講堂二',
-            summary: '本月恭領御本尊的法友儀式安排。請相關地區正長通知敬領者於 19:00 報到。',
-            details: {
-                notes: [
-                    '報到時間：請各部相關地區正長通知敬領者於 19:00 報到。',
-                    '請【一日館長區負責人】點交御本尊及負責御本尊供養金收付，並轉交敬領者表單予受理報到人員。',
-                    '當日請大興本部協商安排敬領工作人員，工作人員請於 19:00 至會館準備。',
-                    '工作人員編制：授予人員（本部遞及禮生捧各1名）、司儀（壯年部本部遴選）、服務人員（婦人部負責受理報到、座位、動線等引導）、場控（本部企劃員負責彩排工作）。',
-                    '「程序表」請循壯年部企劃管道回傳區核備。'
-                ]
-            }
-        },
-        {
-            id: 'gosho-lecture',
-            title: '佛法講座',
-            badge: '教學',
-            time: '5/7(四) 19:30',
-            location: '霧峰會館文化會堂',
-            summary: '黃楨雅 副圈長主講，蘇建志唱導。教學範圍為〈御義口傳〉（化城喻品七件大事）。',
-            details: {
-                staff: {
-                    '司儀': '遴選青年部擔任',
-                    '場控': '青年部區級幹部',
-                    '副唱導': '青年部',
-                    '簡報播放': '青年部'
-                },
-                program: '勤行唱題 (10分鐘) ➔ 教學 (80分鐘) ➔ 題目三唱。企劃案由區男/女子部企劃長擬提。',
-                material: [
-                    '《日蓮大聖人御書全集 文白並列本 別冊》(化城喻品七件大事)',
-                    '《御義口傳要文講義》〈化城喻品第七〉'
-                ],
-                notes: [
-                    '開放講堂一作為婦幼同步區，請多加利用。'
-                ]
-            }
-        },
-        {
-            id: 'cadre-study',
-            title: '幹部視訊教學',
-            badge: '研習',
-            time: '5/11(一) 19:30',
-            location: '線上舉辦',
-            summary: '台中南區與台中西區於 5/11 線上舉辦；南投區於 5/13(三) 19:30 線上舉辦。',
-            details: {
-                participants: '四部地區級以上幹部及大學部 CR、VCR。',
-                material: [
-                    '5月份《福運雜誌》',
-                    '5月份《教學研習》',
-                    '5/12《創價新聞》'
-                ],
-                notes: [
-                    '擔任座談會總結幹部及御書講師者，請務必參加上課。',
-                    '無法在所屬區上課者，請依各部企劃管道申請跨區註冊上課。'
-                ]
-            }
-        },
         {
             id: 'memorial-meeting',
             title: '追善回向勤行會暨佛法教學',
-            badge: '追善',
-            time: '各本部場次不同 (5/5、5/9、5/16)',
-            location: '霧峰會館',
-            summary: '大興本部 5/5(二)、大里本部 5/9(六)、太平本部 5/16(六)。各場次皆於 19:50 舉辦。',
+            badge: '例行',
+            time: '6/11 - 6/13 (詳見各場次)',
+            location: '各本部講堂',
+            summary: '2026年6月份追善回向勤行會暨佛法教學場次。程序包含勤行唱題、御書學習、體驗發表與總結指導。',
             details: {
                 schedules: [
-                    { name: '大興本部', date: '5/5(二) 19:50', cadre: '游象陸 (區副總合長)', chanter: '游象陸', lecturer: '劉士榮 (本部長)' },
-                    { name: '大里本部', date: '5/9(六) 19:50', cadre: '高友馨 (區副婦人部長)', chanter: '吳永富 (副區長)', lecturer: '李景達 (支部企劃員)' },
-                    { name: '太平本部', date: '5/16(六) 19:50', cadre: '張美雲 (圈副婦人部長)', chanter: '蘇建志 (副圈長)', lecturer: '陳雅鳳 (支部副婦人部長)' }
+                    { name: '大興本部', date: '6/11(四) 19:50', cadre: '林文生 副總合壯年部長', chanter: '同左', lecturer: '賴香蘭 支部婦人部長' },
+                    { name: '太平本部', date: '6/12(五) 19:50', cadre: '黃潔芬 區副婦人部長', chanter: '呂文義 本部長', lecturer: '曾穀財 副本部長' },
+                    { name: '大里本部', date: '6/13(六) 19:50', cadre: '許慧玲 區副婦人部長', chanter: '吳永富 副區長', lecturer: '林惠蘭 本部副婦人部長' }
                 ],
-                program: '勤行唱題 (30分鐘，含鞠躬行儀) ➔ 御書學習 (20分鐘) ➔ 體驗 (10分鐘) ➔ 總結指導 (10分鐘) ➔ 題目三唱 (1分鐘)。企劃案循壯年部管道回傳區核備。',
-                material: [
-                    '2026.5月份《教學研習》'
-                ],
+                program: '勤行唱題（30分鐘，含鞠躬行儀） ➔ 御書學習（20分鐘） ➔ 體驗（10分鐘） ➔ 總結指導（10分鐘） ➔ 題目三唱（1分鐘）。企劃案請循壯年部企劃管道回傳區核備。',
+                material: ['2026年6月份《教學研習》'],
                 notes: [
-                    '【鞠躬行儀】：婦人部引導人員 8 位，於勤行後，於 20:05 開始引導與會者至唱導者後方，向御本尊行鞠躬禮。',
-                    '【體驗單元】：以所屬本部為主，可安排發表者或遴選人員朗讀《創價新聞》之體驗，不跨本部安排。體驗稿由區級幹部校稿後提交區正長，副本寄壯年部區企劃長。'
-                ]
-            }
-        },
-        {
-            id: 'rehearsal-meeting',
-            title: '五月份實體座談會線上彩排',
-            badge: '會議',
-            time: '5/15(五) 20:00',
-            location: '線上舉辦',
-            summary: '為實體座談會進行線上彩排。請各程序擔當人員準時上線參加。',
-            details: {
-                notes: [
-                    '請各程序擔當人員準時上線參加。',
-                    '相關程序細節請參照本月 (4月) 全國區長會傳達資料。',
-                    '本月「座談會青年部主打場」各地區場次安排，請切換至「座談會青年部主打場」分頁進行快速搜尋與過濾。'
+                    '「鞠躬行儀」：婦人部引導人員8位，於勤行後，於20:05分開始引導與會者至唱導者後方，向御本尊行鞠躬禮。',
+                    '體驗單元：體驗人員請以所屬本部為主，除可安排發表者外，亦可遴選適當人員朗讀《創價新聞》登載之體驗，故不再跨本部安排發表人選。',
+                    '若安排發表者：體驗稿請依各部管道安排【區級幹部】校稿，文稿請提交各部區正長，副本寄壯年部區企劃長。'
                 ]
             }
         }
@@ -2045,24 +1970,14 @@ const SOUTH_DISTRICT_ANNOUNCEMENTS = {
         { district: '健康地區', group: '福平組', date: '5/19(二)' }
     ],
     others: {
-        friendshipDay: {
-            title: '2026區創價友誼日',
-            time: '5/2(六) 上午 10:00',
-            location: '霧峰會館文化會堂',
-            target: '新朋友、全體高中部、大學部、研究生部與青年部會員。'
-        },
-        universities: [
-            { school: '中山醫大學會', date: '5/17(日) 14:00', location: '大學會之家' },
-            { school: '中興大學會', date: '5/9(六) 19:30', location: '大學會之家' },
-            { school: '勤益大學會', date: '5/23(六) 19:30', location: '大學會之家' },
-            { school: '修平／朝陽大學會', date: '5/27(三) 19:30', location: '大學會之家' },
-            { school: '亞洲大學會', date: '5/13(三) 19:30', location: '大學會之家' }
-        ],
-        museum: {
-            title: '創價美術館 台中館',
-            subtitle: '藝術亮點 • 常設對話與觀展交流',
-            description: '創價美術館台中館為台中市政府文化局評選之「藝術亮點」優良藝文場館，展出藝術家皆具臺灣重要藝術成就與貢獻。館內二樓設有對話廣場會員服務中心與常唱堂，可供觀展後交流運用。請各地區把握展期，至少規劃 1 場「地區文化日」，邀約會員及新朋友參與，並以共乘或捷運方式前往觀展交流，善用場域推動文化扎根與廣布。'
-        }
+        activities: [
+            { id: 'youth-departure', title: '2026年國、高中部暑期活動出發式暨區育才日', time: '6/16(二) 晚上 19:30', location: '霧峰會館文化會堂、講堂二', target: '四部區正長/企劃長、國高區育才長/各層級育才部幹部、國高暑期四部各部組負責人、快樂學習/活動部單元負責人' },
+            { id: 'future-summer', title: '2026未來部快樂FUN暑假暨未來部歡送畢業生', time: '7/4(六) 上午 10:00-12:00', location: '霧峰會館文化會堂', target: '未來部員及家長、學會員親戚之子女、地區新簽卡之子女、多寶會之孫子女、新朋友及其家長、帶班阿姨、地區婦人部長', description: '秉持池田SGI會長「培育後繼即是創造未來」的指導精神，面對少子化的當代趨勢，未來部將持續推動「擴大」運動，深刻重視每一位孩子的成長與幸福。期盼透過親子互動的溫馨活動，深化家庭間的情誼，並培育更多「以一當千」的後繼人才，共同開創嶄新希望的時代！' },
+            { id: 'hq-meeting', title: '觀賞《邁向學會創立 100 週年─第十回本部幹部會》影片', time: '6/4(四) 晚上 8:00', location: '線上 Zoom 進行播放', target: '全體部員' },
+            { id: 'youth-reading', title: '青年部男子部/女子部支部讀書會', time: '將依男、女子部組織管道各別傳達', location: '各指定地點', target: '部員以上' },
+            { id: 'men-meeting', title: '壯年部本部勇壯會', time: '6/25(四)', location: '霧峰會館', target: '壯年部部員以上' },
+            { id: 'women-meeting', title: '婦人部幸福1+1組總會', time: '將依婦人部組織管道傳達', location: '各組指定據點', target: '婦人部部員以上' }
+        ]
     }
 };
 
@@ -2070,6 +1985,28 @@ const SOUTH_DISTRICT_ANNOUNCEMENTS = {
 function initializeAnnouncements() {
     const tabs = document.querySelectorAll('.announcement-tab-btn');
     if (tabs.length === 0) return;
+    
+    // 動態同步 HTML 標題與 JSON 數據庫
+    const titleEl = document.querySelector('.announcements-title');
+    if (titleEl && SOUTH_DISTRICT_ANNOUNCEMENTS.month) {
+        titleEl.textContent = SOUTH_DISTRICT_ANNOUNCEMENTS.month;
+    }
+    const toggleTagEl = document.querySelector('.announcements-toggle-btn .toggle-tag');
+    if (toggleTagEl && SOUTH_DISTRICT_ANNOUNCEMENTS.month) {
+        const monthPart = SOUTH_DISTRICT_ANNOUNCEMENTS.month.split(' ')[0];
+        toggleTagEl.textContent = `📢 ${monthPart}`;
+    }
+    const toggleSubEl = document.querySelector('.announcements-toggle-btn .toggle-title-sub');
+    if (toggleSubEl && SOUTH_DISTRICT_ANNOUNCEMENTS.month) {
+        const parts = SOUTH_DISTRICT_ANNOUNCEMENTS.month.split(' ');
+        if (parts.length > 1) {
+            toggleSubEl.textContent = parts[1];
+        }
+    }
+    const subtitleEl = document.querySelector('.announcements-subtitle');
+    if (subtitleEl && SOUTH_DISTRICT_ANNOUNCEMENTS.theme) {
+        subtitleEl.textContent = SOUTH_DISTRICT_ANNOUNCEMENTS.theme;
+    }
     
     tabs.forEach(tab => {
         tab.addEventListener('click', function(e) {
@@ -2395,91 +2332,61 @@ function renderAnnouncements(tabName) {
         });
         
     } else if (tabName === 'others') {
-        // 渲染其他重要活動，包含創價友誼日、五所大學座談會、池田先生字卡、創價美術館地區文化日
+        // 渲染其他重要活動，重構為動態卡片渲染，並為每個活動配置專屬的高雅向量圖示
         const othersDiv = document.createElement('div');
         othersDiv.className = 'others-cards-container';
         
-        const universitiesHtml = SOUTH_DISTRICT_ANNOUNCEMENTS.others.universities.map(u => `
-            <div class="routine-schedule-item">
-                <span style="font-weight:600; color:var(--color-primary-dark, #0b2545);">🎓 ${u.school}</span>
-                <span style="font-size:0.85rem; color:var(--color-accent);">${u.date} ➔ ${u.location}</span>
-            </div>
-        `).join('');
-        
-        othersDiv.innerHTML = `
-            <!-- 卡片 1: 友誼日 -->
-            <div class="other-item-card">
-                <div class="other-card-header">
-                    <div class="other-card-icon">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                    </div>
-                    <h4 class="other-card-title">${SOUTH_DISTRICT_ANNOUNCEMENTS.others.friendshipDay.title}</h4>
-                </div>
-                <div class="other-card-content">
-                    <p style="margin-bottom:0.8rem; color:var(--color-text, #2c3e50);">
-                        <strong>舉辦時間：</strong>${SOUTH_DISTRICT_ANNOUNCEMENTS.others.friendshipDay.time}<br>
-                        <strong>舉辦地點：</strong>${SOUTH_DISTRICT_ANNOUNCEMENTS.others.friendshipDay.location}
-                    </p>
-                    <p style="font-size:0.9rem; color:var(--color-text-muted);">
-                        <strong>參加對象：</strong>${SOUTH_DISTRICT_ANNOUNCEMENTS.others.friendshipDay.target}
-                    </p>
-                    <div style="background: rgba(16, 126, 125, 0.06); border: 1px dashed rgba(16, 126, 125, 0.3); border-radius: 12px; padding: 0.8rem; margin-top: 1rem; font-size: 0.85rem; color: var(--color-primary, #107e7d); font-weight: 500; line-height: 1.4;">
-                        ✨ 邀請新朋友與全體青年學子踴躍參與，一同感受創價大家庭最溫暖的友誼與熱情！
-                    </div>
-                </div>
-            </div>
+        const cardsHtml = SOUTH_DISTRICT_ANNOUNCEMENTS.others.activities.map(act => {
+            // 根據活動 id 配對專屬的高雅向量 SVG
+            let iconHtml = '';
+            if (act.id === 'youth-departure') {
+                iconHtml = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"></path></svg>`;
+            } else if (act.id === 'future-summer') {
+                iconHtml = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path></svg>`;
+            } else if (act.id === 'hq-meeting') {
+                iconHtml = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>`;
+            } else if (act.id === 'youth-reading') {
+                iconHtml = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>`;
+            } else if (act.id === 'men-meeting') {
+                iconHtml = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>`;
+            } else if (act.id === 'women-meeting') {
+                iconHtml = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>`;
+            } else {
+                iconHtml = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>`;
+            }
             
-            <!-- 卡片 2: 大學回娘家 -->
+            return `
             <div class="other-item-card">
                 <div class="other-card-header">
                     <div class="other-card-icon">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path></svg>
+                        ${iconHtml}
                     </div>
-                    <h4 class="other-card-title">大學座談會暨學長姊回娘家</h4>
+                    <h4 class="other-card-title">${act.title}</h4>
                 </div>
                 <div class="other-card-content" style="display:flex; flex-direction:column; justify-content:space-between; height:100%;">
-                    <div class="routine-schedules" style="margin-top: 0; margin-bottom: 1rem; background:rgba(16,126,125,0.05);">
-                        ${universitiesHtml}
+                    <div>
+                        ${act.time ? `<p style="margin-bottom:0.5rem; color:var(--color-text, #2c3e50); font-size:0.9rem;"><strong>📅 舉辦時間：</strong>${act.time}</p>` : ''}
+                        ${act.location ? `<p style="margin-bottom:0.5rem; color:var(--color-text, #2c3e50); font-size:0.9rem;"><strong>📍 舉辦地點：</strong>${act.location}</p>` : ''}
+                        ${act.target ? `<p style="margin-bottom:0.8rem; color:var(--color-text-muted); font-size:0.85rem; line-height:1.4;"><strong>👥 參加對象：</strong>${act.target}</p>` : ''}
                     </div>
-                    
-                    <div class="other-guidance-box" style="margin-top: 0.5rem;">
-                        <p class="other-guidance-text">
-                            「能貫徹青春時代的誓願與信念之人，是人生的勝利者。誓願，是讓自身無限向上、活躍、成長的原動力。」
-                        </p>
-                        <p class="other-guidance-text" style="margin-top:0.4rem; text-align:right; font-weight:600; color:var(--color-accent);">
-                            ── 池田 SGI 會長指導 🌸
-                        </p>
+                    ${act.description ? `
+                    <div style="background: rgba(16, 126, 125, 0.05); border: 1px dashed rgba(16, 126, 125, 0.25); border-radius: 12px; padding: 0.8rem; margin-top: 0.5rem; font-size: 0.85rem; color: var(--color-primary, #107e7d); font-weight: 500; line-height: 1.45;">
+                        ${act.description}
                     </div>
+                    ` : ''}
                 </div>
             </div>
-            
-            <!-- 卡片 3: 美術館文化日 -->
-            <div class="other-item-card">
-                <div class="other-card-header">
-                    <div class="other-card-icon">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
-                    </div>
-                    <h4 class="other-card-title">${SOUTH_DISTRICT_ANNOUNCEMENTS.others.museum.title}</h4>
-                </div>
-                <div class="other-card-content">
-                    <div style="font-size:0.8rem; background:rgba(220,166,38,0.15); color:var(--color-accent); padding:0.2rem 0.6rem; border-radius:4px; display:inline-block; font-weight:600; margin-bottom:0.8rem;">
-                        ${SOUTH_DISTRICT_ANNOUNCEMENTS.others.museum.subtitle}
-                    </div>
-                    <p style="font-size:0.88rem; color:var(--color-text, #2c3e50); line-height:1.5;">
-                        ${SOUTH_DISTRICT_ANNOUNCEMENTS.others.museum.description}
-                    </p>
-                    <div style="margin-top: 1.2rem; display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; color: var(--color-primary, #107e7d); font-weight: 600;">
-                        🌿 倡導綠色環保觀展：請以共乘或捷運方式前往觀展交流！
-                    </div>
-                </div>
-            </div>
-        `;
+            `;
+        }).join('');
         
+        othersDiv.innerHTML = cardsHtml;
         contentDiv.appendChild(othersDiv);
     }
 }
 
-// (5) 座談會青年部主打場極速搜尋過濾引擎 (支持毫秒級模糊關鍵字交叉篩選，並智慧串接 Google Maps)
+// (5) 青年部主場座談會過濾與地圖導航功能
+
+
 function filterYouthMeetings(keyword) {
     const grid = document.querySelector('.youth-meetings-grid');
     if (!grid) return;
