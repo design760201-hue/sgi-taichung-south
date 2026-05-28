@@ -23,6 +23,17 @@ document.addEventListener('DOMContentLoaded', () => {
         footerYear.textContent = new Date().getFullYear();
     }
 
+    // 1-2. 全自動月份時鐘引擎 (自動更新執行月份標籤)
+    const currentMonthNum = new Date().getMonth() + 1;
+    const chineseMonths = ["", "一", "二", "三", "四", "五", "六", "七", "八", "九", "十", "十一", "十二"];
+    const currentChineseMonth = chineseMonths[currentMonthNum];
+    const subTitles = document.querySelectorAll('.toggle-title-sub');
+    subTitles.forEach(el => {
+        if (el.textContent.includes('月份活動執行')) {
+            el.textContent = `(${currentChineseMonth}月份活動執行)`;
+        }
+    });
+
     // 2. 頂部導覽列捲動樣式切換 (Scroll Header effect)
     const header = document.getElementById('main-header');
     window.addEventListener('scroll', () => {
