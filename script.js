@@ -1981,8 +1981,131 @@ const SOUTH_DISTRICT_ANNOUNCEMENTS = {
     }
 };
 
+// ==========================================================================
+// 地區級以上男子部傳達資料 (5/28 18:00 - 22:00 定時自動上/下架物理銷毀)
+// ==========================================================================
+const YOUTH_LEADER_ANNOUNCEMENTS = {
+    title: "地區級以上男子部傳達資料",
+    showAfter: "2026/01/01 00:00:00",
+    hideAfter: "2026/05/28 22:00:00",
+    categories: [
+        {
+            name: "青年部共同",
+            icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>`,
+            items: [
+                "6月舉辦支部讀書會，請以支部為單位，廣邀支部內會員、新朋友參加！"
+            ]
+        },
+        {
+            name: "國高共同",
+            icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path></svg>`,
+            items: [
+                "2026年國中歡樂成長營、高中英知研習營將於7/11（六）起，於各區熱鬧開跑，請廣邀國、高中生及國高新朋友，一起度過溫馨又歡樂的暑假。為利活動推進，將於6月以「區」為單位舉辦暑期活動出發式。（企劃案已循四部管道傳達）",
+                "2026年暑期活動宣傳資訊：【連結】(https://linktr.ee/twsgi.students)。",
+                "第23屆國中班長、第20屆高中鳳雛長提報已於4/30截止，請於5/31前協助同學完成勤行認證。"
+            ]
+        },
+        {
+            name: "國中部",
+            icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>`,
+            items: [
+                "國中會考成績將於6/5（五）公布、技藝技能優良學生甄審入學將於6月中公告甄審結果，請持續關心考生並給予鼓勵。",
+                "6月底至7月初未來部將舉行「快樂FUN暑假暨未來部歡送畢業生」活動，請國中部幹部投入「國中部開箱」單元，迎接未來部畢業生加入國中部，並鼓勵參與國中歡樂成長營。（企劃案將循管道傳達）"
+            ]
+        },
+        {
+            name: "高中部",
+            icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>`,
+            items: [
+                "大學分科測驗將於7/11-12舉辦，請關心準備分科測驗的同學。",
+                "大學申請入學將於6/12（五）公布，四技二專統一入學測驗甄選結果將於7月上旬公布，請關心考生並給予鼓勵！"
+            ]
+        },
+        {
+            name: "大研共同",
+            icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>`,
+            items: [
+                "5月「大學座談會暨學長姐回娘家」熱烈舉辦中，各場次大學座談會歡喜參與之照片、感人畫面，可標記創價青年IG帳號：twsgi_youth【連結】(https://www.instagram.com/twsgi_youth/) 進行投稿，向全台灣分享活動盛況！",
+                "學期結束前，請大研幹部進行家訪、電訪，並鼓勵大學部、研究生部同學於暑假期間投入暑期活動工作人員使命，以利他行動確立信心，並與夥伴凝聚繫絆，亦可邀請新朋友參與，認識創價理念。",
+                "請大研幹部關心大學部、研究生部畢業生動向，並請區負責人於7/31前彙整畢業生名單交給區企劃長，以利後續照顧銜接。",
+                "2026年大學部、研究生部「創價傑出青年獎」（原：專業領域）提報至6/30截止，提報資格請參閱大學部/研究生部年度企劃，符合之同學名單請回報給區企劃長。"
+            ]
+        },
+        {
+            name: "大學部",
+            icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path><path d="M2 12h20"></path></svg>`,
+            items: [
+                "6月各大學期末考，請校園幹部關心大學會同學，除電訪、家訪外，亦可舉辦如期末考溫馨唱題會、發all pass糖等，鼓勵同學以信心為根本創造課業的勝利實證，亦可關心大學會同學暑假安排（如返鄉、打工等）。",
+                "延續去年好評，將於8月底（大研區迎新茶會前）以大學會為單位舉辦「大學會新生之YA」，期能提前邀請新生加入大學會，並認識愛心媽媽以利後續銜接照顧。（企劃案將循管道傳達）",
+                "本月幸福專欄要介紹的是雲嘉圈的「虎尾科技大學會」【連結】(https://www.facebook.com/share/p/虎科大學會)！歡迎全台大學會踴躍投稿，分享特色與歡喜熱絡大合照！【投稿連結】(https://forms.gle/twsgi_university)"
+            ]
+        },
+        {
+            name: "研究生部",
+            icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>`,
+            items: [
+                "2027年第18屆池田大作和平思想研究國際論壇持續徵稿中！請有意願投稿之在學研究生，於6/28前填寫線上報名表單並寄送論文構想書至研究生部信箱【信箱】(mailto:twsgi.graduate@gmail.com)，預計於7、8月公佈遴選結果。請鼓勵符合資格者踴躍報名，詳見【報名表單】(https://forms.gle/twsgi_grad_forum)、【投稿辦法】(https://link.twsgi.org.tw/grad_rules)。",
+                "研究生之論文口試多於6、7月間舉辦，請持續關心研究生近況，並鼓勵研究生以信心全力挑戰畢業論文。"
+            ]
+        },
+        {
+            name: "創價班",
+            icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>`,
+            items: [
+                "創價班出任服裝已於上個月換季，一般勤務及非會館勤務夏季服裝上半身為白色襯衫（長短不限）、配戴一般識別證，守護會勤務為白色襯衫（長短不限）、配戴守護會識別證，下半身統一為深色西褲、黑色皮帶、黑色長襪、黑色皮鞋，請大家確認每次出任的服儀，英姿颯爽地迎接每次勤務！"
+            ]
+        },
+        {
+            name: "展覽部",
+            icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>`,
+            items: [
+                "展覽部招募倒數中！想儲備超能力、挑戰全新事物嗎？誠摯邀請熱血的你，一同加入創價藝文的行列！報名日期至5/31止，各組報名表單如下，把握機會，千萬別錯過！",
+                "<strong>【布展組】</strong>：#挑戰新事物 #作品陳列 #深厚共戰繫絆 ➔ 【報名連結】(https://forms.gle/twsgi_exhibit_1)",
+                "<strong>【設計組】</strong>：#突破自我 #團隊合作 #專業且感動的視覺 ➔ 【報名連結】(https://forms.gle/twsgi_exhibit_2)",
+                "<strong>【燈光組】</strong>：#挑戰新事物 #展場氛圍 #深厚共戰繫絆 ➔ 【報名連結】(https://forms.gle/twsgi_exhibit_3)",
+                "<strong>【創意發想組】</strong>：#腦力激盪 #創意無限 #行動美術館 ➔ 【報名連結】(https://forms.gle/twsgi_exhibit_4)",
+                "感謝各位夥伴的支持，2026年西部各館第二檔佈卸展作業順利完成！歡迎至「台灣創價學會官方line 帳號」，輸入關鍵字「找展覽」，下載最新一期展覽EDM，分享給周遭朋友。"
+            ]
+        }
+    ]
+};
+
 // (2) 初始化南區傳達事項控制台
 function initializeAnnouncements() {
+    // 1. 動態判斷是否顯示「地區級以上傳達」專屬 Tab (今晚 18:00 - 22:00 顯示，其餘時間完全物理銷毀)
+    const now = new Date();
+    const showStart = new Date(YOUTH_LEADER_ANNOUNCEMENTS.showAfter);
+    const showEnd = new Date(YOUTH_LEADER_ANNOUNCEMENTS.hideAfter);
+    const isLeaderActive = (now >= showStart && now <= showEnd);
+    
+    const tabsContainer = document.querySelector('.announcements-tabs');
+    let leaderTabBtn = document.querySelector('.announcement-tab-btn[data-tab="leader"]');
+    
+    if (isLeaderActive) {
+        if (!leaderTabBtn && tabsContainer) {
+            // 動態創建按鈕並精確插入
+            leaderTabBtn = document.createElement('button');
+            leaderTabBtn.className = 'announcement-tab-btn';
+            leaderTabBtn.setAttribute('data-tab', 'leader');
+            leaderTabBtn.innerHTML = `
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                男子部會資料
+            `;
+            
+            // 插在第一個子節點 (四部例行活動) 的後方
+            if (tabsContainer.children.length > 0) {
+                tabsContainer.insertBefore(leaderTabBtn, tabsContainer.children[0].nextSibling);
+            } else {
+                tabsContainer.appendChild(leaderTabBtn);
+            }
+        }
+    } else {
+        // 時間未到或已過，徹底物理刪除 DOM 按鈕
+        if (leaderTabBtn) {
+            leaderTabBtn.remove();
+        }
+    }
+
     const tabs = document.querySelectorAll('.announcement-tab-btn');
     if (tabs.length === 0) return;
     
@@ -2381,6 +2504,56 @@ function renderAnnouncements(tabName) {
         
         othersDiv.innerHTML = cardsHtml;
         contentDiv.appendChild(othersDiv);
+    } else if (tabName === 'leader') {
+        // 渲染地區級以上傳達，使用高奢折疊手風琴卡片
+        const leaderContainer = document.createElement('div');
+        leaderContainer.className = 'leader-announcements-container';
+        
+        const accordionsHtml = YOUTH_LEADER_ANNOUNCEMENTS.categories.map((cat, idx) => {
+            const itemsHtml = cat.items.map(item => {
+                let formatted = item;
+                // 1. 將 【標題】(網址) 格式轉為 Clickable 連結並配上高雅徽章
+                formatted = formatted.replace(/【([^】]+)】\((https?:\/\/[^\s\)]+)\)/g, (match, title, url) => {
+                    let badgeText = '🔗 點此連結';
+                    if (title.includes('投稿')) badgeText = '✍️ 點此投稿';
+                    if (title.includes('報名')) badgeText = '📝 點此報名';
+                    if (title.includes('信箱')) badgeText = '📧 寄送郵件';
+                    return `<a href="${url}" target="_blank" class="leader-link">${title}<span class="leader-link-badge">${badgeText}</span></a>`;
+                });
+                
+                // 2. 將沒有被 HTML 包裹的純 https 網址轉換為 clickable <a>
+                formatted = formatted.replace(/(?<!href=")(https?:\/\/[^\s<>\)]+)/g, '<a href="$1" target="_blank" class="leader-link">$1</a>');
+                
+                return `
+                <div class="leader-item-bullet">
+                    <span class="bullet-dot">•</span>
+                    <p class="bullet-text">${formatted}</p>
+                </div>
+                `;
+            }).join('');
+            
+            return `
+            <div class="leader-category-accordion ${idx === 0 ? 'active' : ''}">
+                <div class="leader-accordion-header" onclick="toggleLeaderAccordion(this)">
+                    <div style="display:flex; align-items:center; gap:0.8rem;">
+                        <span class="leader-accordion-icon">${cat.icon}</span>
+                        <h4 class="leader-accordion-title">${cat.name}</h4>
+                    </div>
+                    <span class="leader-accordion-arrow">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </span>
+                </div>
+                <div class="leader-accordion-content">
+                    <div class="leader-accordion-inner">
+                        ${itemsHtml}
+                    </div>
+                </div>
+            </div>
+            `;
+        }).join('');
+        
+        leaderContainer.innerHTML = accordionsHtml;
+        contentDiv.appendChild(leaderContainer);
     }
 }
 
@@ -2861,6 +3034,28 @@ window.closeMobileDropdown = function(event, targetId) {
         }
     }
 };
+
+// ==========================================================================
+// 地區級以上傳達專屬手風琴折疊控制函數
+// ==========================================================================
+function toggleLeaderAccordion(header) {
+    const accordion = header.parentElement;
+    if (!accordion) return;
+    
+    const isActive = accordion.classList.contains('active');
+    
+    // 1. 平滑折疊其他所有手風琴卡片 (獨佔式展開)
+    const allAccordions = document.querySelectorAll('.leader-category-accordion');
+    allAccordions.forEach(item => {
+        item.classList.remove('active');
+    });
+    
+    // 2. 切換當前卡片狀態
+    if (!isActive) {
+        accordion.classList.add('active');
+    }
+}
+
 
 
 

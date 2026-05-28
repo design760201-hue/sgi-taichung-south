@@ -4152,6 +4152,146 @@ footer {
     font-size: 1.3rem !important;
 }
 
+/* ==========================================================================
+   5. 地區級以上傳達手風琴樣式 (開會專用，定時上下架)
+   ========================================================================== */
+.leader-announcements-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    max-width: 800px;
+    margin: 1.5rem auto 0 auto;
+}
+
+.leader-category-accordion {
+    background: #ffffff;
+    border: 1px solid rgba(26, 62, 104, 0.12);
+    border-radius: var(--radius-md, 12px);
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: var(--shadow-sm);
+}
+
+.leader-category-accordion:hover {
+    border-color: var(--color-primary);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+}
+
+.leader-accordion-header {
+    padding: 1.2rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    background: #ffffff;
+    user-select: none;
+    transition: background 0.2s ease;
+}
+
+.leader-accordion-header:hover {
+    background: rgba(26, 62, 104, 0.03);
+}
+
+.leader-accordion-icon {
+    width: 34px;
+    height: 34px;
+    background: rgba(16, 126, 125, 0.08);
+    border: 1px solid rgba(16, 126, 125, 0.15);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-primary, #107e7d);
+}
+
+.leader-accordion-title {
+    font-size: 1.1rem;
+    color: var(--color-primary-dark, #0b2545);
+    font-weight: 600;
+    margin: 0;
+}
+
+.leader-accordion-arrow {
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    color: var(--color-text-muted);
+}
+
+.leader-accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    background: rgba(250, 248, 246, 0.6);
+}
+
+.leader-category-accordion.active .leader-accordion-content {
+    max-height: 1200px;
+}
+
+.leader-category-accordion.active .leader-accordion-arrow {
+    transform: rotate(180deg);
+    color: var(--color-primary);
+}
+
+.leader-accordion-inner {
+    padding: 1.2rem 1.8rem;
+    border-top: 1px solid rgba(26, 62, 104, 0.06);
+}
+
+.leader-item-bullet {
+    display: flex;
+    gap: 0.8rem;
+    margin-bottom: 0.9rem;
+    align-items: flex-start;
+}
+
+.leader-item-bullet:last-child {
+    margin-bottom: 0;
+}
+
+.bullet-dot {
+    color: var(--color-primary, #107e7d);
+    font-weight: bold;
+    font-size: 1.1rem;
+    line-height: 1.4;
+    user-select: none;
+}
+
+.bullet-text {
+    margin: 0;
+    color: var(--color-text, #2c3e50);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    word-break: break-all;
+}
+
+.leader-link {
+    color: var(--color-primary, #107e7d) !important;
+    text-decoration: underline !important;
+    font-weight: 600 !important;
+    transition: all 0.2s ease;
+}
+
+.leader-link:hover {
+    color: var(--color-primary-dark, #0b2545) !important;
+}
+
+.leader-link-badge {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(16, 126, 125, 0.09);
+    border: 1px solid rgba(16, 126, 125, 0.18);
+    color: var(--color-primary, #107e7d);
+    padding: 0.15rem 0.45rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-left: 0.3rem;
+    user-select: none;
+    vertical-align: middle;
+}
+
+
 
 
 
