@@ -34,6 +34,33 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // 1-3. 座談會人員表定時休眠與自動喚醒引擎 (6/1 - 7/25 00:00 全自動隱藏，過後自動恢復)
+    const recessStart = new Date('2026/06/01 00:00:00');
+    const recessEnd = new Date('2026/07/25 00:00:00');
+    if (new Date() >= recessStart && new Date() < recessEnd) {
+        // (1) 物理隱藏當月座談會人員表主體 Section 區塊
+        const meetingSection = document.getElementById('meeting-members');
+        if (meetingSection) {
+            meetingSection.style.display = 'none';
+        }
+        // (2) 遍歷隱藏頂部導覽列、手機下拉選單及頁尾中的座談會按鈕 (並隱藏 li 以防空白間距)
+        const navLinks = document.querySelectorAll('a[href="#meeting-members"]');
+        navLinks.forEach(link => {
+            if (link.parentElement && link.parentElement.tagName === 'LI') {
+                link.parentElement.style.display = 'none';
+            } else {
+                link.style.display = 'none';
+            }
+        });
+        // (3) 物理隱藏手機底部導覽列按鈕 (如果有該按鈕)
+        const mobileBottomNavItems = document.querySelectorAll('.mobile-bottom-nav-item');
+        mobileBottomNavItems.forEach(item => {
+            if (item.getAttribute('href') === '#meeting-members') {
+                item.style.display = 'none';
+            }
+        });
+    }
+
     // 2. 頂部導覽列捲動樣式切換 (Scroll Header effect)
     const header = document.getElementById('main-header');
     window.addEventListener('scroll', () => {
