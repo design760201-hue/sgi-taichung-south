@@ -128,6 +128,22 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // 9. 啟動導覽跳轉自動展開雙向聯動
     initializeNavigationSync();
+
+    // 10. 智慧提醒公告彈窗自動排程顯示 (5/29 00:00 自動啟用，配合今日防打擾)
+    const noticeStartDate = new Date('2026/05/29 00:00:00');
+    if (new Date() >= noticeStartDate) {
+        const closedDate = localStorage.getItem('soka-notice-closed-date');
+        const todayStr = new Date().toDateString();
+        
+        if (closedDate !== todayStr) {
+            // 頁面加載後延遲 1000 毫秒（1 秒）絲滑彈出
+            setTimeout(() => {
+                if (typeof window.openNoticeModal === 'function') {
+                    window.openNoticeModal();
+                }
+            }, 1000);
+        }
+    }
 });
 
 
@@ -3093,6 +3109,32 @@ function toggleLeaderAccordion(header) {
         accordion.classList.add('active');
     }
 }
+
+// ==========================================================================
+// 智慧提醒公告彈窗控制函數 (2026.05.29)
+// ==========================================================================
+window.openNoticeModal = function() {
+    const modal = document.getElementById('soka-notice-modal');
+    if (modal) {
+        modal.classList.add('active');
+        // 防止底層網頁捲動
+        document.body.style.overflow = 'hidden';
+    }
+};
+
+window.closeNoticeModal = function() {
+    const modal = document.getElementById('soka-notice-modal');
+    if (modal) {
+        modal.classList.remove('active');
+        // 恢復底層網頁捲動
+        document.body.style.overflow = '';
+        
+        // 智慧防打擾：在 localStorage 中寫入今日已關閉的標記
+        const todayStr = new Date().toDateString(); // 例如 "Fri May 29 2026"
+        localStorage.setItem('soka-notice-closed-date', todayStr);
+    }
+};
+
 
 
 

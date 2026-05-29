@@ -21,11 +21,62 @@
     <meta name="mobile-web-app-capable" content="yes">
 
     <!-- 引入自訂樣式表 -->
-    <link rel="stylesheet" href="style.css?v=20260528_v5">
+    <link rel="stylesheet" href="style.css?v=20260529">
     <!-- 引入 html2canvas 圖片生成引擎 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 <body>
+
+    <!-- 📢 智慧提醒彈窗 (Notice Modal) -->
+    <div class="soka-notice-modal" id="soka-notice-modal">
+        <div class="soka-notice-overlay" onclick="closeNoticeModal()"></div>
+        <div class="soka-notice-card">
+            <!-- 右上角精美 SVG 關閉按鈕 -->
+            <button class="soka-notice-close-btn" onclick="closeNoticeModal()" aria-label="關閉彈窗">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            
+            <div class="soka-notice-header">
+                <div class="soka-notice-icon-circle">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                        <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                    </svg>
+                </div>
+                <h3 class="soka-notice-title">2026.05.29 聯絡事項</h3>
+            </div>
+            
+            <div class="soka-notice-body">
+                <div class="soka-notice-sender-info">
+                    <strong>FM：</strong>學會本部 ➔ <strong>TO：</strong>四部圈、區正長、企劃長
+                </div>
+                
+                <h4 class="soka-notice-subject">
+                    主旨：茲提供2026年國、高中部暑期活動出發式暨區育才日企劃案(新增程序)
+                </h4>
+                
+                <p class="soka-notice-desc">
+                    <strong>說明：</strong>暑期活動出發式新增程序「育才專題」。請點選下方黃金按鈕，前往雲端下載最新程序<strong>「電子附件一_2026年國、高中部暑期活動出發式暨區育才日(更新20260529)」</strong>以及<strong>「電子附件十二_育才專題『我的創價媽媽』」</strong>。
+                </p>
+            </div>
+            
+            <div class="soka-notice-footer">
+                <!-- 📂 點此下載最新雲端附件 (黃金漸變按鈕) -->
+                <a href="https://drive.google.com/drive/folders/1uO-uXG2vdaV1S1B-d0hcbFcXCZFtuCh-?usp=drive_link" target="_blank" class="btn-soka-notice-download" onclick="closeNoticeModal()">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px;">
+                        <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+                        <line x1="12" y1="11" x2="12" y2="17"></line>
+                        <polyline points="9 14 12 17 15 14"></polyline>
+                    </svg>
+                    點此下載最新雲端附件
+                </a>
+                <button class="btn-soka-notice-close" onclick="closeNoticeModal()">我知道了</button>
+            </div>
+        </div>
+    </div>
 
     <!-- 1. 頂部細緻導覽列 (Header) -->
     <header id="main-header">
@@ -833,6 +884,6 @@
     </div>
 
     <!-- 引入自訂 JavaScript -->
-    <script src="script.js?v=20260528_v5"></script>
+    <script src="script.js?v=20260529"></script>
 </body>
 </html>

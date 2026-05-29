@@ -4291,6 +4291,232 @@ footer {
     vertical-align: middle;
 }
 
+/* ==========================================================================
+   6. 智慧提醒公告彈窗樣式 (Glassmorphism & Slide-in Animation)
+   ========================================================================== */
+.soka-notice-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99999; /* 置於最頂層 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.soka-notice-modal.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.soka-notice-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(11, 37, 69, 0.45); /* 高奢深藍調半透明 */
+    backdrop-filter: blur(12px); /* 極致磨砂玻璃柔焦 */
+    -webkit-backdrop-filter: blur(12px);
+    transition: background 0.4s ease;
+}
+
+.soka-notice-card {
+    position: relative;
+    width: 90%;
+    max-width: 580px;
+    background: rgba(255, 255, 255, 0.96);
+    border: 1px solid rgba(26, 62, 104, 0.15);
+    box-shadow: 0 24px 60px rgba(11, 37, 69, 0.25), 
+                inset 0 0 0 1px rgba(255, 255, 255, 0.6);
+    border-radius: 20px;
+    padding: 2.2rem;
+    z-index: 10;
+    transform: scale(0.9) translateY(20px);
+    opacity: 0;
+    transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.soka-notice-modal.active .soka-notice-card {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+}
+
+/* 右上角關閉按鈕 */
+.soka-notice-close-btn {
+    position: absolute;
+    top: 1.2rem;
+    right: 1.2rem;
+    width: 32px;
+    height: 32px;
+    background: rgba(26, 62, 104, 0.05);
+    border: 1px solid rgba(26, 62, 104, 0.1);
+    color: var(--color-primary-dark, #0b2545);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.soka-notice-close-btn:hover {
+    background: var(--color-accent, #dca626);
+    border-color: var(--color-accent);
+    color: #ffffff;
+    transform: rotate(90deg) scale(1.1);
+}
+
+.soka-notice-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(26, 62, 104, 0.08);
+    padding-bottom: 1.2rem;
+}
+
+.soka-notice-icon-circle {
+    width: 44px;
+    height: 44px;
+    background: rgba(220, 166, 38, 0.1);
+    border: 1px solid rgba(220, 166, 38, 0.25);
+    color: var(--color-accent, #dca626);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: soka-pulse 2s infinite;
+}
+
+.soka-notice-title {
+    font-size: 1.35rem;
+    color: var(--color-primary-dark, #0b2545);
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: 0.03em;
+}
+
+.soka-notice-body {
+    color: var(--color-text, #2c3e50);
+    line-height: 1.65;
+    font-size: 0.98rem;
+}
+
+.soka-notice-sender-info {
+    font-size: 0.85rem;
+    color: var(--color-text-muted, #7f8c8d);
+    background: rgba(26, 62, 104, 0.03);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.2rem;
+    display: inline-block;
+}
+
+.soka-notice-subject {
+    font-size: 1.1rem;
+    color: var(--color-primary, #107e7d);
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    line-height: 1.45;
+}
+
+.soka-notice-desc {
+    margin: 0 0 1.8rem 0;
+    font-size: 0.95rem;
+}
+
+.soka-notice-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    width: 100%;
+}
+
+/* 📂 黃金漸變下載大按鈕 */
+.btn-soka-notice-download {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 1rem 1.5rem;
+    background: linear-gradient(135deg, #dca626, #b08110);
+    border: none;
+    color: #ffffff !important;
+    font-weight: 700;
+    font-size: 1.05rem;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 6px 20px rgba(220, 166, 38, 0.3);
+    text-decoration: none;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.15);
+}
+
+.btn-soka-notice-download:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(220, 166, 38, 0.45);
+    background: linear-gradient(135deg, #e8b63a, #c49216);
+}
+
+.btn-soka-notice-download:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 12px rgba(220, 166, 38, 0.25);
+}
+
+/* 我知道了按鈕 */
+.btn-soka-notice-close {
+    width: 100%;
+    padding: 0.9rem;
+    background: transparent;
+    border: 1px solid rgba(26, 62, 104, 0.15);
+    color: var(--color-text-muted, #7f8c8d);
+    font-weight: 600;
+    font-size: 0.95rem;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.btn-soka-notice-close:hover {
+    background: rgba(26, 62, 104, 0.04);
+    color: var(--color-primary-dark, #0b2545);
+    border-color: rgba(26, 62, 104, 0.3);
+}
+
+/* 呼吸脈衝動畫 */
+@keyframes soka-pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(220, 166, 38, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(220, 166, 38, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(220, 166, 38, 0);
+    }
+}
+
+/* 響應式優化 */
+@media (max-width: 480px) {
+    .soka-notice-card {
+        padding: 1.6rem;
+    }
+    .soka-notice-title {
+        font-size: 1.2rem;
+    }
+    .soka-notice-subject {
+        font-size: 1rem;
+    }
+}
+
+
 
 
 
