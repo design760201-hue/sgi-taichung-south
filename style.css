@@ -4838,6 +4838,38 @@ footer {
     }
 }
 
+/* ==========================================================================
+   H.3 導覽列「暑期專區」醒目化膠囊按鈕樣式
+   ========================================================================== */
+.nav-menu li.summer-camp-nav-item {
+    display: flex;
+    align-items: center;
+}
+
+.nav-menu li.summer-camp-nav-item a {
+    background: linear-gradient(135deg, var(--color-accent) 0%, hsl(38, 65%, 43%) 100%) !important;
+    color: #ffffff !important;
+    padding: 0.45rem 1.15rem !important;
+    border-radius: 50px !important;
+    font-weight: 700 !important;
+    box-shadow: 0 4px 12px rgba(212, 142, 40, 0.25) !important;
+    transition: var(--transition-fast) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.35rem !important;
+}
+
+.nav-menu li.summer-camp-nav-item a:hover {
+    transform: translateY(-1.5px) !important;
+    box-shadow: 0 6px 16px rgba(212, 142, 40, 0.4) !important;
+    background: linear-gradient(135deg, hsl(38, 65%, 58%) 0%, var(--color-accent) 100%) !important;
+}
+
+/* 覆蓋 active 的底線動畫 */
+.nav-menu li.summer-camp-nav-item a::after {
+    display: none !important;
+}
+
 
 
 
