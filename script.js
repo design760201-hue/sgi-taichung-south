@@ -144,6 +144,27 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 1000);
         }
     }
+
+    // 11. 暑期活動專區定時自動下架引擎 (過 2026/08/02 23:59:59 全自動隱藏下架)
+    const campDeadline = new Date('2026/08/02 23:59:59');
+    if (new Date() > campDeadline) {
+        // (1) 物理隱藏暑期活動專區主體 Section 區塊
+        const campSection = document.getElementById('summer-camp');
+        if (campSection) {
+            campSection.style.display = 'none';
+        }
+        // (2) 遍歷隱藏頂部導覽列、手機下拉選單中的暑期專區按鈕 (並隱藏 li 以防空白間距)
+        const navItems = document.querySelectorAll('.summer-camp-nav-item');
+        navItems.forEach(item => {
+            if (item.tagName === 'LI') {
+                item.style.display = 'none';
+            } else if (item.parentElement && item.parentElement.tagName === 'LI') {
+                item.parentElement.style.display = 'none';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    }
 });
 
 
