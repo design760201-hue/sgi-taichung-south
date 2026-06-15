@@ -169,6 +169,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 // ==========================================================================
+// 0.2 暑期活動專區頁籤切換函數
+// ==========================================================================
+window.switchCampTab = function(type) {
+    // 移除所有頁籤按鈕與內容的 active 樣式
+    document.querySelectorAll('.camp-tab-btn').forEach(btn => btn.classList.remove('active'));
+    document.querySelectorAll('.camp-tab-content').forEach(content => content.classList.remove('active'));
+    
+    // 根據選擇的類型加上 active 樣式
+    if (type === 'junior') {
+        const btn = document.querySelector('.camp-tab-btn:nth-child(1)');
+        const content = document.getElementById('camp-content-junior');
+        if (btn) btn.classList.add('active');
+        if (content) content.classList.add('active');
+    } else {
+        const btn = document.querySelector('.camp-tab-btn:nth-child(2)');
+        const content = document.getElementById('camp-content-senior');
+        if (btn) btn.classList.add('active');
+        if (content) content.classList.add('active');
+    }
+};
+
+
+// ==========================================================================
 // A. 手機版底部導覽列點擊動態高亮與跳轉
 // ==========================================================================
 window.setActiveTab = function(element) {
