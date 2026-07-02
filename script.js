@@ -1593,76 +1593,124 @@ const BRANCH_MEMBERS_MOCK = {
         { district: '內新地區', group: '東昇組', date: '5/19(週二)', emcee: '黃靖甯', gosho: '女子部 育岑', theme: '', cadre: '', scribe: '', concluder: '', address: '台中市大里區日新路477號', mapUrl: 'https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%A4%A7%E9%87%8C%E5%8D%80%E6%97%A5%E6%96%B0%E8%B7%AF477%E8%99%9F' },
         { district: '內新地區', group: '東榮組', date: '5/21(週四)', emcee: '呂鈞翰', gosho: '', theme: '', cadre: '', scribe: '', concluder: '', address: '台中市大里區東榮路一段22號', mapUrl: 'https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%A4%A7%E9%87%8C%E5%8D%80%E6%9D%B1%E6%A6%AE%E8%B7%AF%E4%B8%80%E6%AE%B522%E8%99%9F' },
         { district: '內新地區', group: '中新組', date: '5/23(週六)', emcee: '婦人部', gosho: '', theme: '', cadre: '', scribe: '', concluder: '', address: '台中市大里區新義路184號', mapUrl: 'https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%A4%A7%E9%87%8C%E5%8D%80%E6%96%B0%E7%BE%A9%E8%B7%AF184%E8%99%9F' },
-        { district: '德芳地區', group: '長榮組', date: '5/21(週四)', emcee: '游順隆', gosho: '', theme: '', cadre: '', scribe: '', concluder: '', address: '台中市大里區大里路33巷5號', mapUrl: 'https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%A4%A7%E9%87%8C%E5%8D%80%E5%A4%A7%E9%87%8C%E8%B7%AF33%E5%B7%B75%E8%99%9F' },
-        { district: '德芳地區', group: '至聖組', date: '5/22(週五)', emcee: '洪澤森', gosho: '女子部 佩洳', theme: '', cadre: '', scribe: '', concluder: '', address: '台中市大里區益民路二段181巷14號', mapUrl: 'https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%A4%A7%E9%87%8C%E5%8D%80%E7%9B%8A%E6%B0%91%E8%B7%AF%E4%BA%8C%E6%AE%B5181%E5%B7%B714%E8%99%9F' },
-        { district: '德芳地區', group: '新田組', date: '5/23(週六)', emcee: '何芷儀', gosho: '', theme: '', cadre: '', scribe: '', concluder: '', address: '台中市大里區夏田路27巷1號', mapUrl: 'https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%A4%A7%E9%87%8C%E5%8D%80%E5%A4%8F%E7%94%B0%E8%B7%AF27%E5%B7%B71%E8%99%9F' }
+        { district: '德芳地區', group: '長榮組', date: '5/21(週四)', emcee: '游順隆', gosho: '', theme: '', cadre: '', scribe: '', concluder: '', address: '台中市大里區大里路33巷5號', mapUrl: 'https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%A4%A7%E9%87%8C%E5%8D%80%E5%A4%A7%E9const SOUTH_DISTRICT_ANNOUNCEMENTS = {
+    month: "2026年6月份 (7、8月份活動執行)",
+    theme: "世界青年學會 • 躍動之年 ⚡",
+    routine: [
+        {
+            id: 'memorial-meeting',
+            title: '追善回向勤行會暨佛法教學',
+            badge: '例行',
+            time: '8/6 - 8/15 (詳見各場次)',
+            location: '各本部講堂',
+            summary: '2026年8月份追善回向勤行會暨佛法教學場次。程序包含勤行唱題、御書學習、體驗發表與總結指導。',
+            details: {
+                schedules: [
+                    { name: '大興本部', date: '8/6(四) 19:50', cadre: '蘇麗華 區副婦人部長', chanter: '賴建忠 本部總合長', lecturer: '洪詩妤 支部副婦人部長' },
+                    { name: '太平本部', date: '8/14(五) 19:50', cadre: '陳鴻賓 圈企劃長', chanter: '同左', lecturer: '許秀伶 本部婦人部長' },
+                    { name: '大里本部', date: '8/15(六) 19:50', cadre: '黃潔芬 區副婦人部長', chanter: '吳永富 副區長', lecturer: '張淑雲 婦人部本部企劃' }
+                ],
+                program: '勤行唱題（30分鐘，含追善行儀） ➔ 御書學習（20分鐘） ➔ 體驗（10分鐘） ➔ 總結指導（10分鐘） ➔ 題目三唱（1分鐘）。企劃案請循壯年部企劃管道回傳區核備。',
+                material: ['2026年8月份《教學研習》'],
+                notes: [
+                    '「鞠躬行儀」：依據儀典準則 202606 修訂，唱題約 15 分鐘後即可由禮生、服務人員引導出列向御本尊一鞠躬，無須唱題至 20:05 再行禮。行禮隊伍可視人數排成二至四列，行禮時間於 20:20 準時結束。',
+                    '體驗單元：體驗人員請以所屬本部為主，除可安排發表者外，亦可遴選適當人員朗讀《創價新聞》登載之體驗，故不再跨本部安排發表人選。',
+                    '若安排發表者：體驗稿請依各部管道安排【區級幹部】校稿，文稿請提交各部區正長，副本寄壯年部區企劃長。'
+                ]
+            }
+        }
     ],
-    '日峰支部': [
-        { district: '喀哩地區', group: '東園組', date: '5/19(週二)', emcee: '阿融', gosho: '男子部 耕澤', theme: '耕澤', cadre: '', scribe: '', concluder: '', address: '台中市烏日區溪南路一段807巷25號', mapUrl: 'https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E7%83%8F%E6%97%A5%E5%8D%80%E6%BA%AA%E5%8D%97%E8%B7%AF%E4%B8%80%E6%AE%B5807%E5%B7%B725%E8%99%9F' },
-        { district: '喀哩地區', group: '光明組', date: '5/21(週四)', emcee: '軒源', gosho: '', theme: '', cadre: '', scribe: '', concluder: '', address: '台中市烏日區五光里五光路五中巷18弄18號', mapUrl: 'https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E7%83%8F%E6%97%A5%E5%8D%80%E4%BA%94%E5%85%89%E9%87%8C%E4%BA%94%E5%85%89%E8%B7%AF%E4%BA%94%E4%B8%AD%E5%B7%B718%E5%BC%8418%E8%99%9F' },
-        { district: '喀哩地區', group: '南里組', date: '5/22(週五)', emcee: '', gosho: '', theme: '', cadre: '', scribe: '', concluder: '', address: '台中市烏日區北里里太明路366號', mapUrl: 'https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E7%83%8F%E6%97%A5%E5%8D%80%E5%8C%97%E9%87%8C%E9%87%8C%E5%A4%AA%E6%98%8E%E8%B7%AF366%E8%99%9F' },
-        { district: '萬豐地區', group: '四德組', date: '5/19(週二)', emcee: '', gosho: '', theme: '', cadre: '', scribe: '', concluder: '', address: '台中市霧峰區四德里四德南路78號', mapUrl: 'https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E9%9C%A7%E5%B3%B0%E5%8D%80%E5%9B%9B%E5%BE%B7%E9%87%8C%E5%9B%9B%E5%BE%B7%E5%8D%97%E8%B7%AF78%E8%99%9F' },
-        { district: '萬豐地區', group: '六股組', date: '5/21(週四)', emcee: '敬弘', gosho: '男子部 能達', theme: '昕融', cadre: '', scribe: '', concluder: '', address: '台中市霧峰區丁台里六股路193號', mapUrl: 'https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E9%9C%A7%E5%B3%B0%E5%8D%80%E4%B8%81%E5%8F%B0%E9%87%8C%E5%85%AD%E8%82%A1%E8%B7%AF193%E8%99%9F' },
-        { district: '萬豐地區', group: '樹仁組', date: '5/23(週六)', emcee: '', gosho: '', theme: '', cadre: '', scribe: '', concluder: '', address: '台中市霧峰區育群路186號', mapUrl: 'https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E9%9C%A7%E5%B3%B0%E5%8D%80%E8%82%B2%E7%BE%A4%E8%B7%AF186%E8%99%9F' },
-        { district: '霧峰地區', group: '中正組', date: '5/19(週二)', emcee: '', gosho: '', theme: '', cadre: '', scribe: '', concluder: '', address: '台中市霧峰區中正路1046號', mapUrl: 'https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E9%9C%A7%E5%B3%B0%E5%8D%80%E4%B8%AD%E6%AD%A3%E8%B7%AF1046%E8%99%9F' },
-        { district: '霧峰地區', group: '吉峰組', date: '5/21(週四)', emcee: '佳龍', gosho: '', theme: '', cadre: '', scribe: '', concluder: '', address: '台中市霧峰區吉峰西路62巷1弄1號', mapUrl: 'https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E9%9C%A7%E5%B3%B0%E5%8D%80%E5%90%89%E5%B3%B0%E8%A5%BF%E8%B7%AF62%E5%B7%B71%E5%BC%841%E8%99%9F' },
-        { district: '霧峰地區', group: '桐林組', date: '5/23(週六)', emcee: '子郁', gosho: '女子部 怜綾', theme: '彥辰', cadre: '', scribe: '', concluder: '', address: '台中市霧峰區桐林里民生路606巷29號', mapUrl: 'https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E9%9C%A7%E5%B3%B0%E5%8D%80%E6%A1%90%E6%9E%97%E9%87%8C%E6%B0%91%E7%94%9F%E8%B7%AF%E6%B0%91%E7%94%9F%E8%B7%AF606%E5%B7%B729%E8%99%9F' }
+    respect: [
+        { seq: 1, type: '一般', district: '建成地區', department: '婦人部', name: '楊惠玲' }
     ],
-    '高工支部': [
-        { district: '烏日地區', group: '高鐵組', date: '', emcee: '永傑', gosho: '女子部 珍汝', theme: '柏瑋', cadre: '', scribe: '', concluder: '', address: '', mapUrl: '' },
-        { district: '烏日地區', group: '學田組', date: '5/19(週二)', emcee: '以諮', gosho: '', theme: '伯孟', cadre: '', scribe: '', concluder: '', address: '', mapUrl: '' },
-        { district: '烏日地區', group: '成功組', date: '5/22(週五)', emcee: '丞帆', gosho: '', theme: '婦人部支援', cadre: '', scribe: '', concluder: '', address: '', mapUrl: '' },
-        { district: '明道地區', group: '仁德組', date: '5/19(週二)', emcee: '宏裕', gosho: '女子部 姿妏', theme: '姿妏', cadre: '', scribe: '', concluder: '', address: '', mapUrl: '' },
-        { district: '明道地區', group: '九德組', date: '5/21(週四)', emcee: '長恩', gosho: '', theme: '婦人部支援', cadre: '', scribe: '', concluder: '', address: '', mapUrl: '' },
-        { district: '明道地區', group: '光德組', date: '5/22(週五)', emcee: '瑞誠', gosho: '女子部 昱潔', theme: '（冠任）', cadre: '', scribe: '', concluder: '', address: '', mapUrl: '' },
-        { district: '樹義地區', group: '福康組', date: '5/19(週二)', emcee: '柏穎哥', gosho: '', theme: '婦人部支援', cadre: '', scribe: '', concluder: '', address: '', mapUrl: '' },
-        { district: '樹義地區', group: '樹德組', date: '5/21(週四)', emcee: '貿健', gosho: '女子部 偉襦', theme: '柏瑋', cadre: '', scribe: '', concluder: '', address: '', mapUrl: '' },
-        { district: '樹義地區', group: '福田組', date: '5/23(週六)', emcee: '柏瑋、承翰', gosho: '', theme: '雅瑩、珍汝', cadre: '', scribe: '', concluder: '', address: '', mapUrl: '' },
-        { district: '和平地區', group: '大慶組', date: '5/19(週二)', emcee: '雅惠', gosho: '男子部 柏瑋', theme: '珮琪', cadre: '', scribe: '', concluder: '', address: '', mapUrl: '' },
-        { district: '和平地區', group: '德富組', date: '5/22(週五)', emcee: '柏豪', gosho: '', theme: '珮琪', cadre: '', scribe: '', concluder: '', address: '', mapUrl: '' },
-        { district: '和平地區', group: '福順組', date: '5/23(週六)', emcee: '富懋', gosho: '', theme: '珮琪', cadre: '', scribe: '', concluder: '', address: '', mapUrl: '' }
+    youth: [
+        { district: '坪林地區', group: '光華組', date: '8/20(四)' },
+        { district: '成功地區', group: '金城組', date: '8/21(五)' },
+        { district: '宜昌地區', group: '東村組', date: '8/22(六)' },
+        { district: '烏日地區', group: '高鐵組', date: '8/16(日) 09:30' },
+        { district: '光興地區', group: '光隆組', date: '8/18(二)' },
+        { district: '明道地區', group: '光德組', date: '8/21(五)' },
+        { district: '樂業地區', group: '東英組', date: '8/21(五)' },
+        { district: '樹義地區', group: '福田組', date: '8/22(六)' },
+        { district: '新坪地區', group: '新高組', date: '8/16(日) 09:30' },
+        { district: '和平地區', group: '大慶組', date: '8/18(二)' },
+        { district: '長億地區', group: '小鎮組', date: '8/22(六)' },
+        { district: '喀哩地區', group: '光明組', date: '8/20(四)' },
+        { district: '永興地區', group: '東興組', date: '8/18(二)' },
+        { district: '萬豐地區', group: '樹仁組', date: '8/22(六)' },
+        { district: '內新地區', group: '中新組', date: '8/22(六)' },
+        { district: '霧峰地區', group: '中正組', date: '8/18(二)' },
+        { district: '德芳地區', group: '長榮組', date: '8/20(四)' },
+        { district: '建成地區', group: '仁和組', date: '8/18(二)' },
+        { district: '十九甲地區', group: '立德組', date: '8/20(四)' },
+        { district: '大東地區', group: '建中組', date: '8/20(四)' },
+        { district: '塗城地區', group: '瑞隆組', date: '8/18(二)' },
+        { district: '健康地區', group: '永和組', date: '8/21(五)' }
     ],
-    '復興支部': [
-        { district: '建成地區', group: '仁和組', date: '5/19(週二)', emcee: '昱儕', gosho: '', theme: '', cadre: '', scribe: '', concluder: '', address: '台中市南區仁和一街93號3樓-2', mapUrl: 'https://maps.google.com/?q=台中市南區仁和一街93號3樓-2' },
-        { district: '建成地區', group: '新榮組', date: '5/21(週四)', emcee: '順堯', gosho: '', theme: '', cadre: '', scribe: '', concluder: '', address: '台中市南區復興路三段148-5號14樓之2', mapUrl: 'https://maps.google.com/?q=台中市南區復興路三段148-5號14樓之2' },
-        { district: '建成地區', group: '長春組', date: '5/23(週六)', emcee: '科廷 淵百', gosho: '女子部 伯孟', theme: '彥伊', cadre: '', scribe: '', concluder: '', address: '402臺中市南區仁和路119號', mapUrl: 'https://maps.google.com/?q=402臺中市南區仁和路119號' },
-        { district: '大東地區', group: '南門組', date: '5/19(週二)', emcee: '彥婷', gosho: '', theme: '晶晶', cadre: '', scribe: '', concluder: '', address: '台中市忠明南路1320巷7號', mapUrl: 'https://maps.google.com/?q=台中市忠明南路1320巷7號' },
-        { district: '大東地區', group: '建中組', date: '5/21(週四)', emcee: '男子部-秉儒', gosho: '', theme: '晶晶', cadre: '', scribe: '', concluder: '', address: '台中市東區建德街105號', mapUrl: 'https://maps.google.com/?q=台中市東區建德街105號' },
-        { district: '大東地區', group: '大智組', date: '5/22(週五)', emcee: '米恩米晴', gosho: '男子部 睿劭', theme: '霏霏', cadre: '', scribe: '', concluder: '', address: '台中市東區振興路162巷16弄13號', mapUrl: 'https://maps.google.com/?q=台中市東區振興路162巷16弄13號' },
-        { district: '健康地區', group: '福平組', date: '5/19(週二)', emcee: '沛沛', gosho: '男子部 威辰', theme: '', cadre: '', scribe: '', concluder: '', address: '台中市南區南平一街56-2號', mapUrl: 'https://maps.google.com/?q=台中市南區南平一街56-2號' },
-        { district: '健康地區', group: '福興組', date: '5/21(週四)', emcee: '未來部-昕宸', gosho: '', theme: '', cadre: '', scribe: '', concluder: '', address: '台中市南區南和路118號', mapUrl: 'https://maps.google.com/?q=台中市南區南和路118號' },
-        { district: '健康地區', group: '永和組', date: '5/22(週五)', emcee: '婦人部協助', gosho: '', theme: '', cadre: '', scribe: '', concluder: '', address: '台中市南區美村路二段297號', mapUrl: 'https://maps.google.com/?q=台中市南區美村路二段297號' }
-    ]
+    others: {
+        activities: [
+            { id: 'buddhist-lecture', title: '台中南區佛法講座', time: '7/9(四) 晚上 19:30', location: '霧峰會館文化會堂', target: '全體會員、司儀請遴選青年部擔任、場控由青年部區級幹部負責', description: '上課教材為《御義口傳》，上課範圍為《御義口傳要文講義》法師品第十，以及《日蓮大聖人御書全集 文白並列本 別冊》法師品十六件大事。程序包含勤行 (10分鐘)、教學 (80分鐘) 及題目三唱。講解時將播放 PPT，結束後投影問卷 QR Code，請會員踴躍回饋！' },
+            { id: 'video-teaching', title: '台中南區、南投區、台中西區幹部視訊教學', time: '8/10(一) 晚上 19:30 (西區為 20:00)', location: '線上視訊舉辦', target: '四部地區級以上幹部及大學部 CR、VCR', description: '上課教材包含：8月份《福運雜誌》與《教學研習》、8/11《創價新聞》。擔任座談會總結幹部及御書講師者，請務必參加上課。無法在所屬區上課者，請跨區註冊上課。' },
+            { id: 'junior-high-camp', title: '2026年國中歡樂成長營', time: '8/1(六) 早上 9:30 ~ 下午 15:30', location: '霧峰會館/文化會堂', target: '家庭信仰之小六升國一、二、三學生 (含新朋友)', description: '口號為「SOKA STAR！歡喜躍動JUMP！」，今年全面開放邀約新朋友。請引導國三畢業生參加高中英知研習營，無法出席所屬區場次者，請跨場次陪同參加。對外邀約請勿對同學進行弘教，並需取得家長同意。' },
+            { id: 'senior-high-camp', title: '2026年高中英知研習營', time: '8/2(日) 早上 9:30 ~ 下午 15:30', location: '霧峰會館/文化會堂', target: '升高一、二、三同學及畢業生或新朋友', description: '口號為「鳳雛躍動！JUMP一夏!」，今年全面開放對外邀約新朋友。高三畢業生優先鼓勵擔任國中成長營工作人員。無法出席者可陪同參加同圈其他場次，取得家長同意後始得報名。' },
+            { id: 'soka-concert', title: '2026創價公演：古典樂的顛覆與狂想「雅諾史卡合奏團」', time: '10/16(五) 19:30、10/17(六) 14:30 與 19:30', location: '國立臺灣交響樂團演奏廳', target: '購票會員及親友', description: '區配票資訊已公佈，包含益民、新里、東平、勤益、日峰、高工、復興支部之各票價配額，詳情請洽各支部負責人領票與推廣。' }
+        ]
+    }
 };
 
-// 2. 初始化座談會人員名單系統
-function initializeMeetingMembers() {
-    const indicatorDot = document.getElementById('sync-dot-green');
-    const indicatorDotBrown = document.getElementById('sync-dot-brown');
-    const syncStatusText = document.getElementById('sync-status-text');
-    
-    if (MEMBERS_SPREADSHEET_ID) {
-        if (indicatorDot) {
-            indicatorDot.className = 'status-indicator-dot green syncing';
+// ==========================================================================
+// 地區級以上男子部傳達資料 (7/28 22:00 前顯示)
+// ==========================================================================
+const YOUTH_LEADER_ANNOUNCEMENTS = {
+    title: "地區級以上男子部傳達資料",
+    showAfter: "2026/06/15 00:00:00",
+    hideAfter: "2026/07/28 22:00:00",
+    categories: [
+        {
+            name: "學生部共同 / 暑期營隊",
+            icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>`,
+            items: [
+                "2026年國中歡樂成長營、高中英知研習營即將於全國各地舉辦。今年全面開放邀約國高中新朋友參與，請務必向家長說明活動內容，並事先取得家長同意。",
+                "暑期活動宣傳資訊連結：[點此進入 Linktree 宣傳頁](https://linktr.ee/twsgi.students)。",
+                "適逢暑假期間，請鼓勵大學部、研究生部同學投入暑期活動工作人員使命，以利他行動確立信心，並與夥伴凝聚繫絆，亦可邀請新朋友參與，認識創價理念。"
+            ]
+        },
+        {
+            name: "國高部關懷",
+            icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path></svg>`,
+            items: [
+                "國中部：國中會考成績已公布；國中免試入學、特色招生考試入學將於7/7放榜，請持續關心國三同學並給予鼓勵。",
+                "高中部：大學分科測驗將於7/11-12舉辦，7/29放榜，請持續關心考生並給予鼓勵。"
+            ]
+        },
+        {
+            name: "大研共同",
+            icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>`,
+            items: [
+                "請大研幹部關心大學部、研究生部畢業生動向，並請區負責人於7/31前彙整畢業生名單交給區企劃長，以利後續照顧銜接。",
+                "9/20 (日) 下午將於桃園文化會館舉辦「研究生OPEN DAY」實體活動！今年首次開放大三、大四對研究所有興趣的同學報名！請大學部、研究生部幹部鼓勵研究生踴躍參加。在學(職)研究生、海外大學畢業或研究所畢業之青年部幹部皆可報名。"
+            ]
+        },
+        {
+            name: "大學部",
+            icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path><path d="M2 12h20"></path></svg>`,
+            items: [
+                "9月迎來開學季，請區正長、企劃長偕同區負責人、校園幹部確實掌握大一新生名單，提前展開家訪、電訪，並與育才部確認愛心媽媽安排。",
+                "延續去年好評，將於8月底以大學會為單位舉辦「大學會新生之YA」，請提前邀請新生加入大學會溫暖家庭並認識愛心媽媽，以利後續照顧。",
+                "本月幸福專欄介紹的是高雄二圈的「高師和平校區大學會」，歡迎全台大學會踴躍投稿，分享特色與歡喜熱絡大合照！"
+            ]
+        },
+        {
+            name: "研究生部 / 創價班 / 展覽部",
+            icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>`,
+            items: [
+                "研究生之論文口試多於6、7月間舉辦，請持續關心研究生近況，並鼓勵研究生以信心全力挑戰畢業論文。",
+                "創價班：7、8月全國各地將舉辦「國中歡樂成長營、高中英知研習營」，請全體創價班協助運營相關事宜，並全力邀請新朋友、好朋友一同參加，成為組織推進廣布擴大的堅實後盾！",
+                "展覽部招募已截止，後續將進行人員懇談及專業培訓。東部美術館展展期至7/18止。換檔時程：第一檔卸展 7/26，第二檔布展 8/15-8/16，8/19 開展。歡迎利用學會官方 LINE 帳號使用「找展覽」功能掌握最新藝文展訊。"
+            ]
         }
-        if (indicatorDotBrown) {
-            indicatorDotBrown.style.display = 'inline-block';
-        }
-        if (syncStatusText) {
-            syncStatusText.textContent = '雲端即時同步中 (點擊開啟試算表)';
-        }
-        loadBranchData(currentBranch);
-    } else {
-        if (indicatorDot) {
-            indicatorDot.className = 'status-indicator-dot local';
-        }
-        if (indicatorDotBrown) {
-            indicatorDotBrown.style.display = 'none';
-        }
-        if (syncStatusText) {
-            syncStatusText.textContent = '本地預設數據 (點擊配置雲端同步)';
-        }
-        currentBranchData = BRANCH_MEMBERS_MOCK[currentBranch] || [];
+    ]
+}; = BRANCH_MEMBERS_MOCK[currentBranch] || [];
         renderDistrictFilters();
         applyMembersFilters();
     }
@@ -2011,26 +2059,26 @@ function renderMembersTable(data) {
 
 // (1) 2026年4月份 (5月份活動執行) 南區區會傳達事項完整 JSON 數據庫
 const SOUTH_DISTRICT_ANNOUNCEMENTS = {
-    month: "2026年5月份 (6月份活動執行)",
+    month: "2026年6月份 (7、8月份活動執行)",
     theme: "世界青年學會 • 躍動之年 ⚡",
     routine: [
         {
             id: 'memorial-meeting',
             title: '追善回向勤行會暨佛法教學',
             badge: '例行',
-            time: '6/11 - 6/13 (詳見各場次)',
+            time: '8/6 - 8/15 (詳見各場次)',
             location: '各本部講堂',
-            summary: '2026年6月份追善回向勤行會暨佛法教學場次。程序包含勤行唱題、御書學習、體驗發表與總結指導。',
+            summary: '2026年8月份追善回向勤行會暨佛法教學場次。程序包含勤行唱題、御書學習、體驗發表與總結指導。',
             details: {
                 schedules: [
-                    { name: '大興本部', date: '6/11(四) 19:50', cadre: '林文生 副總合壯年部長', chanter: '同左', lecturer: '賴香蘭 支部婦人部長' },
-                    { name: '太平本部', date: '6/12(五) 19:50', cadre: '黃潔芬 區副婦人部長', chanter: '呂文義 本部長', lecturer: '曾穀財 副本部長' },
-                    { name: '大里本部', date: '6/13(六) 19:50', cadre: '許慧玲 區副婦人部長', chanter: '吳永富 副區長', lecturer: '林惠蘭 本部副婦人部長' }
+                    { name: '大興本部', date: '8/6(四) 19:50', cadre: '蘇麗華 區副婦人部長', chanter: '賴建忠 本部總合長', lecturer: '洪詩妤 支部副婦人部長' },
+                    { name: '太平本部', date: '8/14(五) 19:50', cadre: '陳鴻賓 圈企劃長', chanter: '同左', lecturer: '許秀伶 本部婦人部長' },
+                    { name: '大里本部', date: '8/15(六) 19:50', cadre: '黃潔芬 區副婦人部長', chanter: '吳永富 副區長', lecturer: '張淑雲 婦人部本部企劃' }
                 ],
-                program: '勤行唱題（30分鐘，含鞠躬行儀） ➔ 御書學習（20分鐘） ➔ 體驗（10分鐘） ➔ 總結指導（10分鐘） ➔ 題目三唱（1分鐘）。企劃案請循壯年部企劃管道回傳區核備。',
-                material: ['2026年6月份《教學研習》'],
+                program: '勤行唱題（30分鐘，含追善行儀） ➔ 御書學習（20分鐘） ➔ 體驗（10分鐘） ➔ 總結指導（10分鐘） ➔ 題目三唱（1分鐘）。企劃案請循壯年部企劃管道回傳區核備。',
+                material: ['2026年8月份《教學研習》'],
                 notes: [
-                    '「鞠躬行儀」：婦人部引導人員8位，於勤行後，於20:05分開始引導與會者至唱導者後方，向御本尊行鞠躬禮。',
+                    '「鞠躬行儀」：依據儀典準則 202606 修訂，唱題約 15 分鐘後即可由禮生、服務人員引導出列向御本尊一鞠躬，無須唱題至 20:05 再行禮。行禮隊伍可視人數排成二至四列，行禮時間於 20:20 準時結束。',
                     '體驗單元：體驗人員請以所屬本部為主，除可安排發表者外，亦可遴選適當人員朗讀《創價新聞》登載之體驗，故不再跨本部安排發表人選。',
                     '若安排發表者：體驗稿請依各部管道安排【區級幹部】校稿，文稿請提交各部區正長，副本寄壯年部區企劃長。'
                 ]
@@ -2038,131 +2086,92 @@ const SOUTH_DISTRICT_ANNOUNCEMENTS = {
         }
     ],
     respect: [
-        { seq: 1, type: '一般', district: '德芳地區', department: '婦人部', name: '劉玟君' },
-        { seq: 2, type: '一般', district: '樂業地區', department: '婦人部', name: '李昱諄' },
-        { seq: 3, type: '一般', district: '大東地區', department: '壯年部', name: '林兆祥' },
-        { seq: 4, type: '守護', district: '樂業地區', department: '男子部', name: '李彥翰' }
+        { seq: 1, type: '一般', district: '建成地區', department: '婦人部', name: '楊惠玲' }
     ],
     youth: [
-        { district: '坪林地區', group: '光明組', date: '5/22(五)' },
-        { district: '宜昌地區', group: '宜佳組', date: '5/19(二)' },
-        { district: '光興地區', group: '興隆組', date: '5/21(四)' },
-        { district: '樂業地區', group: '東信組', date: '5/23(六)' },
-        { district: '新坪地區', group: '新吉組', date: '5/19(二)' },
-        { district: '長億地區', group: '興平組', date: '5/22(五)' },
-        { district: '永興地區', group: '大榮組', date: '5/21(四)' },
-        { district: '內新地區', group: '東昇組', date: '5/19(二)' },
-        { district: '德芳地區', group: '至聖組', date: '5/22(五)' },
-        { district: '十九甲地區', group: '立仁組', date: '5/22(五)' },
-        { district: '塗城地區', group: '瑞隆組', date: '5/19(二)' },
-        { district: '成功地區', group: '瑞城組', date: '5/21(四)' },
-        { district: '烏日地區', group: '高鐵組', date: '5/17(日)' },
-        { district: '明道地區', group: '光德組', date: '5/22(五)' },
-        { district: '樹義地區', group: '樹德組', date: '5/21(四)' },
-        { district: '和平地區', group: '大慶組', date: '5/19(二)' },
-        { district: '喀哩地區', group: '光明組', date: '5/21(四)' },
-        { district: '萬豐地區', group: '四德組', date: '5/19(二)' },
-        { district: '霧峰地區', group: '桐林組', date: '5/23(六)' },
-        { district: '建成地區', group: '長春組', date: '5/23(六)' },
-        { district: '大東地區', group: '大智組', date: '5/22(五)' },
-        { district: '健康地區', group: '福平組', date: '5/19(二)' }
+        { district: '坪林地區', group: '光華組', date: '8/20(四)' },
+        { district: '成功地區', group: '金城組', date: '8/21(五)' },
+        { district: '宜昌地區', group: '東村組', date: '8/22(六)' },
+        { district: '烏日地區', group: '高鐵組', date: '8/16(日) 09:30' },
+        { district: '光興地區', group: '光隆組', date: '8/18(二)' },
+        { district: '明道地區', group: '光德組', date: '8/21(五)' },
+        { district: '樂業地區', group: '東英組', date: '8/21(五)' },
+        { district: '樹義地區', group: '福田組', date: '8/22(六)' },
+        { district: '新坪地區', group: '新高組', date: '8/16(日) 09:30' },
+        { district: '和平地區', group: '大慶組', date: '8/18(二)' },
+        { district: '長億地區', group: '小鎮組', date: '8/22(六)' },
+        { district: '喀哩地區', group: '光明組', date: '8/20(四)' },
+        { district: '永興地區', group: '東興組', date: '8/18(二)' },
+        { district: '萬豐地區', group: '樹仁組', date: '8/22(六)' },
+        { district: '內新地區', group: '中新組', date: '8/22(六)' },
+        { district: '霧峰地區', group: '中正組', date: '8/18(二)' },
+        { district: '德芳地區', group: '長榮組', date: '8/20(四)' },
+        { district: '建成地區', group: '仁和組', date: '8/18(二)' },
+        { district: '十九甲地區', group: '立德組', date: '8/20(四)' },
+        { district: '大東地區', group: '建中組', date: '8/20(四)' },
+        { district: '塗城地區', group: '瑞隆組', date: '8/18(二)' },
+        { district: '健康地區', group: '永和組', date: '8/21(五)' }
     ],
     others: {
         activities: [
-            { id: 'youth-departure', title: '2026年國、高中部暑期活動出發式暨區育才日', time: '6/16(二) 晚上 19:30', location: '霧峰會館文化會堂、講堂二', target: '四部區正長/企劃長、國高區育才長/各層級育才部幹部、國高暑期四部各部組負責人、快樂學習/活動部單元負責人' },
-            { id: 'future-summer', title: '2026未來部快樂FUN暑假暨未來部歡送畢業生', time: '7/4(六) 上午 10:00-12:00', location: '霧峰會館文化會堂', target: '未來部員及家長、學會員親戚之子女、地區新簽卡之子女、多寶會之孫子女、新朋友及其家長、帶班阿姨、地區婦人部長', description: '秉持池田SGI會長「培育後繼即是創造未來」的指導精神，面對少子化的當代趨勢，未來部將持續推動「擴大」運動，深刻重視每一位孩子的成長與幸福。期盼透過親子互動的溫馨活動，深化家庭間的情誼，並培育更多「以一當千」的後繼人才，共同開創嶄新希望的時代！' },
-            { id: 'hq-meeting', title: '觀賞《邁向學會創立 100 週年─第十回本部幹部會》影片', time: '6/4(四) 晚上 8:00', location: '線上 Zoom 進行播放', target: '全體部員' },
-            { id: 'youth-reading', title: '青年部男子部/女子部支部讀書會', time: '將依男、女子部組織管道各別傳達', location: '各指定地點', target: '部員以上' },
-            { id: 'men-meeting', title: '壯年部本部勇壯會', time: '6/25(四)', location: '霧峰會館', target: '壯年部部員以上' },
-            { id: 'women-meeting', title: '婦人部幸福1+1組總會', time: '將依婦人部組織管道傳達', location: '各組指定據點', target: '婦人部部員以上' }
+            { id: 'buddhist-lecture', title: '台中南區佛法講座', time: '7/9(四) 晚上 19:30', location: '霧峰會館文化會堂', target: '全體會員、司儀請遴選青年部擔任、場控由青年部區級幹部負責', description: '上課教材為《御義口傳》，上課範圍為《御義口傳要文講義》法師品第十，以及《日蓮大聖人御書全集 文白並列本 別冊》法師品十六件大事。程序包含勤行 (10分鐘)、教學 (80分鐘) 及題目三唱。講解時將播放 PPT，結束後投影問卷 QR Code，請會員踴躍回饋！' },
+            { id: 'video-teaching', title: '台中南區、南投區、台中西區幹部視訊教學', time: '8/10(一) 晚上 19:30 (西區為 20:00)', location: '線上視訊舉辦', target: '四部地區級以上幹部及大學部 CR、VCR', description: '上課教材包含：8月份《福運雜誌》與《教學研習》、8/11《創價新聞》。擔任座談會總結幹部及御書講師者，請務必參加上課。無法在所屬區上課者，請跨區註冊上課。' },
+            { id: 'junior-high-camp', title: '2026年國中歡樂成長營', time: '8/1(六) 早上 9:30 ~ 下午 15:30', location: '霧峰會館/文化會堂', target: '家庭信仰之小六升國一、二、三學生 (含新朋友)', description: '口號為「SOKA STAR！歡喜躍動JUMP！」，今年全面開放邀約新朋友。請引導國三畢業生參加高中英知研習營，無法出席所屬區場次者，請跨場次陪同參加。對外邀約請勿對同學進行弘教，並需取得家長同意。' },
+            { id: 'senior-high-camp', title: '2026年高中英知研習營', time: '8/2(日) 早上 9:30 ~ 下午 15:30', location: '霧峰會館/文化會堂', target: '升高一、二、三同學及畢業生或新朋友', description: '口號為「鳳雛躍動！JUMP一夏!」，今年全面開放對外邀約新朋友。高三畢業生優先鼓勵擔任國中成長營工作人員. 無法出席者可陪同參加同圈其他場次，取得家長同意後始得報名。' },
+            { id: 'soka-concert', title: '2026創價公演：古典樂的顛覆與狂想「雅諾史卡合奏團」', time: '10/16(五) 19:30、10/17(六) 14:30 與 19:30', location: '國立臺灣交響樂團演奏廳', target: '購票會員及親友', description: '區配票資訊已公佈，包含益民、新里、東平、勤益、日峰、高工、復興支部之各票價配額，詳情請洽各支部負責人領票與推廣。' }
         ]
     }
 };
 
 // ==========================================================================
-// 地區級以上男子部傳達資料 (5/28 18:00 - 22:00 定時自動上/下架物理銷毀)
+// 地區級以上男子部傳達資料 (7/28 22:00 前顯示)
 // ==========================================================================
 const YOUTH_LEADER_ANNOUNCEMENTS = {
     title: "地區級以上男子部傳達資料",
-    showAfter: "2026/01/01 00:00:00",
-    hideAfter: "2026/05/28 22:00:00",
+    showAfter: "2026/06/15 00:00:00",
+    hideAfter: "2026/07/28 22:00:00",
     categories: [
         {
-            name: "青年部共同",
+            name: "學生部共同 / 暑期營隊",
             icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>`,
             items: [
-                "6月舉辦支部讀書會，請以支部為單位，廣邀支部內會員、新朋友參加！"
+                "2026年國中歡樂成長營、高中英知研習營即將於全國各地舉辦。今年全面開放邀約國高中新朋友參與，請務必向家長說明活動內容，並事先取得家長同意。",
+                "暑期活動宣傳資訊連結：[點此進入 Linktree 宣傳頁](https://linktr.ee/twsgi.students)。",
+                "適逢暑假期間，請鼓勵大學部、研究生部同學投入暑期活動工作人員使命，以利他行動確立信心，並與夥伴凝聚繫絆，亦可邀請新朋友參與，認識創價理念。"
             ]
         },
         {
-            name: "國高共同",
+            name: "國高部關懷",
             icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path></svg>`,
             items: [
-                "2026年國中歡樂成長營、高中英知研習營將於7/11（六）起，於各區熱鬧開跑，請廣邀國、高中生及國高新朋友，一起度過溫馨又歡樂的暑假。為利活動推進，將於6月以「區」為單位舉辦暑期活動出發式。（企劃案已循四部管道傳達）",
-                "2026年暑期活動宣傳資訊：【連結】(https://linktr.ee/twsgi.students)。",
-                "第23屆國中班長、第20屆高中鳳雛長提報已於4/30截止，請於5/31前協助同學完成勤行認證。"
-            ]
-        },
-        {
-            name: "國中部",
-            icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>`,
-            items: [
-                "國中會考成績將於6/5（五）公布、技藝技能優良學生甄審入學將於6月中公告甄審結果，請持續關心考生並給予鼓勵。",
-                "6月底至7月初未來部將舉行「快樂FUN暑假暨未來部歡送畢業生」活動，請國中部幹部投入「國中部開箱」單元，迎接未來部畢業生加入國中部，並鼓勵參與國中歡樂成長營。（企劃案將循管道傳達）"
-            ]
-        },
-        {
-            name: "高中部",
-            icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>`,
-            items: [
-                "大學分科測驗將於7/11-12舉辦，請關心準備分科測驗的同學。",
-                "大學申請入學將於6/12（五）公布，四技二專統一入學測驗甄選結果將於7月上旬公布，請關心考生並給予鼓勵！"
+                "國中部：國中會考成績已公布；國中免試入學、特色招生考試入學將於7/7放榜，請持續關心國三同學並給予鼓勵。",
+                "高中部：大學分科測驗將於7/11-12舉辦，7/29放榜，請持續關心考生並給予鼓勵。"
             ]
         },
         {
             name: "大研共同",
             icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>`,
             items: [
-                "5月「大學座談會暨學長姐回娘家」熱烈舉辦中，各場次大學座談會歡喜參與之照片、感人畫面，可標記創價青年IG帳號：twsgi_youth【連結】(https://www.instagram.com/twsgi_youth/) 進行投稿，向全台灣分享活動盛況！",
-                "學期結束前，請大研幹部進行家訪、電訪，並鼓勵大學部、研究生部同學於暑假期間投入暑期活動工作人員使命，以利他行動確立信心，並與夥伴凝聚繫絆，亦可邀請新朋友參與，認識創價理念。",
                 "請大研幹部關心大學部、研究生部畢業生動向，並請區負責人於7/31前彙整畢業生名單交給區企劃長，以利後續照顧銜接。",
-                "2026年大學部、研究生部「創價傑出青年獎」（原：專業領域）提報至6/30截止，提報資格請參閱大學部/研究生部年度企劃，符合之同學名單請回報給區企劃長。"
+                "9/20 (日) 下午將於桃園文化會館舉辦「研究生OPEN DAY」實體活動！今年首次開放大三、大四對研究所有興趣的同學報名！請大學部、研究生部幹部鼓勵研究生踴躍參加。在學(職)研究生、海外大學畢業或研究所畢業之青年部幹部皆可報名。"
             ]
         },
         {
             name: "大學部",
             icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path><path d="M2 12h20"></path></svg>`,
             items: [
-                "6月各大學期末考，請校園幹部關心大學會同學，除電訪、家訪外，亦可舉辦如期末考溫馨唱題會、發all pass糖等，鼓勵同學以信心為根本創造課業的勝利實證，亦可關心大學會同學暑假安排（如返鄉、打工等）。",
-                "延續去年好評，將於8月底（大研區迎新茶會前）以大學會為單位舉辦「大學會新生之YA」，期能提前邀請新生加入大學會，並認識愛心媽媽以利後續銜接照顧。（企劃案將循管道傳達）",
-                "本月幸福專欄要介紹的是雲嘉圈的「虎尾科技大學會」【連結】(https://www.facebook.com/share/p/虎科大學會)！歡迎全台大學會踴躍投稿，分享特色與歡喜熱絡大合照！【投稿連結】(https://forms.gle/twsgi_university)"
+                "9月迎來開學季，請區正長、企劃長偕同區負責人、校園幹部確實掌握大一新生名單，提前展開家訪、電訪，並與育才部確認愛心媽媽安排。",
+                "延續去年好評，將於8月底以大學會為單位舉辦「大學會新生之YA」，請提前邀請新生加入大學會溫暖家庭並認識愛心媽媽，以利後續照顧。",
+                "本月幸福專欄介紹的是高雄二圈的「高師和平校區大學會」，歡迎全台大學會踴躍投稿，分享特色與歡喜熱絡大合照！"
             ]
         },
         {
-            name: "研究生部",
+            name: "研究生部 / 創價班 / 展覽部",
             icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>`,
             items: [
-                "2027年第18屆池田大作和平思想研究國際論壇持續徵稿中！請有意願投稿之在學研究生，於6/28前填寫線上報名表單並寄送論文構想書至研究生部信箱【信箱】(mailto:twsgi.graduate@gmail.com)，預計於7、8月公佈遴選結果。請鼓勵符合資格者踴躍報名，詳見【報名表單】(https://forms.gle/twsgi_grad_forum)、【投稿辦法】(https://link.twsgi.org.tw/grad_rules)。",
-                "研究生之論文口試多於6、7月間舉辦，請持續關心研究生近況，並鼓勵研究生以信心全力挑戰畢業論文。"
-            ]
-        },
-        {
-            name: "創價班",
-            icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>`,
-            items: [
-                "創價班出任服裝已於上個月換季，一般勤務及非會館勤務夏季服裝上半身為白色襯衫（長短不限）、配戴一般識別證，守護會勤務為白色襯衫（長短不限）、配戴守護會識別證，下半身統一為深色西褲、黑色皮帶、黑色長襪、黑色皮鞋，請大家確認每次出任的服儀，英姿颯爽地迎接每次勤務！"
-            ]
-        },
-        {
-            name: "展覽部",
-            icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>`,
-            items: [
-                "展覽部招募倒數中！想儲備超能力、挑戰全新事物嗎？誠摯邀請熱血的你，一同加入創價藝文的行列！報名日期至5/31止，各組報名表單如下，把握機會，千萬別錯過！",
-                "<strong>【布展組】</strong>：#挑戰新事物 #作品陳列 #深厚共戰繫絆 ➔ 【報名連結】(https://forms.gle/twsgi_exhibit_1)",
-                "<strong>【設計組】</strong>：#突破自我 #團隊合作 #專業且感動的視覺 ➔ 【報名連結】(https://forms.gle/twsgi_exhibit_2)",
-                "<strong>【燈光組】</strong>：#挑戰新事物 #展場氛圍 #深厚共戰繫絆 ➔ 【報名連結】(https://forms.gle/twsgi_exhibit_3)",
-                "<strong>【創意發想組】</strong>：#腦力激盪 #創意無限 #行動美術館 ➔ 【報名連結】(https://forms.gle/twsgi_exhibit_4)",
-                "感謝各位夥伴的支持，2026年西部各館第二檔佈卸展作業順利完成！歡迎至「台灣創價學會官方line 帳號」，輸入關鍵字「找展覽」，下載最新一期展覽EDM，分享給周遭朋友。"
+                "研究生之論文口試多於6、7月間舉辦，請持續關心研究生近況，並鼓勵研究生以信心全力挑戰畢業論文。",
+                "創價班：7、8月全國各地將舉辦「國中歡樂成長營、高中英知研習營」，請全體創價班協助運營相關事宜，並全力邀請新朋友、好朋友一同成功參與，成為組織推進廣布擴大的堅實後盾！",
+                "展覽部招募已截止，後續將進行人員懇談及專業培訓。東部美術館展期至7/18止。換檔時程：第一檔卸展 7/26，第二檔布展 8/15-8/16，8/19 開展。歡迎利用學會官方 LINE 帳號使用「找展覽」功能掌握最新藝文展訊。"
             ]
         }
     ]
