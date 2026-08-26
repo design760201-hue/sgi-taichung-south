@@ -2110,7 +2110,7 @@ const YOUTH_LEADER_ANNOUNCEMENTS = {
             icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path><path d="M2 12h20"></path></svg>`,
             items: [
                 "大研區迎新茶會前，請以「大學會」為單位舉辦「大學會新生之YA」活動（中興9/9、亞洲9/5、中山醫9/9、朝陽9/13、勤益9/5，亦可彈性以線上舉行），讓新生提早融入家庭並認識愛心媽媽。",
-                "本月幸福專欄介紹的是台南二圈的「成大大學會」，歡迎全台大學會踴躍投稿，分享大合照！"
+                "本月幸福專欄要介紹的是台南二圈的「成大大學會」[【連結】](https://drive.google.com/file/d/13IPfhdsKCz1JWFVo3KTrhrnLLMV5wfbG/view)！歡迎全台大學會踴躍投稿，分享特色與歡喜熱絡大合照！[【投稿連結】](https://docs.google.com/forms/d/e/1FAIpQLSfy3Z5Idj9maiev1enyugFrq--aqic9El_tYK_ZkmtmJ2diiA/viewform)"
             ]
         },
         {
