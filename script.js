@@ -129,11 +129,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // 9. 啟動導覽跳轉自動展開雙向聯動
     initializeNavigationSync();
 
-    // 10. 智慧提醒公告彈窗自動排程顯示 (5/29 00:00 自動啟用，配合今日防打擾)
+    // 10. 智慧提醒公告彈窗自動排程顯示 (5/29 自動啟用，過 8/2 23:59:59 全自動下架)
     const noticeStartDate = new Date('2026/05/29 00:00:00');
-    if (new Date() >= noticeStartDate) {
+    const noticeEndDate = new Date('2026/08/02 23:59:59');
+    const now = new Date();
+    if (now >= noticeStartDate && now <= noticeEndDate) {
         const closedDate = localStorage.getItem('soka-notice-closed-date');
-        const todayStr = new Date().toDateString();
+        const todayStr = now.toDateString();
         
         if (closedDate !== todayStr) {
             // 頁面加載後延遲 1000 毫秒（1 秒）絲滑彈出
