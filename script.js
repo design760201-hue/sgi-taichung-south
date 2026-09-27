@@ -2077,51 +2077,53 @@ const SOUTH_DISTRICT_ANNOUNCEMENTS = {
 };
 
 // ==========================================================================
-// 地區級以上男子部傳達資料 (9/28 22:00 前顯示)
+// 地區級以上男子部傳達資料 (10/28 22:00 前顯示)
 // ==========================================================================
 const YOUTH_LEADER_ANNOUNCEMENTS = {
     title: "地區級以上男子部傳達資料",
-    showAfter: "2026/08/15 00:00:00",
-    hideAfter: "2026/09/28 22:00:00",
+    showAfter: "2026/09/20 00:00:00",
+    hideAfter: "2026/10/28 22:00:00",
     categories: [
         {
             name: "學生部共同",
             icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>`,
             items: [
-                "「教學部員任用考試」、「三級講義部員錄用考試」報名至 9/20 截止！請幹部全力鼓勵學生部報名考試，加深佛法理解與信仰確信！"
+                "請鼓勵報名任用及三級考試的同學挑戰出席上課，並請關心考生準備情形與近況，挑戰全員應考、全員合格！"
             ]
         },
         {
-            name: "國高共同",
+            name: "國高共同 / 高中部",
             icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path></svg>`,
             items: [
-                "國中歡樂成長營與高中英知研習營已圓滿結束，由衷感謝幹部們的付出！請國高幹部持續邀約國高中部同學參加座談會，將朝氣活力帶入組織。",
-                "9月迎來開學季，請國高幹部主動關心「小六升國一」與「國三升高一」新生，瞭解近況並建立溫暖的連繫。"
+                "9月適逢新學期開始，請國、高中部幹部與育才部進行家訪，使「小六升國一」及「國三升高一」新生名單無縫接軌，持續飛躍成長！",
+                "2026第20屆高中鳳雛長研修會已於9/13（日）順利舉辦完畢，感謝全體幹部的培育與付出，請高中部幹部持續鼓勵鳳雛長於座談會分享研修心得。"
             ]
         },
         {
             name: "大研共同",
             icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>`,
             items: [
-                "9月迎來開學，請區負責人、校園幹部、信心輔導員全面關心新舊生，邀約參與 9/16「大研迎新茶會」，讓新生感受創價熱情。",
-                "9/20 (日) 桃園舉辦「研究生OPEN DAY」，今年首度開放大三、大四生參加，請幹部鼓勵同學踴躍報名！活動資訊：[報名與活動網頁](https://yansui-open-day-wmrrfdm.gamma.site/)。"
+                "2026研究生OPEN DAY已於9/20舉辦完畢，感謝全體幹部的守護與邀約，請大研幹部持續關心同學，並全面鼓勵研究生踴躍參與下半年之學會活動。",
+                "2026迎新茶會活動已陸續舉辦完畢，感謝全體幹部的支持與守護！歡迎將迎新茶會之照片、文字投稿至IG帳號（[twsgi_youth](https://www.instagram.com/twsgi_youth/)），向全台分享熱鬧盛況！也請持續鼓勵新入會會員、大學部/研究生部同學們，參加午晚聚及下半年各項活動。",
+                "請鼓勵全體大學部、研究生部同學踴躍參加10月佛法講座，透過學習御書深化信心！"
             ]
         },
         {
             name: "大學部",
             icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path><path d="M2 12h20"></path></svg>`,
             items: [
-                "大研區迎新茶會前，請以「大學會」為單位舉辦「大學會新生之YA」活動（中興9/9、亞洲9/5、中山醫9/9、朝陽9/13、勤益9/5，亦可彈性以線上舉行），讓新生提早融入家庭並認識愛心媽媽。",
-                "本月幸福專欄要介紹的是台南二圈的「成大大學會」[【連結】](https://drive.google.com/file/d/13IPfhdsKCz1JWFVo3KTrhrnLLMV5wfbG/view)！歡迎全台大學會踴躍投稿，分享特色與歡喜熱絡大合照！[【投稿連結】](https://docs.google.com/forms/d/e/1FAIpQLSfy3Z5Idj9maiev1enyugFrq--aqic9El_tYK_ZkmtmJ2diiA/viewform)"
+                "請持續鼓勵、關心大學會同學，可自由舉辦加深繫絆、深化信心的大學會午晚聚活動，凝聚大學會；建議各大學會每學期至少舉辦1次，並藉由舉辦午晚聚，提供新生使命舞台、培育未來校園幹部人才。歡迎將午晚聚之熱鬧舉辦情形投稿至IG帳號（[twsgi_youth](https://www.instagram.com/twsgi_youth/)）。",
+                "本月幸福專欄要介紹的是三新圈的「長庚大學會」【連結】(https://drive.google.com/file/d/1cwhIhghjDkVF_ICJtHqJPFWF2oAKy_6Z/view)！歡迎全台大學會踴躍投稿，分享特色與歡喜熱絡大合照！【投稿連結】(https://docs.google.com/forms/d/e/1FAIpQLSfy3Z5Idj9maiev1enyugFrq--aqic9El_tYK_ZkmtmJ2diiA/viewform)"
             ]
         },
         {
-            name: "研究生部 / 創價班 / 展覽部",
+            name: "創價班 / 展覽部",
             icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>`,
             items: [
-                "研究生部：8、9月為研究生口試與畢業季，請持續給予溫馨鼓勵。",
-                "創價班：請與組織齊心家訪，主動鼓勵報考教學考試之名單，並率先站上講師崗位奮戰，展現創價班的使命！",
-                "展覽部：新生懇談皆完成，面試結果將循管道傳達。第三檔換檔時程：第二檔卸展為 9/13(日)，第三檔布展為 9/16(三)-9/20(日)，請幹部全力支持！"
+                "創價班：11月份將舉辦教學考試，創價班請協助聯繫考生上課及關心考生複習事宜，與組織一起挑戰全體考生合格通過考試！",
+                "創價班：10/1起換季，創價班出任時請穿著創價班冬季服裝，如遇天氣候悶熱之因素，可由各圈創價班負責人視情況「統一」調整。",
+                "展覽部：2026年展覽部布展組、燈光組、設計組及創意發想組皆已報名截止，後續將進行人員懇談及專業培訓。",
+                "展覽部：感謝組織夥伴的全力支持，2026年第三檔展覽已全面開展！歡迎大家踴躍邀請身邊朋友前往觀賞，擴大友情漣漪。附上創價藝文第三檔展覽EDM【下載連結】(https://drive.google.com/drive/folders/1r8K5QJdCSj1oUMOc8lMIDiQRXYPxk1mF)，歡迎轉發！"
             ]
         }
     ]
@@ -2575,6 +2577,7 @@ function renderAnnouncements(tabName) {
                     if (title.includes('投稿')) badgeText = '✍️ 點此投稿';
                     if (title.includes('報名')) badgeText = '📝 點此報名';
                     if (title.includes('信箱')) badgeText = '📧 寄送郵件';
+                    if (title.includes('下載')) badgeText = '📂 點此下載';
                     return `<a href="${url}" target="_blank" class="leader-link">${title}<span class="leader-link-badge">${badgeText}</span></a>`;
                 });
                 
