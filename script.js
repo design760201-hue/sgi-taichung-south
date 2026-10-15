@@ -1549,91 +1549,91 @@ let currentDistrict = '全部';
 let memberSearchQuery = '';
 let currentBranchData = []; // 當前支部的所有數據
 
-// 1. 2026 年 5 月份 7 大支部預設預存數據庫 (Mock Data)
-// 包含與您截圖 100% 吻合的真實人員安排，以及為其他支部設計的精美模擬數據
+// 1. 2026 年 10 月份 7 大支部完整預設預存數據庫 (Mock Data)
+// 包含 7 大支部所有組別的最新真實幹部名單、精準光復節連假調整日期 (如 10/21(三)⚠️) 與地址導航連結
 const BRANCH_MEMBERS_MOCK = {
     '勤益支部': [
-        { district: '坪林地區', group: '豐年組', date: '5/19(週二)', emcee: '', gosho: '', theme: '', cadre: '', scribe: '', concluder: '', address: '台中市太平區東平里008鄰東村路11號', mapUrl: 'https://maps.google.com/?q=台中市太平區東平里008鄰東村路11號' },
-        { district: '坪林地區', group: '光華組', date: '5/21(週四)', emcee: '娟穎', gosho: '', theme: '宣佑', cadre: '', scribe: '', concluder: '', address: '台中市太平區長安路135號', mapUrl: 'https://maps.google.com/?q=台中市太平區長安路135號' },
-        { district: '坪林地區', group: '光明組', date: '5/22(週五)', emcee: '冠宇', gosho: '女子部 文馨', theme: '文馨', cadre: '', scribe: '', concluder: '', address: '台中市太平區光明里大興一街5巷25號', mapUrl: 'https://maps.google.com/?q=台中市太平區光明里大興一街5巷25號' },
-        { district: '宜昌地區', group: '宜佳組', date: '5/19(週二)', emcee: '喬安', gosho: '男子部 銘義', theme: '銘義', cadre: '', scribe: '', concluder: '', address: '台中市太平區宜佳街51號', mapUrl: 'https://maps.google.com/?q=台中市太平區宜佳街51號' },
-        { district: '宜昌地區', group: '宜欣組', date: '5/21(週四)', emcee: '', gosho: '', theme: '', cadre: '', scribe: '', concluder: '', address: '台中市太平區溪洲路48巷3號6樓', mapUrl: 'https://maps.google.com/?q=台中市太平區溪洲路48巷3號6樓' },
-        { district: '宜昌地區', group: '東村組', date: '5/23(週六)', emcee: '', gosho: '', theme: '', cadre: '', scribe: '', concluder: '', address: '台中市太平區東平里東村路11號', mapUrl: 'https://maps.google.com/?q=台中市太平區東平里東村路11號' },
-        { district: '光興地區', group: '光隆組', date: '5/19(週二)', emcee: '若嘉', gosho: '', theme: '', cadre: '', scribe: '', concluder: '', address: '台中市太平區東方一街1巷58號', mapUrl: 'https://maps.google.com/?q=台中市太平區東方一街1巷58號' },
-        { district: '光興地區', group: '興隆組', date: '5/21(週四)', emcee: '益誠', gosho: '女子部 怜綾', theme: '銘義', cadre: '', scribe: '', concluder: '', address: '台中市太平區東方二街3巷11號', mapUrl: 'https://maps.google.com/?q=台中市太平區東方二街3巷11號' },
-        { district: '光興地區', group: '建國組', date: '5/23(週六)', emcee: '', gosho: '', theme: '', cadre: '', scribe: '', concluder: '', address: '台中市太平區鵬儀路104巷12號', mapUrl: 'https://maps.google.com/?q=台中市太平區鵬儀路104巷12號' }
+        { district: "坪林地區", group: "豐年組", date: "10/20(週二)", emcee: "冠宇", gosho: "男子部 正宗", theme: "歡庭", cadre: "童國雄", scribe: "", concluder: "副本部長 童國雄", address: "台中市太平區東平里008鄰東村路11號", mapUrl: "https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%A4%AA%E5%B9%B3%E5%8D%80%E6%9D%B1%E5%B9%B3%E9%87%8C008%E9%84%B0%E6%9D%B1%E6%9D%91%E8%B7%AF11%E8%99%9F" },
+        { district: "坪林地區", group: "光華組", date: "10/22(週四)", emcee: "亮慈、嬿茹", gosho: "支部副婦人部長 陳雅鳳", theme: "", cadre: "許麗珠", scribe: "", concluder: "本部副婦人部長 許麗珠", address: "台中市太平區長安路135號", mapUrl: "https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%A4%AA%E5%B9%B3%E5%8D%80%E9%95%B7%E5%AE%89%E8%B7%AF135%E8%99%9F" },
+        { district: "坪林地區", group: "光明組", date: "10/23(週五)", emcee: "", gosho: "地區婦人部長 許謦香", theme: "", cadre: "曾穀財", scribe: "", concluder: "副本部長 曾穀財", address: "台中市太平區光明里大興一街5巷25號", mapUrl: "https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%A4%AA%E5%B9%B3%E5%8D%80%E5%85%89%E6%98%8E%E9%87%8C%E5%A4%A7%E8%88%88%E4%B8%80%E8%A1%975%E5%B7%B725%E8%99%9F" },
+        { district: "宜昌地區", group: "宜佳組", date: "10/20(週二)", emcee: "蕎安", gosho: "地區婦人部總合長 張淑美", theme: "", cadre: "許秀伶", scribe: "", concluder: "本部婦人部長 許秀伶", address: "台中市太平區宜佳街51號", mapUrl: "https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%A4%AA%E5%B9%B3%E5%8D%80%E5%AE%9C%E4%BD%B3%E8%A1%9751%E8%99%9F" },
+        { district: "宜昌地區", group: "宜欣組", date: "10/22(週四)", emcee: "韋鋌", gosho: "支部婦人部企劃員 張雅淯", theme: "歡庭", cadre: "陳文玲", scribe: "", concluder: "支部婦人部長 陳文玲", address: "台中市太平區溪洲路48巷3號6樓", mapUrl: "https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%A4%AA%E5%B9%B3%E5%8D%80%E6%BA%AA%E6%B4%B2%E8%B7%AF48%E5%B7%B73%E8%99%9F6%E6%A8%93" },
+        { district: "宜昌地區", group: "東村組", date: "10/21(三)⚠️", emcee: "柏文", gosho: "支部副婦人部長 卓美惠", theme: "", cadre: "王婕稜", scribe: "", concluder: "副區長 賴明旺", address: "台中市太平區東平里東村路11號", mapUrl: "https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%A4%AA%E5%B9%B3%E5%8D%80%E6%9D%B1%E5%B9%B3%E9%87%8C%E6%9D%B1%E6%9D%91%E8%B7%AF11%E8%99%9F" },
+        { district: "光興地區", group: "光隆組", date: "10/20(週二)", emcee: "", gosho: "地區婦人部長 林昕柔", theme: "", cadre: "張琨旺", scribe: "", concluder: "區副婦人部長 許慧玲", address: "台中市太平區東方一街1巷58號", mapUrl: "https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%A4%AA%E5%B9%B3%E5%8D%80%E6%9D%B1%E6%96%B9%E4%B8%80%E8%A1%971%E5%B7%B758%E8%99%9F" },
+        { district: "光興地區", group: "興隆組", date: "10/22(週四)", emcee: "", gosho: "支部副婦人部長 蔡小燕", theme: "", cadre: "張淑敏", scribe: "", concluder: "本部副婦人部長 張淑敏", address: "台中市太平區東方二街3巷11號", mapUrl: "https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%A4%AA%E5%B9%B3%E5%8D%80%E6%9D%B1%E6%96%B9%E4%BA%8C%E8%A1%973%E5%B7%B711%E8%99%9F" },
+        { district: "光興地區", group: "建國組", date: "10/21(三)⚠️", emcee: "柏逸", gosho: "支部副婦人部長 林美品", theme: "宣佑", cadre: "施雪玉", scribe: "", concluder: "本部婦人部總合長 施雪玉", address: "台中市太平區鵬儀路104巷12號", mapUrl: "https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%A4%AA%E5%B9%B3%E5%8D%80%E9%B5%AC%E5%84%80%E8%B7%AF104%E5%B7%B712%E8%99%9F" }
     ],
     '東平支部': [
-        { district: '樂業地區', group: '新光組', date: '5/19(週二)', emcee: '壯婦部', gosho: '', theme: '', cadre: '', scribe: '', concluder: '', address: '台中市太平區中山路4段212巷2弄1號', mapUrl: 'https://maps.google.com/?q=台中市太平區中山路4段212巷2弄1號' },
-        { district: '樂業地區', group: '東英組', date: '5/22(週五)', emcee: '壯婦部', gosho: '', theme: '', cadre: '', scribe: '', concluder: '', address: '台中市東區東英15街260巷40號', mapUrl: 'https://maps.google.com/?q=台中市東區東英15街260巷40號' },
-        { district: '樂業地區', group: '東信組', date: '5/23(週六)', emcee: '怡慧', gosho: '男子部 炳聰', theme: '', cadre: '', scribe: '', concluder: '', address: '台中市東區振興路437巷111弄24號', mapUrl: 'https://maps.google.com/?q=台中市東區振興路437巷111弄24號' },
-        { district: '新坪地區', group: '新高組', date: '', emcee: '琇如', gosho: '', theme: '', cadre: '', scribe: '', concluder: '', address: '台中市太平區立功路103號7樓(守衛室)', mapUrl: 'https://maps.google.com/?q=台中市太平區立功路103號7樓(守衛室)' },
-        { district: '新坪地區', group: '新吉組', date: '5/19(週二)', emcee: '力嘉', gosho: '男子部 哲伸', theme: '', cadre: '', scribe: '', concluder: '', address: '台中市太平區新吉里新和街19號', mapUrl: 'https://maps.google.com/?q=台中市太平區新吉里新和街19號' },
-        { district: '新坪地區', group: '新城組', date: '5/22(週五)', emcee: '宜芳', gosho: '', theme: '', cadre: '', scribe: '', concluder: '', address: '台中市太平區新吉里新平路3段187巷12號', mapUrl: 'https://maps.google.com/?q=台中市太平區新吉里新平路3段187巷12號' },
-        { district: '長億地區', group: '中政組', date: '5/19(週二)', emcee: '', gosho: '', theme: '', cadre: '', scribe: '', concluder: '', address: '台中市太平區東平路618巷21號', mapUrl: 'https://maps.google.com/?q=台中市太平區東平路618巷21號' },
-        { district: '長億地區', group: '永成組', date: '5/21(週四)', emcee: '', gosho: '', theme: '', cadre: '', scribe: '', concluder: '', address: '台中市太平區永成北路42-1號', mapUrl: 'https://maps.google.com/?q=台中市太平區永成北路42-1號' },
-        { district: '長億地區', group: '興平組', date: '5/22(週五)', emcee: '', gosho: '女子部 琬婷', theme: '女子部 怜綾', cadre: '', scribe: '', concluder: '', address: '台中市太平區長億東三街70巷12號1樓', mapUrl: 'https://maps.google.com/?q=台中市太平區長億東三街70巷12號1樓' },
-        { district: '長億地區', group: '小鎮組', date: '5/23(週六)', emcee: '', gosho: '', theme: '', cadre: '', scribe: '', concluder: '', address: '台中市太平區長億六街2-22號', mapUrl: 'https://maps.google.com/?q=台中市太平區長億六街2-22號' }
+        { district: "樂業地區", group: "新光組", date: "10/20(週二)", emcee: "家綺", gosho: "女子部 怜綾", theme: "", cadre: "呂文義", scribe: "", concluder: "本部長 呂文義", address: "台中市太平區中山路4段212巷2弄1號", mapUrl: "https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%A4%AA%E5%B9%B3%E5%8D%80%E4%B8%AD%E5%B1%B1%E8%B7%AF4%E6%AE%B5212%E5%B7%B72%E5%BC%841%E8%99%9F" },
+        { district: "樂業地區", group: "東英組", date: "10/23(週五)", emcee: "", gosho: "地區副婦人部長 黃麗雀", theme: "", cadre: "黃麗雀", scribe: "", concluder: "副區長 郭境成", address: "台中市東區東英15街260巷40號", mapUrl: "https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E6%9D%B1%E5%8D%80%E6%9D%B1%E8%8B%B115%E8%A1%97260%E5%B7%B740%E8%99%9F" },
+        { district: "樂業地區", group: "東信組", date: "10/21(三)⚠️", emcee: "", gosho: "地區副婦人部長 郭美玲", theme: "", cadre: "黃雅鈴", scribe: "", concluder: "本部婦人部企劃員 黃雅鈴", address: "台中市東區振興路437巷111弄24號", mapUrl: "https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E6%9D%B1%E5%8D%80%E6%8C%AF%E8%88%88%E8%B7%AF437%E5%B7%B7111%E5%BC%8424%E8%99%9F" },
+        { district: "新坪地區", group: "新高組", date: "10/18 (週日) \n早上9:30", emcee: "", gosho: "支部副婦人部長 張惠珠", theme: "", cadre: "張惠珠", scribe: "", concluder: "本部長 呂文義", address: "台中市太平區立功路103號7樓(守衛室)", mapUrl: "https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%A4%AA%E5%B9%B3%E5%8D%80%E7%AB%8B%E5%8A%9F%E8%B7%AF103%E8%99%9F7%E6%A8%93%28%E5%AE%88%E8%A1%9B%E5%AE%A4%29" },
+        { district: "新坪地區", group: "新吉組", date: "10/20(週二)", emcee: "銘義", gosho: "男子部 銘義", theme: "銘義", cadre: "廖玉心", scribe: "", concluder: "支部婦人部長 廖玉心", address: "台中市太平區新吉里新和街19號", mapUrl: "https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%A4%AA%E5%B9%B3%E5%8D%80%E6%96%B0%E5%90%89%E9%87%8C%E6%96%B0%E5%92%8C%E8%A1%9719%E8%99%9F" },
+        { district: "新坪地區", group: "新城組", date: "10/23(週五)", emcee: "宜芳", gosho: "地區副婦人部長 黃麗玲", theme: "", cadre: "黃麗玲", scribe: "", concluder: "支部長 邱永城", address: "台中市太平區新吉里新平路3段187巷12號", mapUrl: "https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%A4%AA%E5%B9%B3%E5%8D%80%E6%96%B0%E5%90%89%E9%87%8C%E6%96%B0%E5%B9%B3%E8%B7%AF3%E6%AE%B5187%E5%B7%B712%E8%99%9F" },
+        { district: "長億地區", group: "中政組", date: "10/20(週二)", emcee: "張弘典(壯)", gosho: "地區婦人部總合長 李彩珍", theme: "", cadre: "邱永城", scribe: "", concluder: "支部長 邱永城", address: "台中市太平區東平路618巷21號", mapUrl: "https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%A4%AA%E5%B9%B3%E5%8D%80%E6%9D%B1%E5%B9%B3%E8%B7%AF618%E5%B7%B721%E8%99%9F" },
+        { district: "長億地區", group: "永成組", date: "10/22(週四)", emcee: "黃英豪(壯)", gosho: "地區副婦人部長 許淑娟", theme: "", cadre: "許順", scribe: "", concluder: "副本部長 許順", address: "台中市太平區永成北路42-1號", mapUrl: "https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%A4%AA%E5%B9%B3%E5%8D%80%E6%B0%B8%E6%88%90%E5%8C%97%E8%B7%AF42-1%E8%99%9F" },
+        { district: "長億地區", group: "興平組", date: "10/23(週五)", emcee: "", gosho: "男子部 耕澤", theme: "品妤", cadre: "黃睿琦", scribe: "", concluder: "本部企劃員 黃睿琦", address: "台中市太平區長億東三街70巷12號1樓", mapUrl: "https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%A4%AA%E5%B9%B3%E5%8D%80%E9%95%B7%E5%84%84%E6%9D%B1%E4%B8%89%E8%A1%9770%E5%B7%B712%E8%99%9F1%E6%A8%93" },
+        { district: "長億地區", group: "小鎮組", date: "10/21(三)⚠️", emcee: "施杰倫(男子)", gosho: "地區婦人部長 陳素貞", theme: "", cadre: "黃潔芬", scribe: "", concluder: "區副婦人部長 黃潔芬", address: "台中市太平區長億六街2-22號", mapUrl: "https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%A4%AA%E5%B9%B3%E5%8D%80%E9%95%B7%E5%84%84%E5%85%AD%E8%A1%972-22%E8%99%9F" }
     ],
     '新里支部': [
-        { district: '十九甲地區', group: '新仁組', date: '5/19(週二)', emcee: '', gosho: '男子部 育侃', theme: '', cadre: '', scribe: '', concluder: '', address: '台中市大里區新仁七街44號', mapUrl: 'https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%A4%A7%E9%87%8C%E5%8D%80%E6%96%B0%E4%BB%81%E4%B8%83%E8%A1%9744%E8%99%9F' },
-        { district: '十九甲地區', group: '立德組', date: '5/21(週四)', emcee: '', gosho: '', theme: '', cadre: '', scribe: '', concluder: '', address: '台中市大里區立仁里合信街98號', mapUrl: 'https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%A4%A7%E9%87%8C%E5%8D%80%E7%AB%8B%E4%BB%81%E9%87%8C%E5%90%88%E4%BF%A1%E8%A1%9798%E8%99%9F' },
-        { district: '十九甲地區', group: '立仁組', date: '5/22(週五)', emcee: '', gosho: '', theme: '', cadre: '', scribe: '', concluder: '', address: '台中市大里區新仁七街44號 (共用)', mapUrl: 'https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%A4%A7%E9%87%8C%E5%8D%80%E6%96%B0%E4%BB%81%E4%B8%83%E8%A1%9744%E8%99%9F%20(%E5%85%B1%E7%94%A8)' },
-        { district: '塗城地區', group: '瑞隆組', date: '5/19(週二)', emcee: '壯年部', gosho: '', theme: '', cadre: '', scribe: '', concluder: '', address: '台中市大里區塗城路304巷51弄7號', mapUrl: 'https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%A4%A7%E9%87%8C%E5%8D%80%E5%A1%97%E5%9F%8E%E8%B7%AF304%E5%B7%B751%E5%BC%847%E8%99%9F' },
-        { district: '塗城地區', group: '仁化組', date: '5/21(週四)', emcee: '林鈞聖', gosho: '', theme: '', cadre: '', scribe: '', concluder: '', address: '台中市太平區德安街95巷7號', mapUrl: 'https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%A4%AA%E5%B9%B3%E5%8D%80%E5%BE%B7%E5%AE%89%E8%A1%9795%E5%B7%B77%E8%99%9F' },
-        { district: '塗城地區', group: '仁美組', date: '5/22(週五)', emcee: '林牧穎', gosho: '女子部 維陽', theme: '', cadre: '', scribe: '', concluder: '', address: '台中市大里區仁化路1147號', mapUrl: 'https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%A4%A7%E9%87%8C%E5%8D%80%E4%BB%81%E5%8C%96%E8%B7%AF1147%E8%99%9F' },
-        { district: '塗城地區', group: '美群組', date: '5/23(週六)', emcee: '張恆胤、陳智恩', gosho: '', theme: '', cadre: '', scribe: '', concluder: '', address: '台中市大里區三民二街57巷37號', mapUrl: 'https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%A4%A7%E9%87%8C%E5%8D%80%E4%B8%89%E6%B0%91%E4%BA%8C%E8%A1%9757%E5%B7%B737%E8%99%9F' },
-        { district: '成功地區', group: '東湖組', date: '5/19(週二)', emcee: '', gosho: '', theme: '', cadre: '', scribe: '', concluder: '', address: '台中市大里區仁化路1147號', mapUrl: 'https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%A4%A7%E9%87%8C%E5%8D%80%E4%BB%81%E5%8C%96%E8%B7%AF1147%E8%99%9F' },
-        { district: '成功地區', group: '瑞城組', date: '5/21(週四)', emcee: '', gosho: '男子部 鈺翔', theme: '', cadre: '', scribe: '', concluder: '', address: '台中市大里區塗城路433巷64弄8號', mapUrl: 'https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%A4%A7%E9%87%8C%E5%8D%80%E5%A1%97%E5%9F%8E%E8%B7%AF433%E5%B7%B764%E5%BC%848%E8%99%9F' },
-        { district: '成功地區', group: '金城組', date: '5/22(週五)', emcee: '', gosho: '', theme: '', cadre: '', scribe: '', concluder: '', address: '台中市大里區長春路115巷25號', mapUrl: 'https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%A4%A7%E9%87%8C%E5%8D%80%E9%95%B7%E6%98%A5%E8%B7%AF115%E5%B7%B725%E8%99%9F' },
-        { district: '成功地區', group: '草湖組', date: '5/23(週六)', emcee: '', gosho: '', theme: '', cadre: '', scribe: '', concluder: '', address: '台中市大里區長春路115巷25號', mapUrl: 'https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%A4%A7%E9%87%8C%E5%8D%80%E9%95%B7%E6%98%A5%E8%B7%AF115%E5%B7%B725%E8%99%9F' }
+        { district: "十九甲地區", group: "新仁組", date: "10/20(週二)", emcee: "", gosho: "區女子部長 郭文馨", theme: "", cadre: "張雅舒", scribe: "", concluder: "區婦人部企劃長 張雅舒", address: "台中市大里區新仁七街44號", mapUrl: "https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%A4%A7%E9%87%8C%E5%8D%80%E6%96%B0%E4%BB%81%E4%B8%83%E8%A1%9744%E8%99%9F" },
+        { district: "十九甲地區", group: "立德組", date: "10/22(週四)", emcee: "", gosho: "地區副婦人部長 許美珠", theme: "", cadre: "陳秀珍", scribe: "", concluder: "本部婦人部企劃員 張淑雲", address: "台中市大里區立仁里合信街98號", mapUrl: "https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%A4%A7%E9%87%8C%E5%8D%80%E7%AB%8B%E4%BB%81%E9%87%8C%E5%90%88%E4%BF%A1%E8%A1%9798%E8%99%9F" },
+        { district: "十九甲地區", group: "立仁組", date: "10/23(週五)", emcee: "", gosho: "地區副婦人部長 張美蘭", theme: "", cadre: "蘇建志", scribe: "", concluder: "副圈長 蘇建志", address: "台中市大里區新仁七街44號 (共用)", mapUrl: "https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%A4%A7%E9%87%8C%E5%8D%80%E6%96%B0%E4%BB%81%E4%B8%83%E8%A1%9744%E8%99%9F%20%28%E5%85%B1%E7%94%A8%29" },
+        { district: "塗城地區", group: "瑞隆組", date: "10/20(週二)", emcee: "", gosho: "支部婦人部企劃員 王瀞逸", theme: "", cadre: "黃耀東", scribe: "", concluder: "支部長 黃耀東", address: "台中市大里區塗城路304巷51弄7號", mapUrl: "https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%A4%A7%E9%87%8C%E5%8D%80%E5%A1%97%E5%9F%8E%E8%B7%AF304%E5%B7%B751%E5%BC%847%E8%99%9F" },
+        { district: "塗城地區", group: "仁化組", date: "10/22(週四)", emcee: "", gosho: "地區副婦人部長 呂映蓉", theme: "", cadre: "高友馨", scribe: "", concluder: "區副婦人部長 高友馨", address: "台中市太平區德安街95巷7號", mapUrl: "https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%A4%AA%E5%B9%B3%E5%8D%80%E5%BE%B7%E5%AE%89%E8%A1%9795%E5%B7%B77%E8%99%9F" },
+        { district: "塗城地區", group: "仁美組", date: "10/23(週五)", emcee: "", gosho: "區男子部企劃長 林鈺翔", theme: "", cadre: "林麗津", scribe: "", concluder: "區婦人部企劃長 張雅舒", address: "台中市大里區仁化路1147號", mapUrl: "https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%A4%A7%E9%87%8C%E5%8D%80%E4%BB%81%E5%8C%96%E8%B7%AF1147%E8%99%9F" },
+        { district: "塗城地區", group: "美群組", date: "10/21(三)⚠️", emcee: "", gosho: "支部副婦人部長 林汝換", theme: "", cadre: "蘇東翔", scribe: "", concluder: "支部總合長 蘇東翔", address: "台中市大里區三民二街57巷37號", mapUrl: "https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%A4%A7%E9%87%8C%E5%8D%80%E4%B8%89%E6%B0%91%E4%BA%8C%E8%A1%9757%E5%B7%B737%E8%99%9F" },
+        { district: "成功地區", group: "東湖組", date: "10/20(週二)", emcee: "", gosho: "地區企劃員 陳韋傑", theme: "", cadre: "許憲章", scribe: "", concluder: "副本部長 許憲章", address: "台中市大里區仁化路1147號", mapUrl: "https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%A4%A7%E9%87%8C%E5%8D%80%E4%BB%81%E5%8C%96%E8%B7%AF1147%E8%99%9F" },
+        { district: "成功地區", group: "瑞城組", date: "10/22(週四)", emcee: "", gosho: "地區副女子部長 林謙宇", theme: "", cadre: "李長鴻", scribe: "", concluder: "區企劃長 李長鴻", address: "台中市大里區塗城路433巷64弄8號", mapUrl: "https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%A4%A7%E9%87%8C%E5%8D%80%E5%A1%97%E5%9F%8E%E8%B7%AF433%E5%B7%B764%E5%BC%848%E8%99%9F" },
+        { district: "成功地區", group: "金城組", date: "10/23(週五)", emcee: "", gosho: "地區婦人部長 尤莉螢", theme: "", cadre: "賴怡均", scribe: "", concluder: "支部婦人部長 賴怡均", address: "台中市大里區長春路115巷25號", mapUrl: "https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%A4%A7%E9%87%8C%E5%8D%80%E9%95%B7%E6%98%A5%E8%B7%AF115%E5%B7%B725%E8%99%9F" },
+        { district: "成功地區", group: "草湖組", date: "10/21(三)⚠️", emcee: "", gosho: "支部副婦人部長 李美齡", theme: "", cadre: "傅麗娟", scribe: "", concluder: "本部副婦人部長 傅麗娟", address: "台中市大里區東湖里中湖路130巷12弄25號\n8月更新據點*經115年8月開始提供座談會聚點使用", mapUrl: "https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%A4%A7%E9%87%8C%E5%8D%80%E6%9D%B1%E6%B9%96%E9%87%8C%E4%B8%AD%E6%B9%96%E8%B7%AF130%E5%B7%B712%E5%BC%8425%E8%99%9F" }
     ],
     '益民支部': [
-        { district: '永興地區', group: '東興組', date: '5/19(週二)', emcee: '林巧昀', gosho: '', theme: '', cadre: '', scribe: '', concluder: '', address: '台中市大里區益民路二段261巷27號', mapUrl: 'https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%A4%A7%E9%87%8C%E5%8D%80%E7%9B%8A%E6%B0%91%E8%B7%AF%E4%BA%8C%E6%AE%B5261%E5%B7%B727%E8%99%9F' },
-        { district: '永興地區', group: '大榮組', date: '5/21(週四)', emcee: '林君學', gosho: '男子部 育陞', theme: '', cadre: '', scribe: '', concluder: '', address: '台中市大里區光榮街163號', mapUrl: 'https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%A4%A7%E9%87%8C%E5%8D%80%E5%85%89%E6%A6%AE%E8%A1%97163%E8%99%9F' },
-        { district: '永興地區', group: '永隆組', date: '5/22(週五)', emcee: '黃羽揚', gosho: '', theme: '', cadre: '', scribe: '', concluder: '', address: '台中市大里區樹王路407號', mapUrl: 'https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%A4%A7%E9%87%8C%E5%8D%80%E6%A8%B9%E7%8E%8B%E8%B7%AF407%E8%99%9F' },
-        { district: '內新地區', group: '東昇組', date: '5/19(週二)', emcee: '黃靖甯', gosho: '女子部 育岑', theme: '', cadre: '', scribe: '', concluder: '', address: '台中市大里區日新路477號', mapUrl: 'https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%A4%A7%E9%87%8C%E5%8D%80%E6%97%A5%E6%96%B0%E8%B7%AF477%E8%99%9F' },
-        { district: '內新地區', group: '東榮組', date: '5/21(週四)', emcee: '呂鈞翰', gosho: '', theme: '', cadre: '', scribe: '', concluder: '', address: '台中市大里區東榮路一段22號', mapUrl: 'https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%A4%A7%E9%87%8C%E5%8D%80%E6%9D%B1%E6%A6%AE%E8%B7%AF%E4%B8%80%E6%AE%B522%E8%99%9F' },
-        { district: '內新地區', group: '中新組', date: '5/23(週六)', emcee: '婦人部', gosho: '', theme: '', cadre: '', scribe: '', concluder: '', address: '台中市大里區新義路184號', mapUrl: 'https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%A4%A7%E9%87%8C%E5%8D%80%E6%96%B0%E7%BE%A9%E8%B7%AF184%E8%99%9F' },
-        { district: '德芳地區', group: '長榮組', date: '5/21(週四)', emcee: '游順隆', gosho: '', theme: '', cadre: '', scribe: '', concluder: '', address: '台中市大里區大里路33巷5號', mapUrl: 'https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%A4%A7%E9%87%8C%E5%8D%80%E5%A4%A7%E9%87%8C%E8%B7%AF33%E5%B7%B75%E8%99%9F' },
-        { district: '德芳地區', group: '至聖組', date: '5/22(週五)', emcee: '洪澤森', gosho: '女子部 佩洳', theme: '', cadre: '', scribe: '', concluder: '', address: '台中市大里區益民路二段181巷14號', mapUrl: 'https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%A4%A7%E9%87%8C%E5%8D%80%E7%9B%8A%E6%B0%91%E8%B7%AF%E4%BA%8C%E6%AE%B5181%E5%B7%B714%E8%99%9F' },
-        { district: '德芳地區', group: '新田組', date: '5/23(週六)', emcee: '何芷儀', gosho: '', theme: '', cadre: '', scribe: '', concluder: '', address: '台中市大里區夏田路27巷1號', mapUrl: 'https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%A4%A7%E9%87%8C%E5%8D%80%E5%A4%8F%E7%94%B0%E8%B7%AF27%E5%B7%B71%E8%99%9F' }
+        { district: "永興地區", group: "東興組", date: "10/20(週二)", emcee: "林巧昀", gosho: "地區副婦人部長 吳智文", theme: "", cadre: "詹癸湞", scribe: "", concluder: "圈企劃長 陳鴻賓", address: "台中市大里區益民路二段261巷27號", mapUrl: "https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%A4%A7%E9%87%8C%E5%8D%80%E7%9B%8A%E6%B0%91%E8%B7%AF%E4%BA%8C%E6%AE%B5261%E5%B7%B727%E8%99%9F" },
+        { district: "永興地區", group: "大榮組", date: "10/22(週四)", emcee: "林君學", gosho: "副支部長 黃錦堂", theme: "", cadre: "陳林錫雲", scribe: "", concluder: "本部副婦人部長 陳林錫雲", address: "台中市大里區光榮街163號", mapUrl: "https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%A4%A7%E9%87%8C%E5%8D%80%E5%85%89%E6%A6%AE%E8%A1%97163%E8%99%9F" },
+        { district: "永興地區", group: "永隆組", date: "10/23(週五)", emcee: "黃羽天", gosho: "地區副婦人部長 徐國英", theme: "怜綾", cadre: "張淑雲", scribe: "", concluder: "本部婦人部企劃員 張淑雲", address: "台中市大里區樹王路407號", mapUrl: "https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%A4%A7%E9%87%8C%E5%8D%80%E6%A8%B9%E7%8E%8B%E8%B7%AF407%E8%99%9F" },
+        { district: "內新地區", group: "東昇組", date: "10/20(週二)", emcee: "", gosho: "支部副婦人部長 張淯甄", theme: "", cadre: "許來成", scribe: "", concluder: "支部長 許來成", address: "台中市大里區日新路477號", mapUrl: "https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%A4%A7%E9%87%8C%E5%8D%80%E6%97%A5%E6%96%B0%E8%B7%AF477%E8%99%9F" },
+        { district: "內新地區", group: "東榮組", date: "10/22(週四)", emcee: "", gosho: "區副男子部長 吳弦陽", theme: "", cadre: "曾美玲", scribe: "", concluder: "本部副婦人部長 曾美玲", address: "台中市大里區東榮路一段22號", mapUrl: "https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%A4%A7%E9%87%8C%E5%8D%80%E6%9D%B1%E6%A6%AE%E8%B7%AF%E4%B8%80%E6%AE%B522%E8%99%9F" },
+        { district: "內新地區", group: "中新組", date: "10/21(三)⚠️", emcee: "", gosho: "支部企劃員 李景達", theme: "", cadre: "張美雲", scribe: "", concluder: "圈副婦人部長 張美雲", address: "台中市大里區新義路184號", mapUrl: "https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%A4%A7%E9%87%8C%E5%8D%80%E6%96%B0%E7%BE%A9%E8%B7%AF184%E8%99%9F" },
+        { district: "德芳地區", group: "長榮組", date: "10/22(週四)", emcee: "", gosho: "支部副婦人部長 林淑敏", theme: "", cadre: "王美雪", scribe: "", concluder: "支部婦人部長 王美雪", address: "台中市大里區大里路33巷5號", mapUrl: "https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%A4%A7%E9%87%8C%E5%8D%80%E5%A4%A7%E9%87%8C%E8%B7%AF33%E5%B7%B75%E8%99%9F" },
+        { district: "德芳地區", group: "至聖組", date: "10/23(週五)", emcee: "", gosho: "地區婦人部長 林淑芬", theme: "", cadre: "林淑芬", scribe: "", concluder: "副區長 吳永富", address: "台中市大里區益民路二段181巷14號", mapUrl: "https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%A4%A7%E9%87%8C%E5%8D%80%E7%9B%8A%E6%B0%91%E8%B7%AF%E4%BA%8C%E6%AE%B5181%E5%B7%B714%E8%99%9F" },
+        { district: "德芳地區", group: "新田組", date: "10/21(三)⚠️", emcee: "", gosho: "區男子部長 紀育侃", theme: "", cadre: "張永慶", scribe: "", concluder: "本部企劃員 李衛民", address: "台中市大里區夏田路27巷1號", mapUrl: "https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%A4%A7%E9%87%8C%E5%8D%80%E5%A4%8F%E7%94%B0%E8%B7%AF27%E5%B7%B71%E8%99%9F" }
     ],
     '日峰支部': [
-        { district: '喀哩地區', group: '東園組', date: '5/19(週二)', emcee: '阿融', gosho: '男子部 耕澤', theme: '耕澤', cadre: '', scribe: '', concluder: '', address: '台中市烏日區溪南路一段807巷25號', mapUrl: 'https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E7%83%8F%E6%97%A5%E5%8D%80%E6%BA%AA%E5%8D%97%E8%B7%AF%E4%B8%80%E6%AE%B5807%E5%B7%B725%E8%99%9F' },
-        { district: '喀哩地區', group: '光明組', date: '5/21(週四)', emcee: '軒源', gosho: '', theme: '', cadre: '', scribe: '', concluder: '', address: '台中市烏日區五光里五光路五中巷18弄18號', mapUrl: 'https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E7%83%8F%E6%97%A5%E5%8D%80%E4%BA%94%E5%85%89%E9%87%8C%E4%BA%94%E5%85%89%E8%B7%AF%E4%BA%94%E4%B8%AD%E5%B7%B718%E5%BC%8418%E8%99%9F' },
-        { district: '喀哩地區', group: '南里組', date: '5/22(週五)', emcee: '', gosho: '', theme: '', cadre: '', scribe: '', concluder: '', address: '台中市烏日區北里里太明路366號', mapUrl: 'https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E7%83%8F%E6%97%A5%E5%8D%80%E5%8C%97%E9%87%8C%E9%87%8C%E5%A4%AA%E6%98%8E%E8%B7%AF366%E8%99%9F' },
-        { district: '萬豐地區', group: '四德組', date: '5/19(週二)', emcee: '', gosho: '', theme: '', cadre: '', scribe: '', concluder: '', address: '台中市霧峰區四德里四德南路78號', mapUrl: 'https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E9%9C%A7%E5%B3%B0%E5%8D%80%E5%9B%9B%E5%BE%B7%E9%87%8C%E5%9B%9B%E5%BE%B7%E5%8D%97%E8%B7%AF78%E8%99%9F' },
-        { district: '萬豐地區', group: '六股組', date: '5/21(週四)', emcee: '敬弘', gosho: '男子部 能達', theme: '昕融', cadre: '', scribe: '', concluder: '', address: '台中市霧峰區丁台里六股路193號', mapUrl: 'https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E9%9C%A7%E5%B3%B0%E5%8D%80%E4%B8%81%E5%8F%B0%E9%87%8C%E5%85%AD%E8%82%A1%E8%B7%AF193%E8%99%9F' },
-        { district: '萬豐地區', group: '樹仁組', date: '5/23(週六)', emcee: '', gosho: '', theme: '', cadre: '', scribe: '', concluder: '', address: '台中市霧峰區育群路186號', mapUrl: 'https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E9%9C%A7%E5%B3%B0%E5%8D%80%E8%82%B2%E7%BE%A4%E8%B7%AF186%E8%99%9F' },
-        { district: '霧峰地區', group: '中正組', date: '5/19(週二)', emcee: '', gosho: '', theme: '', cadre: '', scribe: '', concluder: '', address: '台中市霧峰區中正路1046號', mapUrl: 'https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E9%9C%A7%E5%B3%B0%E5%8D%80%E4%B8%AD%E6%AD%A3%E8%B7%AF1046%E8%99%9F' },
-        { district: '霧峰地區', group: '吉峰組', date: '5/21(週四)', emcee: '佳龍', gosho: '', theme: '', cadre: '', scribe: '', concluder: '', address: '台中市霧峰區吉峰西路62巷1弄1號', mapUrl: 'https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E9%9C%A7%E5%B3%B0%E5%8D%80%E5%90%89%E5%B3%B0%E8%A5%BF%E8%B7%AF62%E5%B7%B71%E5%BC%841%E8%99%9F' },
-        { district: '霧峰地區', group: '桐林組', date: '5/23(週六)', emcee: '子郁', gosho: '女子部 怜綾', theme: '彥辰', cadre: '', scribe: '', concluder: '', address: '台中市霧峰區桐林里民生路606巷29號', mapUrl: 'https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E9%9C%A7%E5%B3%B0%E5%8D%80%E6%A1%90%E6%9E%97%E9%87%8C%E6%B0%91%E7%94%9F%E8%B7%AF%E6%B0%91%E7%94%9F%E8%B7%AF606%E5%B7%B729%E8%99%9F' }
+        { district: "喀哩地區", group: "東園組", date: "10/20(週二)", emcee: "", gosho: "地區部長 施彥仲", theme: "", cadre: "林經智", scribe: "", concluder: "本部企劃員 林經智", address: "台中市烏日區溪南路一段807巷25號", mapUrl: "https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E7%83%8F%E6%97%A5%E5%8D%80%E6%BA%AA%E5%8D%97%E8%B7%AF%E4%B8%80%E6%AE%B5807%E5%B7%B725%E8%99%9F" },
+        { district: "喀哩地區", group: "光明組", date: "10/22(週四)", emcee: "", gosho: "地區副婦人部長 張明雪", theme: "", cadre: "張淑慧", scribe: "", concluder: "本部副婦人部長 張淑慧", address: "台中市烏日區五光里五光路五中巷18弄18號", mapUrl: "https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E7%83%8F%E6%97%A5%E5%8D%80%E4%BA%94%E5%85%89%E9%87%8C%E4%BA%94%E5%85%89%E8%B7%AF%E4%BA%94%E4%B8%AD%E5%B7%B718%E5%BC%8418%E8%99%9F" },
+        { district: "喀哩地區", group: "南里組", date: "10/23(週五)", emcee: "", gosho: "本部副女子部長 陳筠融", theme: "昕融", cadre: "黃錦隆", scribe: "", concluder: "副本部長 黃錦隆", address: "台中市烏日區北里里太明路366號", mapUrl: "https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E7%83%8F%E6%97%A5%E5%8D%80%E5%8C%97%E9%87%8C%E9%87%8C%E5%A4%AA%E6%98%8E%E8%B7%AF366%E8%99%9F" },
+        { district: "萬豐地區", group: "四德組", date: "10/20(週二)", emcee: "勝宣", gosho: "支部副婦人部長 姚靜妤", theme: "東量", cadre: "姚靜妤", scribe: "", concluder: "本部副婦人部長 張淑慧", address: "台中市霧峰區四德里四德南路78號", mapUrl: "https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E9%9C%A7%E5%B3%B0%E5%8D%80%E5%9B%9B%E5%BE%B7%E9%87%8C%E5%9B%9B%E5%BE%B7%E5%8D%97%E8%B7%AF78%E8%99%9F" },
+        { district: "萬豐地區", group: "六股組", date: "10/22(週四)", emcee: "", gosho: "支部副婦人部長 吳麗緗", theme: "", cadre: "吳麗緗", scribe: "", concluder: "本部企劃員 林經智", address: "台中市霧峰區丁台里六股路193號", mapUrl: "https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E9%9C%A7%E5%B3%B0%E5%8D%80%E4%B8%81%E5%8F%B0%E9%87%8C%E5%85%AD%E8%82%A1%E8%B7%AF193%E8%99%9F" },
+        { district: "萬豐地區", group: "樹仁組", date: "10/21(三)⚠️", emcee: "", gosho: "支部副婦人部長 賴靜香", theme: "", cadre: "謝佩珊", scribe: "", concluder: "本部副婦人部長 謝佩珊", address: "台中市霧峰區育群路186號", mapUrl: "https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E9%9C%A7%E5%B3%B0%E5%8D%80%E8%82%B2%E7%BE%A4%E8%B7%AF186%E8%99%9F" },
+        { district: "霧峰地區", group: "中正組", date: "10/20(週二)", emcee: "", gosho: "婦人部支部企劃員 施斐馨", theme: "", cadre: "林長志", scribe: "", concluder: "支部長 林長志", address: "台中市霧峰區中正路1046號", mapUrl: "https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E9%9C%A7%E5%B3%B0%E5%8D%80%E4%B8%AD%E6%AD%A3%E8%B7%AF1046%E8%99%9F" },
+        { district: "霧峰地區", group: "吉峰組", date: "10/22(週四)", emcee: "佳龍", gosho: "本部副男子部長 何宏裕", theme: "彥辰", cadre: "廖色柔", scribe: "", concluder: "區副婦人部長 廖色柔", address: "台中市霧峰區吉峰西路62巷1弄1號", mapUrl: "https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E9%9C%A7%E5%B3%B0%E5%8D%80%E5%90%89%E5%B3%B0%E8%A5%BF%E8%B7%AF62%E5%B7%B71%E5%BC%841%E8%99%9F" },
+        { district: "霧峰地區", group: "桐林組", date: "10/21(三)⚠️", emcee: "", gosho: "地區婦人部長 陳瑜卿", theme: "", cadre: "陳瑜卿", scribe: "", concluder: "本部總合長 賴建忠", address: "台中市霧峰區桐林里民生路606巷29號", mapUrl: "https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E9%9C%A7%E5%B3%B0%E5%8D%80%E6%A1%90%E6%9E%97%E9%87%8C%E6%B0%91%E7%94%9F%E8%B7%AF606%E5%B7%B729%E8%99%9F" }
     ],
     '高工支部': [
-        { district: '烏日地區', group: '高鐵組', date: '', emcee: '永傑', gosho: '女子部 珍汝', theme: '柏瑋', cadre: '', scribe: '', concluder: '', address: '', mapUrl: '' },
-        { district: '烏日地區', group: '學田組', date: '5/19(週二)', emcee: '以諮', gosho: '', theme: '伯孟', cadre: '', scribe: '', concluder: '', address: '', mapUrl: '' },
-        { district: '烏日地區', group: '成功組', date: '5/22(週五)', emcee: '丞帆', gosho: '', theme: '婦人部支援', cadre: '', scribe: '', concluder: '', address: '', mapUrl: '' },
-        { district: '明道地區', group: '仁德組', date: '5/19(週二)', emcee: '宏裕', gosho: '女子部 姿妏', theme: '姿妏', cadre: '', scribe: '', concluder: '', address: '', mapUrl: '' },
-        { district: '明道地區', group: '九德組', date: '5/21(週四)', emcee: '長恩', gosho: '', theme: '婦人部支援', cadre: '', scribe: '', concluder: '', address: '', mapUrl: '' },
-        { district: '明道地區', group: '光德組', date: '5/22(週五)', emcee: '瑞誠', gosho: '女子部 昱潔', theme: '（冠任）', cadre: '', scribe: '', concluder: '', address: '', mapUrl: '' },
-        { district: '樹義地區', group: '福康組', date: '5/19(週二)', emcee: '柏穎哥', gosho: '', theme: '婦人部支援', cadre: '', scribe: '', concluder: '', address: '', mapUrl: '' },
-        { district: '樹義地區', group: '樹德組', date: '5/21(週四)', emcee: '貿健', gosho: '女子部 偉襦', theme: '柏瑋', cadre: '', scribe: '', concluder: '', address: '', mapUrl: '' },
-        { district: '樹義地區', group: '福田組', date: '5/23(週六)', emcee: '柏瑋、承翰', gosho: '', theme: '雅瑩、珍汝', cadre: '', scribe: '', concluder: '', address: '', mapUrl: '' },
-        { district: '和平地區', group: '大慶組', date: '5/19(週二)', emcee: '雅惠', gosho: '男子部 柏瑋', theme: '珮琪', cadre: '', scribe: '', concluder: '', address: '', mapUrl: '' },
-        { district: '和平地區', group: '德富組', date: '5/22(週五)', emcee: '柏豪', gosho: '', theme: '珮琪', cadre: '', scribe: '', concluder: '', address: '', mapUrl: '' },
-        { district: '和平地區', group: '福順組', date: '5/23(週六)', emcee: '富懋', gosho: '', theme: '珮琪', cadre: '', scribe: '', concluder: '', address: '', mapUrl: '' }
+        { district: "烏日地區", group: "高鐵組", date: "10/18 (週日) \n早上9:30", emcee: "", gosho: "支部副婦人部長 賴麗雲", theme: "", cadre: "賴香蘭", scribe: "", concluder: "支部婦人部長 賴香蘭", address: "台中市烏日區湖日里公園路746號", mapUrl: "https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E7%83%8F%E6%97%A5%E5%8D%80%E6%B9%96%E6%97%A5%E9%87%8C%E5%85%AC%E5%9C%92%E8%B7%AF746%E8%99%9F" },
+        { district: "烏日地區", group: "學田組", date: "10/20(週二)", emcee: "", gosho: "地區婦人部長 曾珠美", theme: "", cadre: "郭境成", scribe: "", concluder: "副區長 郭境成", address: "台中市烏日區榮和路27號3樓之1", mapUrl: "https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E7%83%8F%E6%97%A5%E5%8D%80%E6%A6%AE%E5%92%8C%E8%B7%AF27%E8%99%9F3%E6%A8%93%E4%B9%8B1" },
+        { district: "烏日地區", group: "成功組", date: "10/23(週五)", emcee: "", gosho: "圈男子部企劃長 章介瑋", theme: "", cadre: "張美麗", scribe: "", concluder: "本部婦人部長 張美麗", address: "台中市烏日區五光路1040號", mapUrl: "https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E7%83%8F%E6%97%A5%E5%8D%80%E4%BA%94%E5%85%89%E8%B7%AF1040%E8%99%9F" },
+        { district: "明道地區", group: "仁德組", date: "10/20(週二)", emcee: "瑞誠", gosho: "支部副女子部長 江偉襦", theme: "偉襦", cadre: "游象陸", scribe: "", concluder: "區副總合長 游象陸", address: "台中市烏日區信義街309巷9號", mapUrl: "https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E7%83%8F%E6%97%A5%E5%8D%80%E4%BF%A1%E7%BE%A9%E8%A1%97309%E5%B7%B79%E8%99%9F" },
+        { district: "明道地區", group: "九德組", date: "10/22(週四)", emcee: "", gosho: "支部副婦人部長 劉靜娟", theme: "", cadre: "劉靜娟", scribe: "", concluder: "本部婦人部長 張美麗", address: "台中市烏日區長春街347巷18號", mapUrl: "https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E7%83%8F%E6%97%A5%E5%8D%80%E9%95%B7%E6%98%A5%E8%A1%97347%E5%B7%B718%E8%99%9F" },
+        { district: "明道地區", group: "光德組", date: "10/23(週五)", emcee: "姿妏", gosho: "地區婦人部企劃員 陳麗芳", theme: "姿妏", cadre: "賴明旺", scribe: "", concluder: "副區長 賴明旺", address: "台中市烏日區仁德里信義街279巷42號", mapUrl: "https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E7%83%8F%E6%97%A5%E5%8D%80%E4%BB%81%E5%BE%B7%E9%87%8C%E4%BF%A1%E7%BE%A9%E8%A1%97279%E5%B7%B742%E8%99%9F" },
+        { district: "樹義地區", group: "福康組", date: "10/20(週二)", emcee: "", gosho: "地區副婦人部長 鍾玉蓮", theme: "", cadre: "劉士榮", scribe: "", concluder: "本部長 劉士榮", address: "台中市文林街33巷15號", mapUrl: "https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E6%96%87%E6%9E%97%E8%A1%9733%E5%B7%B715%E8%99%9F" },
+        { district: "樹義地區", group: "樹德組", date: "10/22(週四)", emcee: "", gosho: "支部副婦人部長 賴沂君", theme: "", cadre: "王沛瀠", scribe: "", concluder: "本部副婦人部長 王沛瀠", address: "台中市南區復興北路512號10樓之1", mapUrl: "https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%8D%97%E5%8D%80%E5%BE%A9%E8%88%88%E5%8C%97%E8%B7%AF512%E8%99%9F10%E6%A8%93%E4%B9%8B1" },
+        { district: "樹義地區", group: "福田組", date: "10/21(三)⚠️", emcee: "", gosho: "本部副女子部長 吳昱潔", theme: "", cadre: "蘇麗華", scribe: "", concluder: "區副婦人部長 蘇麗華", address: "台中市南區復興北路512號10樓之1 \n*本10月因屋主有事故座談會據點使用同樹德組", mapUrl: "https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%8D%97%E5%8D%80%E5%BE%A9%E8%88%88%E5%8C%97%E8%B7%AF512%E8%99%9F10%E6%A8%93%E4%B9%8B1" },
+        { district: "和平地區", group: "大慶組", date: "10/20(週二)", emcee: "富懋", gosho: "地區婦人部企劃員 賴錚姈", theme: "珮琪", cadre: "蔡麗淑", scribe: "", concluder: "區副婦人部長 蔡麗淑", address: "台中市南區忠明南路782號3樓之1", mapUrl: "https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%8D%97%E5%8D%80%E5%BF%A0%E6%98%8E%E5%8D%97%E8%B7%AF782%E8%99%9F3%E6%A8%93%E4%B9%8B1" },
+        { district: "和平地區", group: "德富組", date: "10/23(週五)", emcee: "柏瑋、鍾譽", gosho: "支部副婦人部長 黃玲娟", theme: "", cadre: "劉家盈", scribe: "", concluder: "區副總合長 周彥亨", address: "台中市南區德富路145巷5號", mapUrl: "https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%8D%97%E5%8D%80%E5%BE%B7%E5%AF%8C%E8%B7%AF145%E5%B7%B75%E8%99%9F" },
+        { district: "和平地區", group: "福順組", date: "10/21(三)⚠️", emcee: "雅惠", gosho: "支部男子部長 黃柏瑋", theme: "珮琪", cadre: "李俊達", scribe: "", concluder: "支部長 李俊達", address: "台中市南陽街61之2號12樓", mapUrl: "https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%8D%97%E9%99%BD%E8%A1%9761%E4%B9%8B2%E8%99%9F12%E6%A8%93" }
     ],
     '復興支部': [
-        { district: '建成地區', group: '仁和組', date: '5/19(週二)', emcee: '昱儕', gosho: '', theme: '', cadre: '', scribe: '', concluder: '', address: '台中市南區仁和一街93號3樓-2', mapUrl: 'https://maps.google.com/?q=台中市南區仁和一街93號3樓-2' },
-        { district: '建成地區', group: '新榮組', date: '5/21(週四)', emcee: '順堯', gosho: '', theme: '', cadre: '', scribe: '', concluder: '', address: '台中市南區復興路三段148-5號14樓之2', mapUrl: 'https://maps.google.com/?q=台中市南區復興路三段148-5號14樓之2' },
-        { district: '建成地區', group: '長春組', date: '5/23(週六)', emcee: '科廷 淵百', gosho: '女子部 伯孟', theme: '彥伊', cadre: '', scribe: '', concluder: '', address: '402臺中市南區仁和路119號', mapUrl: 'https://maps.google.com/?q=402臺中市南區仁和路119號' },
-        { district: '大東地區', group: '南門組', date: '5/19(週二)', emcee: '彥婷', gosho: '', theme: '晶晶', cadre: '', scribe: '', concluder: '', address: '台中市忠明南路1320巷7號', mapUrl: 'https://maps.google.com/?q=台中市忠明南路1320巷7號' },
-        { district: '大東地區', group: '建中組', date: '5/21(週四)', emcee: '男子部-秉儒', gosho: '', theme: '晶晶', cadre: '', scribe: '', concluder: '', address: '台中市東區建德街105號', mapUrl: 'https://maps.google.com/?q=台中市東區建德街105號' },
-        { district: '大東地區', group: '大智組', date: '5/22(週五)', emcee: '米恩米晴', gosho: '男子部 睿劭', theme: '霏霏', cadre: '', scribe: '', concluder: '', address: '台中市東區振興路162巷16弄13號', mapUrl: 'https://maps.google.com/?q=台中市東區振興路162巷16弄13號' },
-        { district: '健康地區', group: '福平組', date: '5/19(週二)', emcee: '沛沛', gosho: '男子部 威辰', theme: '', cadre: '', scribe: '', concluder: '', address: '台中市南區南平一街56-2號', mapUrl: 'https://maps.google.com/?q=台中市南區南平一街56-2號' },
-        { district: '健康地區', group: '福興組', date: '5/21(週四)', emcee: '未來部-昕宸', gosho: '', theme: '', cadre: '', scribe: '', concluder: '', address: '台中市南區南和路118號', mapUrl: 'https://maps.google.com/?q=台中市南區南和路118號' },
-        { district: '健康地區', group: '永和組', date: '5/22(週五)', emcee: '婦人部協助', gosho: '', theme: '', cadre: '', scribe: '', concluder: '', address: '台中市南區美村路二段297號', mapUrl: 'https://maps.google.com/?q=台中市南區美村路二段297號' }
+        { district: "建成地區", group: "仁和組", date: "10/20(週二)", emcee: "", gosho: "地區副婦人部長 林美玲", theme: "", cadre: "吳永富", scribe: "", concluder: "副區長 吳永富", address: "台中市南區仁和一街93號3樓-2", mapUrl: "https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%8D%97%E5%8D%80%E4%BB%81%E5%92%8C%E4%B8%80%E8%A1%9793%E8%99%9F3%E6%A8%93-2" },
+        { district: "建成地區", group: "新榮組", date: "10/22(週四)", emcee: "", gosho: "支部副婦人部長 洪詩妤", theme: "", cadre: "賴建忠", scribe: "", concluder: "本部總合長 賴建忠", address: "台中市南區復興路三段148-5號14樓之2", mapUrl: "https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%8D%97%E5%8D%80%E5%BE%A9%E8%88%88%E8%B7%AF%E4%B8%89%E6%AE%B5148-5%E8%99%9F14%E6%A8%93%E4%B9%8B2" },
+        { district: "建成地區", group: "長春組", date: "10/21(三)⚠️", emcee: "", gosho: "支部副男子部長 李威辰", theme: "", cadre: "程春霖", scribe: "", concluder: "支部長 程春霖", address: "402臺中市南區仁和路119號", mapUrl: "https://maps.google.com/?q=402%E8%87%BA%E4%B8%AD%E5%B8%82%E5%8D%97%E5%8D%80%E4%BB%81%E5%92%8C%E8%B7%AF119%E8%99%9F" },
+        { district: "大東地區", group: "南門組", date: "10/20(週二)", emcee: "", gosho: "支部副男子部長 蕭睿劭", theme: "", cadre: "陳色綢", scribe: "", concluder: "本部副婦人部長 陳色綢", address: "台中市忠明南路1320巷7號", mapUrl: "https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%BF%A0%E6%98%8E%E5%8D%97%E8%B7%AF1320%E5%B7%B77%E8%99%9F" },
+        { district: "大東地區", group: "建中組", date: "10/22(週四)", emcee: "", gosho: "地區婦人部長 洪詩珣", theme: "", cadre: "洪詩珣", scribe: "", concluder: "本部長 劉士榮", address: "台中市東區建德街105號", mapUrl: "https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E6%9D%B1%E5%8D%80%E5%BB%BA%E5%BE%B7%E8%A1%97105%E8%99%9F" },
+        { district: "大東地區", group: "大智組", date: "10/23(週五)", emcee: "", gosho: "支部副婦人部長 王思婕", theme: "", cadre: "林真美", scribe: "", concluder: "支部婦人部長 林真美", address: "台中市東區振興路162巷16弄13號", mapUrl: "https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E6%9D%B1%E5%8D%80%E6%8C%AF%E8%88%88%E8%B7%AF162%E5%B7%B716%E5%BC%8413%E8%99%9F" },
+        { district: "健康地區", group: "福平組", date: "10/20(週二)", emcee: "", gosho: "支部副婦人部長 施名芬", theme: "", cadre: "周彥亨", scribe: "", concluder: "區副總合長 周彥亨", address: "台中市南區南平一街56-2號", mapUrl: "https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%8D%97%E5%8D%80%E5%8D%97%E5%B9%B3%E4%B8%80%E8%A1%9756-2%E8%99%9F" },
+        { district: "健康地區", group: "福興組", date: "10/22(週四)", emcee: "", gosho: "支部企劃員 莊志升", theme: "", cadre: "蔡春桂", scribe: "", concluder: "區副婦人部長 蔡春桂", address: "台中市南區南和路118號", mapUrl: "https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%8D%97%E5%8D%80%E5%8D%97%E5%92%8C%E8%B7%AF118%E8%99%9F" },
+        { district: "健康地區", group: "永和組", date: "10/23(週五)", emcee: "", gosho: "地區副婦人部長 吳麗芬", theme: "", cadre: "馮麗中", scribe: "", concluder: "本部副婦人部長 馮麗中", address: "台中市南區美村路二段297號", mapUrl: "https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%8D%97%E5%8D%80%E7%BE%8E%E6%9D%91%E8%B7%AF%E4%BA%8C%E6%AE%B5297%E8%99%9F" }
     ]
 };
 
@@ -1716,7 +1716,7 @@ async function loadBranchData(branchName) {
 async function fetchGoogleSheetsMembers(spreadsheetId, sheetName) {
     const url = `https://docs.google.com/spreadsheets/d/${spreadsheetId}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent(sheetName)}`;
     
-    const response = await fetch(url);
+    const response = await fetch(url, { cache: 'no-store' });
     if (!response.ok) throw new Error('Network response was not ok');
     
     const text = await response.text();
@@ -1724,7 +1724,11 @@ async function fetchGoogleSheetsMembers(spreadsheetId, sheetName) {
     if (!match) throw new Error('Failed to parse Google Sheets Visualization response');
     
     const json = JSON.parse(match[1]);
+    if (json.status === 'error' || !json.table) {
+        throw new Error('Google Sheets returned an invalid response');
+    }
     const rows = json.table.rows;
+
     
     if (!rows || rows.length === 0) return [];
     
@@ -1771,6 +1775,12 @@ async function fetchGoogleSheetsMembers(spreadsheetId, sheetName) {
         });
     }
     
+    // 以日期欄的實際年月判斷資料期間；部分分頁的月份標題未更新。
+    const sourceDates = rows.map(row => row.c?.[colIndices.date]?.v)
+        .filter(value => typeof value === 'string' && /^Date\(/.test(value));
+    const isOctober2026 = sourceDates.length > 0 &&
+        sourceDates.every(value => /^Date\(2026,9,/.test(value));
+
     // 用於向下填充合併儲存格的暫存變數
     let currentDistrict = '';
     
@@ -1782,7 +1792,7 @@ async function fetchGoogleSheetsMembers(spreadsheetId, sheetName) {
             if (cell.f !== undefined && cell.f !== null) {
                 return String(cell.f).trim();
             }
-            return cell.v !== null ? String(cell.v).trim() : '';
+            return cell.v != null ? String(cell.v).trim() : '';
         };
         
         const rawDistrict = getCellValue(colIndices.district);
@@ -1805,10 +1815,31 @@ async function fetchGoogleSheetsMembers(spreadsheetId, sheetName) {
             addressLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(addressVal)}`;
         }
         
+        let dateVal = getCellValue(colIndices.date);
+        const groupVal = getCellValue(colIndices.group);
+        const itemDistrict = rawDistrict || currentDistrict;
+        
+        // 原生日期保留雲端值，不以預存日期覆蓋。
+        const rawDate = dateVal.match(/^Date\((\d+),(\d+),(\d+)(?:,.*)?\)$/);
+        if (rawDate) {
+            const [, year, month, day] = rawDate.map(Number);
+            const weekday = '日一二三四五六'[new Date(Date.UTC(year, month, day)).getUTCDay()];
+            dateVal = `${month + 1}/${day}(週${weekday})`;
+        }
+
+        // 混合日期與「⚠️」文字會被 gviz 當成空值。僅對 2026/10
+        // 使用本月份已核對的週三場次補值，避免下個月份沿用舊日期。
+        if (!dateVal && groupVal && isOctober2026) {
+            const matched = (BRANCH_MEMBERS_MOCK[sheetName] || []).find(
+                item => item.group === groupVal && item.district === itemDistrict
+            );
+            if (matched && matched.date.includes('⚠️')) dateVal = matched.date;
+        }
+
         return {
-            district: rawDistrict || currentDistrict,
-            group: getCellValue(colIndices.group),
-            date: getCellValue(colIndices.date),
+            district: itemDistrict,
+            group: groupVal,
+            date: dateVal,
             emcee: getCellValue(colIndices.emcee),
             gosho: getCellValue(colIndices.gosho),
             theme: getCellValue(colIndices.theme),
@@ -1993,7 +2024,7 @@ function renderMembersTable(data) {
         row.innerHTML = `
             <td style="font-weight: 700; color: var(--color-primary-dark);">${item.district || '-'}</td>
             <td style="font-weight: 700; color: var(--color-secondary);">${item.group || '-'}</td>
-            <td style="font-weight: 600;">${item.date || '-'}</td>
+            <td style="font-weight: 600; white-space: pre-line;">${item.date || '-'}</td>
             <td>${item.emcee || '<span style="color:var(--color-text-muted); font-size:0.85rem;">-</span>'}</td>
             <td>${formatBadgeText(item.gosho)}</td>
             <td>${formatBadgeText(item.theme)}</td>
