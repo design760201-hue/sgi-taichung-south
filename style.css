@@ -4875,3 +4875,31 @@ footer {
 
 
 
+
+/* 青年主打組：以文字標籤配合黃色底色，保持組別名稱完整。 */
+#members-table .member-group-cell {
+    font-weight: 700;
+    color: var(--color-secondary);
+}
+#members-table .member-group-name {
+    display: block;
+    white-space: nowrap;
+}
+#members-table .member-group-cell.is-youth-featured {
+    background-color: #fff6cf;
+    color: #654900;
+}
+.youth-featured-badge {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 0.375rem;
+    padding: 0.2rem 0.45rem;
+    border: 1px solid #d5a51c;
+    border-radius: 4px;
+    background-color: #ffe276;
+    color: #573b00;
+    font-size: 0.75rem;
+    font-weight: 800;
+    line-height: 1.5;
+    white-space: nowrap;
+}

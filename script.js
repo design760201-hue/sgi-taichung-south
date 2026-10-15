@@ -1543,6 +1543,46 @@ function showToast(message) {
 // 2. 將試算表 ID 填入下方（未填寫時，網頁會自動載入 7 大支部 2026年5月份真實與模擬數據）
 const MEMBERS_SPREADSHEET_ID = '11rIPgA92E6NEgV2Ni3sq80cBDH2e9AWRrq8YGc-rfBI'; 
 
+// 2026 年 10 月：依試算表組別欄的黃色底色核對。
+const YOUTH_FEATURED_GROUPS_2026_10 = {
+    "勤益支部": [
+        "豐年組",
+        "宜欣組",
+        "建國組"
+    ],
+    "東平支部": [
+        "新光組",
+        "新吉組",
+        "興平組"
+    ],
+    "益民支部": [
+        "永隆組",
+        "東榮組",
+        "新田組"
+    ],
+    "新里支部": [
+        "新仁組",
+        "仁美組",
+        "草湖組"
+    ],
+    "高工支部": [
+        "高鐵組",
+        "仁德組",
+        "樹德組",
+        "福順組"
+    ],
+    "日峰支部": [
+        "南里組",
+        "樹仁組",
+        "吉峰組"
+    ],
+    "復興支部": [
+        "長春組",
+        "南門組",
+        "福興組"
+    ]
+};
+
 // 全域狀態變數
 let currentBranch = '勤益支部';
 let currentDistrict = '全部';
@@ -1636,6 +1676,13 @@ const BRANCH_MEMBERS_MOCK = {
         { district: "健康地區", group: "永和組", date: "10/23(週五)", emcee: "", gosho: "地區副婦人部長 吳麗芬", theme: "", cadre: "馮麗中", scribe: "", concluder: "本部副婦人部長 馮麗中", address: "台中市南區美村路二段297號", mapUrl: "https://maps.google.com/?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%8D%97%E5%8D%80%E7%BE%8E%E6%9D%91%E8%B7%AF%E4%BA%8C%E6%AE%B5297%E8%99%9F" }
     ]
 };
+
+// 本機備援名單同樣顯示本月份的青年主打組。
+for (const [branch, members] of Object.entries(BRANCH_MEMBERS_MOCK)) {
+    for (const member of members) {
+        member.youthFeatured = (YOUTH_FEATURED_GROUPS_2026_10[branch] || []).includes(member.group);
+    }
+}
 
 // 2. 初始化座談會人員名單系統
 function initializeMeetingMembers() {
@@ -1839,6 +1886,7 @@ async function fetchGoogleSheetsMembers(spreadsheetId, sheetName) {
         return {
             district: itemDistrict,
             group: groupVal,
+            youthFeatured: isOctober2026 && (YOUTH_FEATURED_GROUPS_2026_10[sheetName] || []).includes(groupVal),
             date: dateVal,
             emcee: getCellValue(colIndices.emcee),
             gosho: getCellValue(colIndices.gosho),
@@ -1957,6 +2005,7 @@ function applyMembersFilters() {
         filteredData = filteredData.filter(item => {
             return (item.district && item.district.toLowerCase().includes(memberSearchQuery)) ||
                    (item.group && item.group.toLowerCase().includes(memberSearchQuery)) ||
+                   (item.youthFeatured && '青年主打組'.includes(memberSearchQuery)) ||
                    (item.date && item.date.toLowerCase().includes(memberSearchQuery)) ||
                    (item.emcee && item.emcee.toLowerCase().includes(memberSearchQuery)) ||
                    (item.gosho && item.gosho.toLowerCase().includes(memberSearchQuery)) ||
@@ -2023,7 +2072,10 @@ function renderMembersTable(data) {
         
         row.innerHTML = `
             <td style="font-weight: 700; color: var(--color-primary-dark);">${item.district || '-'}</td>
-            <td style="font-weight: 700; color: var(--color-secondary);">${item.group || '-'}</td>
+            <td class="member-group-cell${item.youthFeatured ? ' is-youth-featured' : ''}">
+                <span class="member-group-name">${item.group || '-'}</span>
+                ${item.youthFeatured ? '<span class="youth-featured-badge">青年主打組</span>' : ''}
+            </td>
             <td style="font-weight: 600; white-space: pre-line;">${item.date || '-'}</td>
             <td>${item.emcee || '<span style="color:var(--color-text-muted); font-size:0.85rem;">-</span>'}</td>
             <td>${formatBadgeText(item.gosho)}</td>
