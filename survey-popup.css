@@ -1,0 +1,61 @@
+/* 限期問卷公告：圖片完整顯示，關閉按鈕獨立於表單連結。 */
+body.survey-popup-open {
+    overflow: hidden;
+}
+#survey-popup {
+    position: fixed;
+    inset: 0;
+    width: min(560px, calc(100vw - 32px), calc((100vh - 32px) * 673 / 628));
+    width: min(560px, calc(100vw - 32px), calc((100dvh - 32px) * 673 / 628));
+    max-width: none;
+    max-height: calc(100vh - 32px);
+    max-height: calc(100dvh - 32px);
+    margin: auto;
+    padding: 0;
+    border: 0;
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 18px 64px rgba(0, 0, 0, 0.28);
+    overflow: hidden;
+}
+#survey-popup::backdrop {
+    background: rgba(10, 25, 42, 0.7);
+}
+.survey-popup-link {
+    display: block;
+    line-height: 0;
+}
+.survey-popup-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: calc(100vh - 32px);
+    max-height: calc(100dvh - 32px);
+    object-fit: contain;
+}
+.survey-popup-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: #153c65;
+    color: #fff;
+    cursor: pointer;
+}
+.survey-popup-close:hover {
+    background: #092748;
+}
+.survey-popup-close:focus-visible {
+    outline: 3px solid #e6a825;
+    outline-offset: 3px;
+}
+.survey-popup-link:focus-visible {
+    outline: 4px solid #153c65;
+    outline-offset: -4px;
+}

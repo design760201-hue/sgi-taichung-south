@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="style.css?v=20261015-youth">
     <!-- 引入 html2canvas 圖片生成引擎 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <link rel="stylesheet" href="survey-popup.css?v=20261020">
 </head>
 <body>
 
@@ -1058,5 +1059,17 @@
 
     <!-- 引入自訂 JavaScript -->
     <script src="script.js?v=20261015-youth"></script>
+    <!-- 限期問卷公告：每次進站顯示，台灣時間 2026/11/4 23:59 結束。 -->
+    <dialog id="survey-popup" aria-label="2026座談會問卷募集">
+        <a class="survey-popup-link" href="https://forms.gle/bq1KNi2uKiBnRnkJ7" target="_blank" rel="noopener noreferrer" aria-label="填寫2026座談會問卷（另開分頁）">
+            <img class="survey-popup-image" src="survey-2026.png" width="673" height="628" alt="2026座談會問卷募集，點選圖片填寫問卷">
+        </a>
+        <button class="survey-popup-close" type="button" aria-label="關閉問卷公告" autofocus>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
+                <path d="M6 6l12 12M18 6L6 18"/>
+            </svg>
+        </button>
+    </dialog>
+    <script src="survey-popup.js?v=20261020" defer></script>
 </body>
 </html>
