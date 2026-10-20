@@ -5,8 +5,8 @@ body.survey-popup-open {
 #survey-popup {
     position: fixed;
     inset: 0;
-    width: min(560px, calc(100vw - 32px), calc((100vh - 32px) * 673 / 628));
-    width: min(560px, calc(100vw - 32px), calc((100dvh - 32px) * 673 / 628));
+    width: min(560px, calc(100vw - 32px), calc((100vh - 88px) * 673 / 628));
+    width: min(560px, calc(100vw - 32px), calc((100dvh - 88px) * 673 / 628));
     max-width: none;
     max-height: calc(100vh - 32px);
     max-height: calc(100dvh - 32px);
@@ -58,4 +58,18 @@ body.survey-popup-open {
 .survey-popup-link:focus-visible {
     outline: 4px solid #153c65;
     outline-offset: -4px;
+}
+
+.survey-popup-cta {
+    display: block;
+    padding: 14px 20px;
+    background: #153c65;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 28px;
+    text-align: center;
+}
+.survey-popup-link:hover .survey-popup-cta {
+    background: #092748;
 }
