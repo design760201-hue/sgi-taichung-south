@@ -4903,3 +4903,21 @@ footer {
     line-height: 1.5;
     white-space: nowrap;
 }
+
+/* 傳達事項詳細資料：手機以單欄閱讀，避免長篇程序及幹部名單被擠窄。 */
+@media (max-width: 600px) {
+    .announcements-container .routine-detail-row {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0.4rem;
+        margin-bottom: 1rem;
+    }
+    .announcements-container .routine-detail-value {
+        min-width: 0;
+        overflow-wrap: anywhere;
+    }
+    .announcements-container .routine-schedule-item {
+        flex-direction: column;
+        gap: 0.35rem;
+        padding: 0.65rem 0;
+    }
+}

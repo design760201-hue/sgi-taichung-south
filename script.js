@@ -2094,159 +2094,321 @@ function renderMembersTable(data) {
 // 13. 南區每月區會傳達事項數據與互動渲染引擎
 // ==========================================
 
-// (1) 2026年9月份 (10月份活動執行) 南區區會傳達事項完整 JSON 數據庫
+// (1) 2026年10月份傳達（南區10/28版本、全國區長會、男子部地區級以上）
 const SOUTH_DISTRICT_ANNOUNCEMENTS = {
-    month: "2026年9月份 (10月份活動執行)",
-    theme: "世界青年學會 • 躍動之年 ⚡",
-    routine: [
+    "month": "2026年10月份 (11月份活動執行)",
+    "theme": "世界青年學會 • 躍動之年 ⚡",
+    "routine": [
         {
-            id: 'discussion-meeting',
-            title: '10月份實體座談會',
-            badge: '例行',
-            time: '10/18(日) - 10/24(六) (平日晚間及週末場次)',
-            location: '各組聚點 (以組為單位舉辦)',
-            summary: '10月份實體座談會。適逢光復節連假，彈性開放 10/21(三) 舉辦。各區可視情況自行調整，請以較多人可參與的日期為主。',
-            details: {
-                program: '題目三唱(1分) ➔ 致歡迎詞(1分) ➔ 事務傳達(5分) ➔ 御書學習(10分) ➔ 觀賞影片(教學入門5分+創價藝文推廣10分) ➔ 輕鬆時間(5分) ➔ 大家談(25分) ➔ 總結鼓勵(7分) ➔ 題目三唱(1分)，合計 70 分鐘。',
-                material: [
-                    '御書學習：10/13《創價新聞》或 10月份《教學研習》',
-                    '觀賞影片：總合本部教學入門影片 (5分鐘)、2026 年創價藝文第三檔推廣影片 (10分鐘)',
-                    '總結鼓勵：10月份《福運雜誌》原田會長卷頭言'
-                ],
-                notes: [
-                    '【大家談分享議題】：1. 年度信心成長與收穫；2. 多寶總會心得；3. 總會邀約目標；4. 其他。請婦人部組長主持，鼓勵與會者踴躍發言。',
-                    '【講師與指導幹部】：御書講師請安排地區級以上幹部具三級講義部員資格且出席當月「幹部教學」者擔任；總結幹部亦須出席當月幹部教學。',
-                    '【青年主打組運作】：主打組請於地區各組輪流舉行，藉此活絡氛圍，邀約新朋友與培育青年。未參加主打組之青年，請鼓勵參加其他組別或擔任使命。',
-                    '【人數回報】：請婦人部支部企劃員將各組參加人數回報區婦人部企劃長，輸入雲端統計表。'
+            "id": "respect-ceremony",
+            "title": "11、12月例行活動調整",
+            "badge": "重要通知",
+            "time": "2026年11月至12月",
+            "location": "各區／各本部",
+            "summary": "地區友好總會期間，座談會、幹部教學暫停。請依最新運營安排參加活動。",
+            "details": {
+                "notes": [
+                    "11、12月地區友好總會期間，座談會及幹部教學暫停舉辦；追善回向暨佛法教學擇一月舉辦，御書參照11月份《教學研習》。",
+                    "11月底、12月初區會以實體方式舉辦，組長以上參加。",
+                    "12月全國區長會暨運營指導會規畫於12/20（日）13:00假桃園文化會館舉辦；同時段總會場次安排副職幹部總結。四部人事系統請於12/12（六）送簽完畢。"
                 ]
             }
         },
         {
-            id: 'cadre-study',
-            title: '10月份四部幹部視訊教學',
-            badge: '例行',
-            time: '10月中旬 (各區於第二週自行訂定)',
-            location: '線上視訊舉辦',
-            summary: '四部地區級以上幹部、座談會總結幹部及御書講師必修教學。',
-            details: {
-                participants: '四部地區級以上幹部及擔任座談會總結幹部、御書講師者',
-                material: [
-                    '10月份《福運雜誌》',
-                    '10月份《教學研習》',
-                    '10/13《創價新聞》'
+            "id": "memorial-meeting",
+            "title": "11月份追善回向勤行會暨佛法教學",
+            "badge": "例行",
+            "time": "11/3（二）、11/5（四）、11/7（六）19:50",
+            "location": "依各本部場次通知",
+            "summary": "大興、太平、大里本部分別舉辦。上課教材為2026年11月份《教學研習》，各單元請勿逾時。",
+            "details": {
+                "schedules": [
+                    {
+                        "name": "大興本部",
+                        "date": "11/3（二）19:50",
+                        "cadre": "副區長 吳榮國",
+                        "chanter": "副區長 吳榮國",
+                        "lecturer": "支部婦人部企劃員 林芳宇"
+                    },
+                    {
+                        "name": "太平本部",
+                        "date": "11/5（四）19:50",
+                        "cadre": "副區長 吳永富",
+                        "chanter": "副區長 吳永富",
+                        "lecturer": "副本部長 童國雄"
+                    },
+                    {
+                        "name": "大里本部",
+                        "date": "11/7（六）19:50",
+                        "cadre": "副區長 郭境成",
+                        "chanter": "副區長 郭境成",
+                        "lecturer": "支部副婦人部長 李明麗"
+                    }
                 ],
-                notes: [
-                    '擔任座談會總結幹部及御書講師者，請務必參加上課。',
-                    '視訊教學可「跨區」參加，請各部區企劃長統籌跨區註冊事宜。'
-                ]
-            }
-        },
-        {
-            id: 'buddhist-lecture',
-            title: '10月份佛法講座',
-            badge: '例行',
-            time: '10月份各場次 (詳見最新訊息欄)',
-            location: '各指定會館 / 講堂',
-            summary: '為有系統地學習《法華經》重要內容，佛法講座以〈御義口傳〉為教材，講解時同步播放 PPT，結束後投影問卷 QR Code。',
-            details: {
-                program: '勤行唱題 (10分鐘) ➔ 教學講座 (80分鐘) ➔ 題目三唱。程序緊湊充實，請準時出席。',
-                material: [
-                    '上課教材：〈御義口傳〉',
-                    '範圍一：《御義口傳要文講義》寶塔品第十一、提婆達多品第十二',
-                    '範圍二：《日蓮大聖人御書全集 文白並列本 別冊》寶塔品二十件大事、提婆達多品八件大事'
+                "program": "勤行唱題30分鐘（含鞠躬行儀）→ 御書學習20分鐘 → 體驗10分鐘 → 總結指導10分鐘 → 題目三唱1分鐘。",
+                "material": [
+                    "2026年11月份《教學研習》"
                 ],
-                notes: [
-                    '為有系統地學習《法華經》之重要內容，特以〈御義口傳〉為教材，全體會員一同學習。',
-                    '講座中講解時將同步播放 PPT，請運營幹部事先與講師聯繫確認設備及播放人員。',
-                    '講座後 PPT 將投影問卷 QR Code，請會員踴躍回饋與建議。'
+                "notes": [
+                    "企劃案請循壯年部企劃管道回傳區核備。",
+                    "依儀典準則202606修訂，勤行唱題約15分鐘後，禮生（丙）將當日新增追善回向卡置供盤，雙手捧至唱導者面前經桌；禮生（甲）、（乙）及服務人員即可行至行禮線，一鞠躬後就位引導會員行禮，無須等到20:05。",
+                    "勤行唱題含追善行儀至20:20禮成；可依人數排成二至四列，準時結束。",
+                    "體驗以所屬本部為主，可安排發表者或朗讀《創價新聞》登載之體驗，不再跨本部安排。",
+                    "體驗稿請循各部管道安排區級幹部校稿，文稿提交各部區正長，副本寄壯年部區企劃長。"
                 ]
             }
         }
     ],
-    respect: [],
-    youth: [
-        { district: '坪林地區', group: '光明組', date: '9/21(一)' },
-        { district: '成功地區', group: '草湖組', date: '9/23(三)' },
-        { district: '宜昌地區', group: '宜佳組', date: '9/22(二)' },
-        { district: '烏日地區', group: '學田組', date: '9/22(二)' },
-        { district: '光興地區', group: '興隆組', date: '9/24(四)' },
-        { district: '明道地區', group: '九德組', date: '9/24(四)' },
-        { district: '樂業地區', group: '東信組', date: '9/23(三)' },
-        { district: '樹義地區', group: '福康組', date: '9/22(二)' },
-        { district: '新坪地區', group: '新城組', date: '9/21(一)' },
-        { district: '和平地區', group: '德富組', date: '9/21(一)' },
-        { district: '長億地區', group: '中政組', date: '9/22(二)' },
-        { district: '喀哩地區', group: '東園組', date: '9/22(二)' },
-        { district: '永興地區', group: '大榮組', date: '9/24(四)' },
-        { district: '萬豐地區', group: '六股組', date: '9/24(四)' },
-        { district: '內新地區', group: '東昇組', date: '9/22(二)' },
-        { district: '霧峰地區', group: '桐林組', date: '9/23(三)' },
-        { district: '德芳地區', group: '至聖組', date: '9/21(一)' },
-        { district: '建成地區', group: '新榮組', date: '9/24(四)' },
-        { district: '十九甲地區', group: '新仁組', date: '9/22(二)' },
-        { district: '大東地區', group: '大智組', date: '9/21(一)' },
-        { district: '塗城地區', group: '仁化組', date: '9/24(四)' },
-        { district: '健康地區', group: '福平組', date: '9/22(二)' }
-    ],
-    others: {
-        activities: [
-            { id: 'district-friendly-general', title: '2026 年地區友好總會', time: '11/9(一) 至 12/27(日)', location: '各地區指定聚點 / 會館', target: '舉辦單位之四部會員、新朋友、親友', description: '迎向 2030 學會創立 100 週年，以「幸福 1+1」為主題。10月以地區為單位舉辦出發式。司儀由「培育 1+1」擔任，包含未來部表演、聚點提供人禮物頒贈、年度影片、地區聚光燈與感人體驗發表。總會期間 11 月及 12 月均暫停舉辦座談會。' },
-            { id: 'teaching-exam', title: '2026 年教學部員任用/三級錄用考試', time: '11月舉辦 (10/1 開放下載注意事項，10/7 考場變更截止)', location: '各指定考場會館', target: '全體報考之學生部、青年部與四部考生', description: '10/1 起注意事項刊於學會網頁便利專區。考生變更考場請於 10/7 前提報。任用考試採選擇題與電腦閱卷，題型刊於 9/25、10/20《創價新聞》。壯年部區企劃長於 10/10 前彙整四部總表提報。全體齊心挑戰全員合格！' },
-            { id: 'national-leaders-meeting', title: '10月份全國區長會', time: '10/25(日) 下午 13:30', location: 'Zoom 線上會議室', target: '四部區級以上幹部', description: '全國區長會線上召開。10 月底舉辦之區會原則採線上召開，經四部合議考量總會運營需求亦可採實體方式舉行。' },
-            { id: 'medical-lecture', title: '醫學健康講座：認識及預防失智症', time: '11/7(六) 上午 10:00 - 11:30', location: '高雄文化會館 B1 演講廳 (線上電子票報名)', target: '四部擴大 1+1，歡迎有興趣之會員與新朋友報名', description: '由高雄長庚醫院陳乃菁醫師主講。講座採電子票方式報名，報名連結：https://www.accupass.com/event/2608050154381284466589。' },
-            { id: 'youth-events', title: '青年躍動專區：會員「1+1」邀約主打活動', time: '10月 - 12月 各場次', location: '基隆演藝廳、創價美術館、桃園文化會館等', target: '高中部、大學部、研究生部、社青及青年新朋友', description: '全力邀約家中子女與青年新朋友：10/18 創價天鼓樂團 40 週年音樂會；9-10 月創價美術館藝文展覽開幕；11/14 創價太平洋合唱團 25 週年音樂會；11-12 月地區友好總會。' },
-            { id: 'art-books', title: '2027 創價藝文叢書與陳慧坤專書預購', time: '即日起至訂閱截止', location: '向婦人部區文化長、服務中心或創價期刊網站訂購', target: '四部全體會員', description: '2027 藝文叢書共 7 本教材 (2,000 元)；《陳慧坤研究專書》定價 1,200 元，預購優惠價 960 元。歡迎向婦人部區文化長登記或至網站訂購。另外夏令服裝原則至 9/30 為止，各區得視氣溫彈性延長。' }
+    "respect": [],
+    "youth": [],
+    "others": {
+        "activities": [
+            {
+                "id": "teaching-exam",
+                "title": "11/1 教學部員任用／三級考試",
+                "time": "11/1（日）任用10:00–11:00；三級10:00–11:30；兩場均9:00–9:40報到",
+                "location": "霧峰文化會館（台中市霧峰區中投西路二段76號）",
+                "target": "報考考生、考試工作人員",
+                "description": "任用考試：講堂一。三級考試：文件列「大佛堂」，另註「文化會堂右側」，請依現場考場指引確認。工作人員8:00集合；監考人員8:50參加工作說明與彩排。汽車車位有限，請多利用機車或汽車共乘。考生注意事項請至學會網頁「便利專區－檔案下載區」參閱任用、三級考試附件。"
+            },
+            {
+                "id": "exam-setup",
+                "title": "教學考試場布、復原與美化",
+                "time": "10/31（六）13:30集合；11/1（日）考試結束後復原",
+                "location": "霧峰會館文化會堂",
+                "target": "大興、太平、大里本部工作人員",
+                "description": "場布由大興本部、太平本部各15位負責。11/1考試結束後，大興本部恢復場地，大里本部美化。"
+            },
+            {
+                "id": "exam-results",
+                "title": "教學考試合格名單公告",
+                "time": "12/1（二）中午12:00起",
+                "location": "學會網頁：便利專區－佛法教學考試－歷年榜單",
+                "target": "任用及三級考生",
+                "description": "教學部員任用考試、三級講義部員錄用考試合格名單將於上述時間刊登。"
+            },
+            {
+                "id": "district-friendly-general",
+                "title": "地區友好總會運營與人數統計",
+                "time": "2026年11月至12月；協議紀錄表於運營會後兩日內回傳",
+                "location": "各地區既定場次",
+                "target": "四部地區幹部、會員、新朋友及親友",
+                "description": "場次及彩排時間已於10/14依四部企劃管道公布，請勿再更動。運營方向與重點按全區進度於每次協議紀錄表傳達，隔次運營會回覆問題。調整運營時間須先經地區四部協商，循壯年部企劃管道提報原因，待區核覆後始可異動。每次協議紀錄表循女子部企劃管道按時回傳。人數以實際參與該場總會者為準，同日會館彩排、運營等非總會參與者不得計入。"
+            },
+            {
+                "id": "happiness-sharing",
+                "title": "幸福1+1／體驗提報與稿件回傳",
+                "time": "11/8前提報名單；已確認發表人員11/14前回傳稿件",
+                "location": "循四部企劃管道回傳區",
+                "target": "各地區提報人員及支部級以上投稿幹部",
+                "description": "除地區名單外，也歡迎支部級以上幹部投稿。先提報區，經四部區正長確認後，由區邀稿及分配場次。稿件由區安排校稿，以四部區正長為中心確認後統一分配場次。<a href=\"https://docs.google.com/forms/d/e/1FAIpQLSdBMno-CnR7maSRS9q7O7o2jFUcoMK6SoNOJ-w7sEj5olys-Q/viewform\" target=\"_blank\" rel=\"noopener noreferrer\">填寫幸福1+1體驗表單</a>。"
+            },
+            {
+                "id": "friendly-invitations",
+                "title": "四部一體邀約與青年新朋友關懷",
+                "time": "11–12月地區友好總會期間",
+                "location": "各地區總會",
+                "target": "全體會員、家中子女、新朋友、學生部及社青",
+                "description": "以「1人邀約1人、1家邀約1家」擴大友好對話，透過地區聚光燈、幸福1+1體驗呈現在地特色與創價家族的幸福成果。感謝聚點屋主與投入的夥伴，運營中主動提問、充分討論、共同決議。迎向2027年台灣廣布65週年及三倍擴大目標，活動前請邀約人將青年新朋友名單轉交青年部安排接待；可於現場鼓勵留下聯絡方式，未事先提供者於活動後轉交，落實後續關懷。"
+            },
+            {
+                "id": "national-leaders-meeting",
+                "title": "11月份全國區長會",
+                "time": "11/22（日）13:30",
+                "location": "桃園文化會館3F廣宣會堂",
+                "target": "四部區級以上幹部",
+                "description": "11月底、12月初舉辦之區會請採實體方式，組長以上參加。"
+            },
+            {
+                "id": "organization-meetings",
+                "title": "11/22 組織及法人會議",
+                "time": "11/22（日）10:30、11:00、11:40",
+                "location": "桃園文化會館各指定會議室",
+                "target": "各組織理監事、中央委員及法人董監事",
+                "description": "10:30台灣創價學會理監事聯席會議：6F會議室三，組織理事、監事參加。11:00台灣創價學會中央委員會：2F榮光會堂，組織中央委員參加。11:40台灣創價學會基金會董事會：5F會議室一，法人董事參加；台灣國際創價學會理監事會：6F會議室三；中華創價佛學會理監事會：6F會議室四，分別由法人理事、監事參加。"
+            },
+            {
+                "id": "december-leaders",
+                "title": "12月份全國區長會暨運營指導會",
+                "time": "12/20（日）13:00（規畫）",
+                "location": "桃園文化會館",
+                "target": "相關四部幹部",
+                "description": "因應行憲紀念日連假調整。同時段舉辦的總會場次請安排副職幹部擔任總結；四部人事系統輸入請於12/12（六）送簽完畢。"
+            },
+            {
+                "id": "youth-events",
+                "title": "青年躍動：會員1+1邀約主打活動",
+                "time": "11/14合唱團音樂會；11–12月地區友好總會",
+                "location": "11/14桃園文化會館；友好總會於各區會館",
+                "target": "高中部、大學部、研究生部、社青；友好總會另含學生部",
+                "description": "創價太平洋合唱團「續・樂動」25週年團慶音樂會主打邀約圈為基隆、淡北、北一、北二、北三、雙和、板城、三新、桃園一、桃園二及竹苗圈；地區友好總會為全國主打。採會員1+1邀約，落實新朋友名單轉交青年部。各活動報名、配票等方式請依正式公告或聯絡事項。"
+            },
+            {
+                "id": "violin-lecture",
+                "title": "蘇顯達小提琴音樂饗宴",
+                "time": "台北12/12（六）、高雄12/19（六）14:30–16:00，14:00進場",
+                "location": "台北：至善文化會館4F新世紀廳；高雄：創價美術館B1演藝廳",
+                "target": "四部有興趣會員，廣邀新朋友1+1",
+                "description": "主講：國立臺北藝術大學音樂學院蘇顯達終身特聘教授。台北場：基隆、淡北、北一、北二、北三、雙和、板城、三新圈各區8名。高雄場：高雄一、二、三圈各區15名；台南一、二及屏東圈各區10名。採電子票入場，額滿為止。<div style=\"display:flex;flex-wrap:wrap;gap:16px;margin-top:12px\"><figure style=\"margin:0\"><img src=\"announcement-202610-taipei-qr.png\" width=\"150\" height=\"150\" alt=\"台北場報名QR Code\"><figcaption>台北場報名</figcaption></figure><figure style=\"margin:0\"><img src=\"announcement-202610-kaohsiung-qr.png\" width=\"150\" height=\"150\" alt=\"高雄場報名QR Code\"><figcaption>高雄場報名</figcaption></figure></div>"
+            },
+            {
+                "id": "exhibit-2027-0",
+                "title": "至善館1F｜繽紛・童心：趙國宗的藝術遊樂園",
+                "time": "啟蒙講座：2026/12/19（六）14:00",
+                "location": "板橋文化會館",
+                "target": "有興趣之會員與親友",
+                "description": "2027年第一檔展覽，展期：2027/1/27–5/7。啟蒙講座講師：趙國宗老師。開幕：2027/2/21（日）14:30。至善館因展場維護，展期調整為1/27–5/7。"
+            },
+            {
+                "id": "exhibit-2027-1",
+                "title": "至善館3F｜凝視台灣・心象之境：林慶雲百歲紀念展",
+                "time": "啟蒙講座：2026/12/19（六）15:10",
+                "location": "板橋文化會館",
+                "target": "有興趣之會員與親友",
+                "description": "2027年第一檔展覽，展期：2027/1/27–5/7。啟蒙講座講師：林磐聳教授。開幕：2027/2/21（日）14:30。至善館因展場維護，展期調整為1/27–5/7。"
+            },
+            {
+                "id": "exhibit-2027-2",
+                "title": "板橋館｜豪邁采風：李奇茂水墨百年展",
+                "time": "啟蒙講座：2026/12/19（六）10:00",
+                "location": "板橋文化會館",
+                "target": "有興趣之會員與親友",
+                "description": "2027年第一檔展覽，展期：2027/1/20–5/7。啟蒙講座講師：李安榮執行長。開幕：2027/1/23（六）14:30。"
+            },
+            {
+                "id": "exhibit-2027-3",
+                "title": "桃園館｜金剛化身：劉柏村雕塑個展",
+                "time": "啟蒙講座：2026/12/19（六）14:00",
+                "location": "桃園文化會館2F榮光會堂",
+                "target": "有興趣之會員與親友",
+                "description": "2027年第一檔展覽，展期：2027/1/20–5/7。啟蒙講座講師：劉柏村教授。開幕：2027/2/20（六）14:30。"
+            },
+            {
+                "id": "exhibit-2027-4",
+                "title": "新竹館｜水岸一方皆入懷：鍾桂英創作展",
+                "time": "啟蒙講座：2026/12/20（日）10:00",
+                "location": "新竹文化會館",
+                "target": "有興趣之會員與親友",
+                "description": "2027年第一檔展覽，展期：2027/1/20–5/7。啟蒙講座講師：陶文岳老師。開幕：2027/1/23（六）14:30。"
+            },
+            {
+                "id": "exhibit-2027-5",
+                "title": "台中館｜藝見鍾情：蔡蔭棠的創作旅途",
+                "time": "啟蒙講座：2026/12/19（六）14:00",
+                "location": "台中文化會館",
+                "target": "有興趣之會員與親友",
+                "description": "2027年第一檔展覽，展期：2027/1/20–5/7。啟蒙講座講師：陳奕愷教授。原資料未列開幕時間。"
+            },
+            {
+                "id": "exhibit-2027-6",
+                "title": "秀水館｜彈線・軌跡：洪耀的藝術歷程",
+                "time": "啟蒙講座：2026/11/15（日）14:00",
+                "location": "彰化文化會館",
+                "target": "有興趣之會員與親友",
+                "description": "2027年第一檔展覽，展期：2027/1/20–5/7。啟蒙講座講師：陶文岳老師。開幕：2027/2/21（日）14:30。"
+            },
+            {
+                "id": "exhibit-2027-7",
+                "title": "景陽館｜君子不器游於藝：柯鴻圖設計與繪畫展",
+                "time": "啟蒙講座：2026/12/19（六）14:00",
+                "location": "雲林文化會館",
+                "target": "有興趣之會員與親友",
+                "description": "2027年第一檔展覽，展期：2027/1/20–5/7。啟蒙講座講師：柯鴻圖老師。開幕：2027/2/20（六）14:30。"
+            },
+            {
+                "id": "exhibit-2027-8",
+                "title": "安南館｜雕塑的力量：台灣雕塑今昔滙展",
+                "time": "啟蒙講座：2026/12/19（六）14:00",
+                "location": "安南文化會館",
+                "target": "有興趣之會員與親友",
+                "description": "2027年第一檔展覽，展期：2027/1/20–5/7。啟蒙講座講師：吳世全老師。原資料未列開幕時間。"
+            },
+            {
+                "id": "exhibit-2027-9",
+                "title": "屏東館｜寶島印記・游刃見心：林文彥篆刻藝術展",
+                "time": "啟蒙講座：2026/12/26（六）14:00",
+                "location": "屏東文化會館",
+                "target": "有興趣之會員與親友",
+                "description": "2027年第一檔展覽，展期：2027/1/20–5/7。啟蒙講座講師：林文彥老師。開幕：2027/2/20（六）14:30。"
+            },
+            {
+                "id": "periodical-coupon",
+                "title": "2026創價期刊訂戶好禮回饋",
+                "time": "12/31前訂閱；抵用期間2026/11/1–2027/3/1",
+                "location": "會員服務中心及服務站",
+                "target": "訂閱指定期刊一年以上之國內訂戶",
+                "description": "訂閱《創價新聞》紙本或電子報、《教學研習》、《福運雜誌》、《大白蓮華》一年以上，贈50元好禮抵用券一張，隨11月期刊寄送，地區書統可協助統一抵用。11、12月國內訂戶另寄；電子報訂戶於10月底以平信寄出，無地址者將收到電子郵件，請提供地址以便寄送。"
+            },
+            {
+                "id": "member-service-offer",
+                "title": "會員服務中心商品優惠",
+                "time": "2026/11/16–2027/1/31",
+                "location": "各地會員服務中心（站）及創價e購樂",
+                "target": "全體會員",
+                "description": "全館特優惠9折，另有好禮滿額贈；詳情洽各地會員服務中心（站）與創價e購樂網站。"
+            }
         ]
     }
 };
-// ==========================================================================
-// 地區級以上男子部傳達資料 (10/28 22:00 前顯示)
-// ==========================================================================
+
 const YOUTH_LEADER_ANNOUNCEMENTS = {
-    title: "地區級以上男子部傳達資料",
-    showAfter: "2026/09/20 00:00:00",
-    hideAfter: "2026/10/28 22:00:00",
-    categories: [
+    "title": "2026年10月份男子部傳達資料（地區級以上）",
+    "showAfter": "2026-10-28T00:00:00+08:00",
+    "hideAfter": null,
+    "categories": [
         {
-            name: "學生部共同",
-            icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>`,
-            items: [
-                "請鼓勵報名任用及三級考試的同學挑戰出席上課，並請關心考生準備情形與近況，挑戰全員應考、全員合格！"
+            "name": "學生部共同",
+            "icon": "<svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2\"></path><circle cx=\"9\" cy=\"7\" r=\"4\"></circle><path d=\"M23 21v-2a4 4 0 0 0-3-3.87\"></path><path d=\"M16 3.13a4 4 0 0 1 0 7.75\"></path></svg>",
+            "items": [
+                "請學生部幹部持續關心報考任用及三級教學考試的同學，陪伴把握最後複習時間，挑戰全員應考、全員合格，一同加深信心！",
+                "11-12月地區友好總會將於全國各地熱鬧展開，請鼓勵全體學生部擔任使命，締結友好繫絆。"
             ]
         },
         {
-            name: "國高共同 / 高中部",
-            icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path></svg>`,
-            items: [
-                "9月適逢新學期開始，請國、高中部幹部與育才部進行家訪，使「小六升國一」及「國三升高一」新生名單無縫接軌，持續飛躍成長！",
-                "2026第20屆高中鳳雛長研修會已於9/13（日）順利舉辦完畢，感謝全體幹部的培育與付出，請高中部幹部持續鼓勵鳳雛長於座談會分享研修心得。"
+            "name": "國高共同",
+            "icon": "<svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2\"></path><circle cx=\"9\" cy=\"7\" r=\"4\"></circle><path d=\"M23 21v-2a4 4 0 0 0-3-3.87\"></path><path d=\"M16 3.13a4 4 0 0 1 0 7.75\"></path></svg>",
+            "items": [
+                "請國高幹部持續關心同學，可將內容記錄於「我的培育手帳」中的「共戰回憶錄」，為彼此的目標祈求。",
+                "2026我的培育手帳（國中部）：【下載手帳】(https://drive.google.com/file/d/1B5DxJTTX29Kma5Tho_rteCEQkr66MiXn/view)",
+                "2026我的培育手帳（高中部）：【下載手帳】(https://drive.google.com/file/d/1pKS0HOxMuD4w49wqBKH9fA6sEhvv__-T/view)"
             ]
         },
         {
-            name: "大研共同",
-            icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>`,
-            items: [
-                "2026研究生OPEN DAY已於9/20舉辦完畢，感謝全體幹部的守護與邀約，請大研幹部持續關心同學，並全面鼓勵研究生踴躍參與下半年之學會活動。",
-                "2026迎新茶會活動已陸續舉辦完畢，感謝全體幹部的支持與守護！歡迎將迎新茶會之照片、文字投稿至IG帳號（[twsgi_youth](https://www.instagram.com/twsgi_youth/)），向全台分享熱鬧盛況！也請持續鼓勵新入會會員、大學部/研究生部同學們，參加午晚聚及下半年各項活動。",
-                "請鼓勵全體大學部、研究生部同學踴躍參加10月佛法講座，透過學習御書深化信心！"
+            "name": "大研共同",
+            "icon": "<svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2\"></path><circle cx=\"9\" cy=\"7\" r=\"4\"></circle><path d=\"M23 21v-2a4 4 0 0 0-3-3.87\"></path><path d=\"M16 3.13a4 4 0 0 1 0 7.75\"></path></svg>",
+            "items": [
+                "2026迎新茶會活動已陸續舉辦完畢，感謝全體幹部的支持與守護！歡迎將迎新茶會之照片、文字投稿至IG帳號（【twsgi_youth】(https://www.instagram.com/twsgi_youth/)），向全台分享熱鬧盛況！也請持續鼓勵新入會會員、大學部/研究生部同學們，參加午晚聚及下半年各項活動。"
             ]
         },
         {
-            name: "大學部",
-            icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path><path d="M2 12h20"></path></svg>`,
-            items: [
-                "請持續鼓勵、關心大學會同學，可自由舉辦加深繫絆、深化信心的大學會午晚聚活動，凝聚大學會；建議各大學會每學期至少舉辦1次，並藉由舉辦午晚聚，提供新生使命舞台、培育未來校園幹部人才。歡迎將午晚聚之熱鬧舉辦情形投稿至IG帳號（[twsgi_youth](https://www.instagram.com/twsgi_youth/)）。",
-                "本月幸福專欄要介紹的是三新圈的「長庚大學會」【連結】(https://drive.google.com/file/d/1cwhIhghjDkVF_ICJtHqJPFWF2oAKy_6Z/view)！歡迎全台大學會踴躍投稿，分享特色與歡喜熱絡大合照！【投稿連結】(https://docs.google.com/forms/d/e/1FAIpQLSfy3Z5Idj9maiev1enyugFrq--aqic9El_tYK_ZkmtmJ2diiA/viewform)"
+            "name": "大學部",
+            "icon": "<svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2\"></path><circle cx=\"9\" cy=\"7\" r=\"4\"></circle><path d=\"M23 21v-2a4 4 0 0 0-3-3.87\"></path><path d=\"M16 3.13a4 4 0 0 1 0 7.75\"></path></svg>",
+            "items": [
+                "期中考週將至，請持續鼓勵、關心大學會同學，並請鼓勵各大學會自由舉辦加深繫絆、深化信心的午晚聚活動 (建議各大學會每學期至少舉辦1次)，透過舉辦午晚聚，提供新生使命舞台、培育未來校園幹部人才。歡迎將午晚聚之熱鬧舉辦情形投稿至IG帳號（【twsgi_youth】(https://www.instagram.com/twsgi_youth/)）。",
+                "本月幸福專欄要介紹的是台中一圈的「中科聯合大學會」【中科聯合大學會介紹】(https://drive.google.com/file/d/1lV9cjKjKk8OgFLxBxxc1dd9GinRTM16L/view)！歡迎全台大學會踴躍投稿，分享特色與歡喜熱絡大合照！【投稿連結】(https://docs.google.com/forms/d/e/1FAIpQLSfy3Z5Idj9maiev1enyugFrq--aqic9El_tYK_ZkmtmJ2diiA/viewform)"
             ]
         },
         {
-            name: "創價班 / 展覽部",
-            icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>`,
-            items: [
-                "創價班：11月份將舉辦教學考試，創價班請協助聯繫考生上課及關心考生複習事宜，與組織一起挑戰全體考生合格通過考試！",
-                "創價班：10/1起換季，創價班出任時請穿著創價班冬季服裝，如遇天氣候悶熱之因素，可由各圈創價班負責人視情況「統一」調整。",
-                "展覽部：2026年展覽部布展組、燈光組、設計組及創意發想組皆已報名截止，後續將進行人員懇談及專業培訓。",
-                "展覽部：感謝組織夥伴的全力支持，2026年第三檔展覽已全面開展！歡迎大家踴躍邀請身邊朋友前往觀賞，擴大友情漣漪。附上創價藝文第三檔展覽EDM【下載連結】(https://drive.google.com/drive/folders/1r8K5QJdCSj1oUMOc8lMIDiQRXYPxk1mF)，歡迎轉發！"
+            "name": "創價班",
+            "icon": "<svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2\"></path><circle cx=\"9\" cy=\"7\" r=\"4\"></circle><path d=\"M23 21v-2a4 4 0 0 0-3-3.87\"></path><path d=\"M16 3.13a4 4 0 0 1 0 7.75\"></path></svg>",
+            "items": [
+                "11月迎來教學考試與年底地區友好總會，請全體創價班全力投入，與組織共戰，完成各項勤務。",
+                "2027年「第十五期創價班大學校」學員，即日起開始擴大招募！請大家鼓勵已填寫會員資料之男子部，親自確認本人報名之意願，並填寫完線上報名表單，才算報名成功。報名期間自即日起至2027年1月31日。報名企劃案將循組織管道傳達。",
+                "「第十七期創價班守護會」噴火招募！將招募基隆圈、淡北圈、北一圈、北二圈、北三圈、三新圈、板城圈、雙和圈、桃園一圈、桃園二圈、竹苗圈、台南一圈、台南二圈、高雄一圈、高雄二圈、高雄三圈、屏東圈等，符合資格的創價班班員加入。請於即日起至2026年12月31日前完成線上報名，報名時請詳細填寫圈、區、本部等資料。招募企劃將循組織管道傳達。",
+                "2027年「創價班勤務小組」噴火招募！將招募各圈精實的創價班班員加入！報名期間為即日起至2026年12月31日，報名時請詳細填寫圈、區、本部等資料。第（三）點各圈招募創價班守護會成員，即為該圈的勤務小組成員。詳細招募企劃將循組織管道傳達。"
+            ]
+        },
+        {
+            "name": "展覽部",
+            "icon": "<svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2\"></path><circle cx=\"9\" cy=\"7\" r=\"4\"></circle><path d=\"M23 21v-2a4 4 0 0 0-3-3.87\"></path><path d=\"M16 3.13a4 4 0 0 1 0 7.75\"></path></svg>",
+            "items": [
+                "迎來2027台灣廣布原點之日65週年、創價美術館成立5週年，為朝向明年踴躍出發，展覽部將於11/8假桃園文化會館舉辦「2026展覽部總會」，敬邀全體展覽部成員共同參與！",
+                "創價美術館換檔時間如下：",
+                "卸展：11/14（六）-11/15（日）",
+                "布展：11/21（六）-11/22（日）",
+                "展場暫停開放：11/14（六）-11/28（六）",
+                "※換檔期間6F咖啡廳仍正常營業，敬請留意。",
+                "創價美術館2026第三檔「宇宙能量——蕭勤九十紀念展」將於11/29（日）開展，展期至2027/3/12（五）止。歡迎大家邀約親友前往觀展！"
             ]
         }
     ]
@@ -2254,11 +2416,11 @@ const YOUTH_LEADER_ANNOUNCEMENTS = {
 
 // (2) 初始化南區傳達事項控制台
 function initializeAnnouncements() {
-    // 1. 動態判斷是否顯示「地區級以上傳達」專屬 Tab (今晚 18:00 - 22:00 顯示，其餘時間完全物理銷毀)
+    // 顯示本期男子部傳達；來源未指定截止日，保留至下一期更新。
     const now = new Date();
     const showStart = new Date(YOUTH_LEADER_ANNOUNCEMENTS.showAfter);
     const showEnd = new Date(YOUTH_LEADER_ANNOUNCEMENTS.hideAfter);
-    const isLeaderActive = (now >= showStart && now <= showEnd);
+    const isLeaderActive = now >= showStart && (!YOUTH_LEADER_ANNOUNCEMENTS.hideAfter || now <= showEnd);
     
     const tabsContainer = document.querySelector('.announcements-tabs');
     let leaderTabBtn = document.querySelector('.announcement-tab-btn[data-tab="leader"]');
@@ -2694,19 +2856,10 @@ function renderAnnouncements(tabName) {
         const accordionsHtml = YOUTH_LEADER_ANNOUNCEMENTS.categories.map((cat, idx) => {
             const itemsHtml = cat.items.map(item => {
                 let formatted = item;
-                // 1. 將 【標題】(網址) 格式轉為 Clickable 連結並配上高雅徽章
-                formatted = formatted.replace(/【([^】]+)】\((https?:\/\/[^\s\)]+)\)/g, (match, title, url) => {
-                    let badgeText = '🔗 點此連結';
-                    if (title.includes('投稿')) badgeText = '✍️ 點此投稿';
-                    if (title.includes('報名')) badgeText = '📝 點此報名';
-                    if (title.includes('信箱')) badgeText = '📧 寄送郵件';
-                    if (title.includes('下載')) badgeText = '📂 點此下載';
-                    return `<a href="${url}" target="_blank" class="leader-link">${title}<span class="leader-link-badge">${badgeText}</span></a>`;
-                });
-                
-                // 2. 將沒有被 HTML 包裹的純 https 網址轉換為 clickable <a>
-                formatted = formatted.replace(/(?<!href=")(https?:\/\/[^\s<>\)]+)/g, '<a href="$1" target="_blank" class="leader-link">$1</a>');
-                
+                // 來源內容已轉義；只將明確標示的連結轉為可點選連結。
+                formatted = formatted.replace(/【([^】]+)】\((https?:\/\/[^\s\)]+)\)/g,
+                    (_, title, url) => `<a href="${url}" target="_blank" rel="noopener noreferrer" class="leader-link">${title}</a>`);
+
                 return `
                 <div class="leader-item-bullet">
                     <span class="bullet-dot">•</span>
